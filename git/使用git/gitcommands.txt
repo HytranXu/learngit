@@ -154,3 +154,7 @@
    31  git config --global alias.ci commit
    32  git config --global alias.br branch
 
+六、管理
+	git config --list
+	git archive --format=zip –prefix=mysite-1.0/ 1.0 >mysite-1.0.zip
+
