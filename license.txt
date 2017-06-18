@@ -1,0 +1,1 @@
+This documents are free for the users of GIT.

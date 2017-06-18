@@ -1,0 +1,156 @@
+一、一个版本库中操作
+	 19  mkdir leangit
+   20  cd leangit/
+   21  git init
+   22  ls
+   34  vi readme.txt
+   35  git add readme.txt 
+   37  git commit -m "wrote a readme file"
+   40  vi readme.txt 
+   41  git status
+   46  ls -ah
+   47  git status
+   48  git diff
+   49  git commit
+   50  git add readme.txt 
+   51  git status
+   52  git commit -m "change first line"
+   53  git status
+    8  git log --pretty=oneline
+    9  git reset --hard HEAD^
+   10  vi readme.txt 
+   15  git reset --hard 4fdd290b18eea5561bd91f19b33d6ad58ef772a7
+   16  git log
+   19  git reflog
+   507  git diff HEAD -- readme.txt
+   10  git checkout -- readme.txt
+   11  git status
+   12  git diff
+   13  git add readme.txt
+   14  git status
+   16  git diff
+   19  git reset HEAD readme.txt
+	 11  vi test.txt
+   12  git add test.txt
+   13  git commit -m "add test.txt"
+   15  git status
+   17  git commit -a
+   19  git log --oneline
+   20  git status
+   22  rm test.txt 
+   23  git status
+   24  git rm test.txt
+   25  git commit -m "remvoe test.txt"
+   26  git log --onleline
+   28  git diff
+   29  git status
+   30  git checkout -- test.tx
+   
+ 二、远程控制
+   32  ssh-keygen -t rsa -C "xuhc@asiainfo.com"
+   		 ssh-keygen -t rsa -C "xu_haic@hotmail.com"
+   35  cd .ssh
+   39  cat id_rsa.pub 
+   16  git push -u origin master
+   17  git remote add origin git@github.com:HytranXu/learngit.git
+   18  git push -u origin master
+	 14  git clone git@github.com:HytranXu/gitskills.git
+   15  ls
+   16  cd gitskills
+   
+三、分支管理
+	 10  git branch
+   11  git branch dev
+   13  git checkout dev
+   14  git branch
+   15  git diff
+   16  git status
+   17  git add readme.txt 
+   18  git diff
+   19  git status
+   20  git commit -m "add dev branch"
+   22  cat readme.txt 
+   23  git checkout master
+   24  cat readme.txt 
+   25  git merge dev
+   26  cat readme.txt 
+   27  git branch -d dev
+   28  git branch
+   20  git commit -m "add conflict html"
+   51  git log
+   52  git log --pretty=oneline
+   54  git log --graph --pretty=oneline --abbrev-commit
+   11  git stash
+   12  git branch
+   13  git checkout master
+   14  git merge dev
+   15  git status
+   16  git add readme.txt 
+   17  git status
+   18  git commit -m "stash test"
+   19  git stash list
+   23  git stash apply stash@{0}
+   24  git stash drop
+   31  git stash
+   32  git stash pop
+   33  git stash list
+	 30  git clone git@github.com:HytranXu/learngit.git
+   39  git branch
+   41  git checkout -b dev origin/dev
+   42  git branch
+   44  vi readme.txt 
+   45  git status
+   46  git add readme.txt 
+   47  git status
+   48  git commit -m "clone"
+   49  git branch
+   50  git push origin dev
+   51  history
+ 	511  git branch
+  512  git push origin dev
+  513  git pull
+  516  git branch --set-upstream dev origin/dev
+  518  git pull
+  519  git status
+  520  git merge dev
+  521  git add readme.txt 
+  522  git status
+  523  git commit -m "conflict fixed"
+  524  git push origin dev
+  525  git remote -v
+  git push origin --delete dev
+
+四、标签管理
+	 28  git checkout master
+   29  git tag v0.0.1
+   30  git branch
+   31  git tag
+   32  git log --pretty=oneline --abbrev-commit
+   33  git tag v0.0.2 3139b05
+   34  git tag
+   35  git show v0.0.1
+   36  git show v0.0.2
+   37  git tag -a v0.0.3 -m "version 0.0.1 initial release" 3139b05
+   38  git tag
+   39  git show v0.0.3
+   40  git tag -s v1.0.0 -m "signed release 1.0.0" 3139b05
+   41  git tag -d v0.0.2
+   36  git log --pretty=oneline --abbrev-commit
+   37  git tag -a v1.0.0 -m "release 1.0.0" dcb4d2a
+   38  git tag
+   42  git push origin v1.0
+   43  git push origin --tags
+   44  git tag -d v0.1
+   45  git push origin :refs/tags/v0.1
+   46  git status
+   55  git merge master
+   56  git branch
+   
+五、自定义Git
+	 27  git check-ignore -v
+	 28  git config --global alias.st status
+   29  git st
+   30  git config --global alias.co checkout
+   31  git config --global alias.ci commit
+   32  git config --global alias.br branch
+

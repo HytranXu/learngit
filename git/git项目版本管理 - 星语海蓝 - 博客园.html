@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>git项目版本管理 - 星语海蓝 - 博客园</title>
+<link type="text/css" rel="stylesheet" href="/bundles/blog-common.css?v=m_FXmwz3wxZoecUwNEK23PAzc-j9vbX_C6MblJ5ouMc1"/>
+<link id="MainCss" type="text/css" rel="stylesheet" href="/skins/En_summerGarden/bundle-En_summerGarden.css?v=5UXNApGZa5N8RFQPFmGYh3CR3zSIC4aSD9THmBK8goI1"/>
+<link id="mobile-style" media="only screen and (max-width: 768px)" type="text/css" rel="stylesheet" href="/skins/En_summerGarden/bundle-En_summerGarden-mobile.css?v=7p343dtfpSrPZUTTIq4pn9TfkbihIZ6ddmVZi4kURjY1"/>
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/cy568searchx/rss"/>
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/cy568searchx/rsd.xml"/>
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/cy568searchx/wlwmanifest.xml"/>
+<script src="//common.cnblogs.com/script/jquery.js" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'cy568searchx', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="/bundles/blog-common.js?v=E1-LyrzANB2jbN9omtnpOHx3eU0Kt3DyislfhU0b5p81" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="http://www.cnblogs.com/cy568searchx/"><img id="blogLogo" src="/Skins/custom/images/logo.gif" alt="Return Home" /></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/cy568searchx/">星语海蓝~~~</a></h1>
+<h2>业精于勤，荒于嬉；行成于思，毁于随</h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<!--done-->
+			<ul id="navList">
+				<li><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">CnBlogs</a></li>
+				<li><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/cy568searchx/">Home</a></li>
+				<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">New Post</a></li>
+				<li><a id="blog_nav_contact" accesskey="9" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/%E6%98%9F%E8%AF%AD%E6%B5%B7%E8%93%9D">Contact</a></li>
+				<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">Admin</a></li>
+				<li><a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/cy568searchx/rss">Rss</a>
+				<a id="blog_nav_rss_image" class="aHeaderXML" href="http://www.cnblogs.com/cy568searchx/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="Rss" /></a></li>
+			</ul>
+
+
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<!--done-->
+Posts - 242&nbsp;
+Articles - 0&nbsp;
+Comments - 24&nbsp;
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class = "post">
+		<h1 class = "postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/cy568searchx/p/3897550.html">git项目版本管理</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><p><span style="font-size: 15px;"><span style="font-size: 15px;">一个很小的HTML项目，使用。Git来记录和跟踪这个项目。包括以下内容：</span></span></p>
+<p><span style="font-size: 15px;">　　创建版本库。</span></p>
+<p><span style="font-size: 15px;">　　添加与修改文件。</span></p>
+<p><span style="font-size: 15px;">　　创建新分支。</span></p>
+<p><span style="font-size: 15px;">　　打标签并整理版本库。</span></p>
+<p><span style="font-size: 15px;">　　克隆版本库。</span></p>
+<p>&nbsp;</p>
+<div class="raised" style="width: 64.49%; height: 42px;">
+<div class="boxcontent">
+<h1><span style="color: #000000; font-size: 18pt;">创建版本库 Creating a Repository</span></h1>
+</div>
+</div>
+<p><span style="font-size: 15px;">　　在Git中，<span><strong>版本库（.git目录）</strong>是与工作目录树并排放在同一个目录中的。</span></span></p>
+<p><span style="font-size: 15px;">　　本例中，要创建一个HTML页面，给这个项目取名为mysite。</span></p>
+<p><span style="font-size: 15px;">　　首先创建一个同名目录&ldquo;mysite&rdquo;，并进入到这个目录，然后输入命令git init。</span></p>
+<p><span style="font-size: 15px;">　　<span>prompt&gt; mkdir mysite</span></span></p>
+<p><span style="font-size: 15px;">　　<span>prompt&gt; cd mysite</span></span></p>
+<p><span style="font-size: 15px;">　　<span>prompt&gt; git init</span></span></p>
+<p><span style="font-size: 15px;">　　创建完成。</span></p>
+<p>&nbsp;</p>
+<div class="raised" style="width: 64.49%; height: 42px;">
+<div class="boxcontent">
+<h1><span style="color: #000000; font-size: 18pt;">代码修改</span></h1>
+</div>
+</div>
+<p><span style="font-size: 15px;">　　往空版本库里面添加文件：</span></p>
+<p><span style="font-size: 15px;">　　创建一个名为index.html的文件，并添加文本：</span></p>
+<div class="cnblogs_code">
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></a></span></div>
+<pre><span style="color: #0000ff;">&lt;<span style="color: #800000;">html<span style="color: #0000ff;">&gt;
+<span style="color: #0000ff;">&lt;<span style="color: #800000;">body<span style="color: #0000ff;">&gt;
+<span style="color: #0000ff;">&lt;<span style="color: #800000;">h1<span style="color: #0000ff;">&gt;Hello World<span style="color: #0000ff;">&lt;/<span style="color: #800000;">h1<span style="color: #0000ff;">&gt;
+<span style="color: #0000ff;">&lt;<span style="color: #800000;">p<span style="color: #0000ff;">&gt;My first paragraph.<span style="color: #0000ff;">&lt;/<span style="color: #800000;">p<span style="color: #0000ff;">&gt;
+<span style="color: #0000ff;">&lt;/<span style="color: #800000;">body<span style="color: #0000ff;">&gt;
+<span style="color: #0000ff;">&lt;/<span style="color: #800000;">html<span style="color: #0000ff;">&gt;</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></a></span></div>
+</div>
+<p>&nbsp;</p>
+<p><span style="font-size: 15px;">　　创建了一个简单的HTML文件后（把它放在mysite路径下），就可以开始跟踪版本了。</span></p>
+<p><span style="font-size: 15px;">　　<strong>要想让Git跟踪这个文件，须先让它知道这个文件，要分两步走：</strong></span></p>
+<p><span style="font-size: 15px;">　　首先使用git add命令把该文件添加到版本库的索引（index）；然后使用git commit命令提交。</span></p>
+<p><span style="font-size: 15px;">　　<span>prompt&gt; git add index.html</span></span></p>
+<p><span style="font-size: 15px;">　　<span>prompt&gt;git commit &ndash;m "add in hello world HTML"</span></span></p>
+<p><span style="font-size: 15px;">　　文件或文件列表可以作为git add命令的参数。</span></p>
+<p><span style="font-size: 15px;">　　git commit命令创建一个<span style="color: #ff0000;"><strong>提交记录</strong>。</span></span></p>
+<p><span style="font-size: 15px;">　　提交记录是存储在版本中的历史记录，每提交一次创建一个记录，并标记出代码的演进。</span></p>
+<p><span style="font-size: 15px;">　　Git把提交者的姓名和邮件地址，以及提交留言，都添加到提交记录中。</span></p>
+<p><span style="font-size: 15px;">　　<strong><span style="color: #ff0000;">参数-m</span></strong>，告诉Git本次提交的留言为"add in hello world HTML"。</span></p>
+<p><span style="font-size: 15px;">　　运行命令git log可以看到这个提交相关的信息：</span></p>
+<p><span style="font-size: 15px;">　　<span>prompt&gt; git log</span></span></p>
+<p><span style="font-size: 15px;">　　输出的第一行显示提交名称，是Git自动产生的SHA-1码。Git通过它来跟踪提交，使用该哈希码可以保证每个提交的名称都是独一无二的。</span></p>
+<p>&nbsp;</p>
+<div class="raised" style="width: 64.49%; height: 42px;">
+<div class="boxcontent">
+<h1><span style="color: #000000; font-size: 18pt;">在项目中工作</span></h1>
+</div>
+</div>
+<p><span style="font-size: 15px;">　　修改HTML文件如下：</span></p>
+<div class="cnblogs_code">
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></a></span></div>
+<pre><span style="color: #0000ff;">&lt;<span style="color: #800000;">html<span style="color: #0000ff;">&gt;
+<span style="color: #0000ff;">&lt;<span style="color: #800000;">head<span style="color: #0000ff;">&gt;
+<span style="color: #0000ff;">&lt;<span style="color: #800000;">title<span style="color: #0000ff;">&gt;Hello World in Git<span style="color: #0000ff;">&lt;/<span style="color: #800000;">title<span style="color: #0000ff;">&gt;
+<span style="color: #0000ff;">&lt;/<span style="color: #800000;">head<span style="color: #0000ff;">&gt;
+<span style="color: #0000ff;">&lt;<span style="color: #800000;">body<span style="color: #0000ff;">&gt;
+<span style="color: #0000ff;">&lt;<span style="color: #800000;">h1<span style="color: #0000ff;">&gt;Hello World<span style="color: #0000ff;">&lt;/<span style="color: #800000;">h1<span style="color: #0000ff;">&gt;
+<span style="color: #0000ff;">&lt;<span style="color: #800000;">p<span style="color: #0000ff;">&gt;My first paragraph.<span style="color: #0000ff;">&lt;/<span style="color: #800000;">p<span style="color: #0000ff;">&gt;
+<span style="color: #0000ff;">&lt;/<span style="color: #800000;">body<span style="color: #0000ff;">&gt;
+<span style="color: #0000ff;">&lt;/<span style="color: #800000;">html<span style="color: #0000ff;">&gt;</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码" /></a></span></div>
+</div>
+<p>&nbsp;</p>
+<p><span style="font-size: 15px;">　　修改完毕，Git可以检测到文件被修改。</span></p>
+<p><span style="font-size: 15px;">　　命令git status会显示工作目录树的状态，即当前的视图状态。</span></p>
+<p><span style="font-size: 15px;">　　<span>prompt&gt; git status</span></span></p>
+<p><span style="font-size: 15px;"><img style="display: block; margin-left: auto; margin-right: auto;" src="http://images.cnitblog.com/blog/325852/201304/09100917-1d06b057b9da42238203e29f407bd79e.jpg" alt="" />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></p>
+<p><span style="font-size: 15px;">　　上面的结果表明Git监测到了修改，但还不知道如何处理它们。</span></p>
+<p><span style="font-size: 15px;">　　如果要提交，需要<span style="color: #ff0000;"><strong>暂存（stage）</strong>修改，以准备把修改提交到版本库。</span></span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 15px;">　　<span style="color: #ff0000;"><strong>Git有三个地方可以存放代码。</strong></span></span></p>
+<p><span style="font-size: 15px;">　　第一个地方是工作目录树，编辑文件时可以直接在这里操作；</span></p>
+<p><span style="font-size: 15px;">　　第二个是索引（index），也就是暂存区（staging area）。暂存区是工作目录树和版本库之间的缓冲区。</span></p>
+<p><span style="font-size: 15px;">　　第三个，也就是最终的一个，是版本库。</span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 15px;">　　命令git add，可以暂存对文件刚做的修改。它跟前面添加一个新文件时使用的是同一个命令，只不过，这次它告诉Git要跟踪的是一个新的修改而非新的文件。</span></p>
+<p><span style="font-size: 15px;">　　<span>prompt&gt; git add index.html</span></span></p>
+<p><span style="font-size: 15px;"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="font-size: 15px;">prompt&gt; git add 。将当前文件夹的所有文件包括文件夹都加入index</span></span></span></p>
+<p><span style="font-size: 15px;"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="font-size: 15px;">prompt&gt; git reset 撤销上一次的add</span></span></span></p>
+<p><span style="font-size: 15px;">　　<span>prompt&gt; git status</span></span></p>
+<p><span style="font-size: 15px;">&nbsp;<img style="display: block; margin-left: auto; margin-right: auto;" src="http://images.cnitblog.com/blog/325852/201304/09100933-75b28aca3b4840ef9f81dc9ca2921085.png" alt="" /></span></p>
+<p><span style="font-size: 15px;">　　暂存修改过的index.html之后，执行命令git status可以看到，信息变为了Changes to be commited，index.html这行由红色变为了绿色。</span></p>
+<p><span style="font-size: 15px;">　　使用命令git commit时，不要忘记使用带-m的参数，并在参数后面加上提交留言，以解释修改的原因，如下：</span></p>
+<p><span style="font-size: 15px;">　　<span>prompt&gt; git commit &ndash;m "add &lt;head&gt; and &lt;title&gt; to index"</span></span></p>
+<p><span style="font-size: 15px;"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="font-size: 15px;">prompt&gt; git reset 2ee446d99c02ce66f4bc4ef463241950a9f2ddcd&nbsp; 提交恢复到某一次版本</span></span></span></p>
+<p><span style="font-size: 15px;">　　git log可以快速浏览提交留言：</span></p>
+<p><span style="font-size: 15px;">　　<span>prompt&gt; git log</span></span></p>
+<p><span style="font-size: 15px;">　　<span>prompt&gt; git log -1</span></span></p>
+<p><span style="font-size: 15px;">　　命令中加入参数<span style="color: #ff0000;">：-1可以限制命令输出的提交条目的个数。</span></span></p>
+<h2>&nbsp;</h2>
+<div class="raised" style="width: 64.49%; height: 42px;">
+<div class="boxcontent">
+<h1><span style="color: #000000; font-size: 18pt;">理解并使用分支</span></h1>
+</div>
+</div>
+<p><span style="font-size: 15px;">　　比如mysite项目的代码现在几乎可以发布了，但是还需要进行测试等工作，直到确认它达到了预期的功能和质量，而与此同时，借助分支，可以开始下一个版本的新功能的开发了。</span></p>
+<p><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="font-size: 15px;">查看分支：<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ git branch&nbsp;&nbsp;&nbsp; 该命令会类出当先项目中的所有分支信息，其中以*开头的表示当前所在的分支。参数-r列出远程仓库中的分支，而-a则远程与本地仓库的全部分支。<br />创建新分支：<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ git branch testing&nbsp;&nbsp;&nbsp; 创建一个名为testing的分支<br /><br />切换分支：<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ git checkout teting&nbsp;&nbsp; 切换到testing分支上。通过向该命令传递一个-b参数，可以实现创建并切换分支的功能。<br /><br />合并分支：<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ git merge hotfix&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 将hotfix分支合并到当前分支当中去<br /><br />删除分支：<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ git branch -d hotfix&nbsp; 删除分支hotfix,-d选项只能删除已经被当前分支所合并过的分支，而要强制删除没有被合并过的分支，可以使用-D。<br /><br />重命名分支：<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ git branch -m oldbranch newbranch&nbsp;&nbsp;&nbsp;&nbsp; -M用来强制重命名，如newbranch已经存在的时候。<br /><br />查看分支之间的不同：<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ $ git diff branchName&nbsp;&nbsp; 查看当前分支与branchName分支之间的差异，也可以使用：$ git diff 
+branch1 branch2 
+来比较这1和2分支之间的差异，当使用第一种方式比较时，如果当前工作目录中存在与branchName同名的文件，系统则会提示错误，要是指明要比较的
+是文件还是分支，如果比较分支，可以进入.git中进行比较或切换分支，如果是&gt;比较文件，则使用$ git diff -- 
+fileName命令。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ git diff &lt;branchA&gt;:&lt;fileA&gt; &lt;branchB&gt;:&lt;fileB&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ git ls-tree -r branch 列出所有的树对象</span></span></p>
+<p><span style="font-size: 15px;"><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 把两次提交的不同重定向到patch<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $git diff dc20827e8880a0403dde7a94dfa540ebdd3c6df1&nbsp; 547348d336697c6e166f6b9183ed7ff61ef28b04 &gt;haixin.patch<br />合并冲突：<br />&nbsp;&nbsp;&nbsp; 如果在不同的分支中都修改了同一个文件的同一部分，Git 就无法干净地把两者合到一起（译注：逻辑上说，这种问题只能由人来裁决。）<br />&nbsp;&nbsp;&nbsp; 任何包含未解决冲突的文件都会以未合并（unmerged）的状态列出。Git 会在有冲突的文件里加入标准的冲突解决标记，可以通过它们来手工定位并解决这些冲突。<br />&nbsp;&nbsp;&nbsp; 在解决了所有文件里的所有冲突后，运行 git add 将把它们标记为已解决状态（译注：实际上就是来一次快照保存到暂存区域。）。因为一旦暂存，就表示冲突已经解决。如果你想用一个有图形界面的工具来解决这些问题，不妨运行 git mergetool，它会调用一个可视化的合并工具并引导你解决所有冲突。<br />&nbsp;&nbsp;&nbsp;
+ 要从该清单中筛选出你已经（或尚未）与当前分支合并的分支，可以用 --merge 和 --no-merged 选项（Git 1.5.6 
+以上版本）。比如用 git branch --merge 查看哪些分支&gt;已被并入当前分支（译注：也就是说哪些分支是当前分支的直接上游。）<br /><br /><span style="color: #800000;">远程分支：</span><br /><span style="color: #800000;">&nbsp;&nbsp;&nbsp;
+ 
+远程分支是对远程仓库分支的索引。它们是一些无法移动的本地分支，只有在Git进行网络交互时才会更新。我们用(远程仓库名)/(分支名)来表示远程分
+支。比如想查看上次&gt;同origin仓库通讯时master的样子，就应该查看origin/master分支。</span><br /><br /><span style="color: #800000;">推送本地分支：</span><br /><span style="color: #800000;">&nbsp;&nbsp;&nbsp;
+ $ git push (远程仓库名字) (分支名)&nbsp; 如：$ git push orgin serverfix 
+该命令会将本地serverfix分支推送到origin远程仓库的serverfix分支中去，也可以使用命令 $ git push origin 
+serverfix:serferfix实现同样的效果，可以将第二个serverfix更改为其它名字来指定要将该本地分支推送到远程仓库中的的指定分
+支中去，如果不存在，则会在</span><br /><span style="color: #800000;">远程仓库中新建分支。</span><br /><br /><span style="color: #800000;">获取远程分支：</span><br /><span style="color: #800000;">&nbsp;&nbsp;&nbsp; 在使用git clone命令从远程服务器克隆Git仓库时，只是将远程仓库当前分支的内容克隆到本地，要是克隆其他分支的内容，需要使用下面命令：可通过git branch -r命令来查看想要获取的远程仓库中的分支。</span><br /><span style="color: #800000;">&nbsp;&nbsp;&nbsp; $ git fetch origin&nbsp; 值得注意的是，在 fetch 操作下载好新的远程分支之后，你仍然无法在本地编辑该远程仓库中的分支。</span><br /><span style="color: #800000;">&nbsp;&nbsp;&nbsp; 如果要把该内容合并到当前分支，可以运行 git merge origin/serverfix。如果想要一份自己的 serverfix 来开发，可以在远程分支的基础上分化出一个新的分支来：</span><br /><span style="color: #800000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ git checkout -b serverfix origin/serverfix</span><br /><span style="color: #800000;">&nbsp;&nbsp;&nbsp; 这会切换到新建的 serverfix 本地分支，其内容同远程分支 origin/serverfix 一致，这样你就可以在里面继续开发了。</span><br /><br /><span style="color: #800000;">Git pull:</span><br /><span style="color: #800000;">&nbsp;&nbsp;&nbsp; 从服务器的仓库中获取代码，和本地代码合并。（与服务器交互，从服务器上下载最新代码，等同于： Git fetch + Git merge）。</span><br /><span style="color: #800000;">&nbsp;&nbsp;&nbsp; 从其它的版本库（既可以是远程的也可以是本地的）将代码更新到本地，例如：&ldquo;git pull origin master &rdquo;就是将origin这个版本库的代码更新到本地的master主分支。</span><br /><span style="color: #800000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; git pull可以从任意一个git库获取某个分支的内容。用法如下：</span><br /><span style="color: #800000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; git pull username@ipaddr: 远端repository名 远端分支名:本地分支名。这条命令将从远端git库的远端分支名获取到本地git库的一个本地分支中。其中，如果不写本地分支名，则默认pull到本地当前分支。</span><br /><span style="color: #800000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 需要注意的是，git pull也可以用来合并分支。 和git merge的作用相同。 因此，如果你的本地分支已经有内容，则git pull会合并这些文件，如果有冲突会报警。</span><br /><br /><span style="color: #800000;">Git push</span><br /><span style="color: #800000;">&nbsp;&nbsp;&nbsp; 将本地commit的代码更新到远程版本库中，例如 &ldquo;git push origin&rdquo;就会将本地的代码更新到名为orgin的远程版本库中。</span><br /><span style="color: #800000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; git push和git pull正好想反，是将本地某个分支的内容提交到远端某个分支上。用法： git pushusername@ipaddr: 远端repository名 本地分支名:远端分支名。这条命令将本地git库的一个本地分支push到远端git库的远端分支名中。</span><br /><span style="color: #800000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 需要格外注意的是，git push好像不会自动合并文件。因此，如果git push时，发生了冲突，就会被后push的文件内容强行覆盖，而且没有什么提示。 这在合作开发时是&gt;很危险的事情。</span><br /><br /><span style="color: #800000;">git-clone命令只要碰到类似下面格式的远程仓库地址，都会被认为地址是符合SSH协议的：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 账户@IP：工作目录</span><br /><br /><span style="color: #800000;">git checkout -b [分支名] [远程名]/[分支名]</span><br /><span style="color: #800000;">如果你有 1.6.2 以上版本的 Git，还可以用 --track 选项简化</span><br /><span style="color: #800000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ git checkout --track origin/serverfix</span><br /><br /><span style="color: #800000;">删除远程分支：</span><br /><span style="color: #800000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; git push [远程名] :[分支名]</span><br /><br /><span style="color: #800000;">git pull 远程仓库名 远程分支:本地分支</span><br /><span style="color: #800000;">git push 远程仓库名 远程分支:本地分支</span><br /><span style="color: #800000;">git checkout -b 分支名 远程仓库名/分支名</span></span><br /></span></p>
+<p><span style="font-size: 15px;">　　创建分支的命令是git branch，该命令需要两个参数：新分支名称和父分支名称。新创建的分支基于已经存在的父分支。</span></p>
+<p><span style="font-size: 15px;">　　<span>prompt&gt; git branch RB_1.0 master</span></span></p>
+<p><span style="font-size: 15px;">　　该命令从主分支（master branch）上创建一个叫RB_1.0的分支。</span></p>
+<p><span style="font-size: 15px;">　　主分支master是Git的默认分支。分支名称中的RB代表发布分支（release branch）。该前缀可以让人快速分辨出哪些分支是发布分支。</span></p>
+<p><span style="font-size: 15px;">&nbsp;</span></p>
+<p><span style="font-size: 15px;">　　现在来做一些新的改动。这些改动不影响准备发布的代码。</span></p>
+<p><span style="font-size: 15px;">　　在&lt;/body&gt;之前增加如下代码：</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;<span style="color: #800000;">ul<span style="color: #0000ff;">&gt;
+<span style="color: #0000ff;">&lt;<span style="color: #800000;">li<span style="color: #0000ff;">&gt;&lt;<span style="color: #800000;">a <span style="color: #ff0000;">href<span style="color: #0000ff;">="bio.html"<span style="color: #0000ff;">&gt;Biography<span style="color: #0000ff;">&lt;/<span style="color: #800000;">a<span style="color: #0000ff;">&gt;&lt;/<span style="color: #800000;">li<span style="color: #0000ff;">&gt;
+<span style="color: #0000ff;">&lt;/<span style="color: #800000;">ul<span style="color: #0000ff;">&gt;</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></pre>
+</div>
+<p>&nbsp;</p>
+<p><span style="font-size: 15px;">　　用如下命令提交这些修改：</span></p>
+<p><span style="font-size: 15px;">　　<span>prompt&gt; git commit &ndash;a</span></span></p>
+<p><span style="font-size: 15px;">　　参数-a告诉Git提交全部修改过的文件。</span></p>
+<p><span style="font-size: 15px;">　　（这时弹出了一个文本文件，输入的信息是提交留言）。</span></p>
+<p><span style="font-size: 15px;">　　<span style="color: #ff0000;">现在主分支上有最新的修改，而发布分支上还是原来的代码。</span></span></p>
+<p><span style="font-size: 15px;">　　</span></p>
+<p><span style="font-size: 15px;">　　请切换到发布分支，做发布前的最后修改。切换分支的命令是git checkout。</span></p>
+<p><span style="font-size: 15px;">　　<span>prompt&gt; git checkout RB_1.0</span></span></p>
+<p><span style="font-size: 15px;">　　转换分支后，所使用的打开文件的编辑器会提醒文件已经被修改，重新载入文件，会发现刚才在主分支上做过的修改消失了。</span></p>
+<p><span style="font-size: 15px;">　　可以用git status命令来查看自己在哪一个分支上：</span></p>
+<p><span style="font-size: 15px;">　　<span>prompt&gt; git status</span></span></p>
+<p><span style="font-size: 15px;">　　</span></p>
+<p><span style="font-size: 15px;">　　做发布前的最后修改：在&lt;head&gt;标记块中添加一些描述性的元标签：</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;<span style="color: #800000;">head<span style="color: #0000ff;">&gt;
+<span style="color: #0000ff;">&lt;<span style="color: #800000;">title<span style="color: #0000ff;">&gt;Hello World in Git<span style="color: #0000ff;">&lt;/<span style="color: #800000;">title<span style="color: #0000ff;">&gt;
+<span style="color: #0000ff;">&lt;<span style="color: #800000;">meta <span style="color: #ff0000;">name<span style="color: #0000ff;">="description"<span style="color: #ff0000;"> content<span style="color: #0000ff;">="hello world in Git"<span style="color: #0000ff;">/&gt;
+<span style="color: #0000ff;">&lt;/<span style="color: #800000;">head<span style="color: #0000ff;">&gt;</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></pre>
+</div>
+<p>&nbsp;</p>
+<p><span style="font-size: 15px;">　　保存并修改该提交：</span></p>
+<p><span style="font-size: 15px;">　　<span>prompt&gt; git commit &ndash;a</span></span></p>
+<p><span style="font-size: 15px;">&nbsp;</span></p>
+<div class="raised" style="width: 64.49%; height: 42px;">
+<div class="boxcontent">
+<h1><span style="color: #000000; font-size: 18pt;">处理发布</span></h1>
+</div>
+</div>
+<p><span style="font-size: 18pt;"><strong>添加标签</strong></span></p>
+<p><span style="font-size: 15px;">　　现在是发布的时候了，要给版本打个标签。</span></p>
+<p><span style="font-size: 15px;">　　给Git中的代码打标签，意味着在版本库的历史中标记出特定的点，这样将来就容易找到相应版本的代码。</span></p>
+<p><span style="font-size: 15px;">　　<span>prompt&gt; git tag 1.0 RB_1.0</span></span></p>
+<p><span style="font-size: 15px;">　　以上命令中的两个参数分别指明了标签的名称（1.0）和希望打标签的点（RB_1.0分支的末梢（所对应的版本或者说所对应的提交））。</span></p>
+<p><span style="font-size: 15px;">　　用不带参数的命令git tag可以查看版本库中的标签列表：</span></p>
+<p><span style="font-size: 15px;">　　<span>prompt&gt; git tag</span></span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18pt;"><strong>变基</strong></span></p>
+<p><span style="font-size: 15px;">　　想把RB_1.0分支上所做的修改合并到主分支上来，变基命令git rebase可以完成这项工作。</span></p>
+<p><span style="font-size: 15px;">　　变基是把一条分支上的修改在另一条分支的末梢重现。</span></p>
+<p><span style="font-size: 15px;">　　先回到主分支：</span></p>
+<p><span style="font-size: 15px;">　　<span>prompt&gt; git checkout master</span></span></p>
+<p><span style="font-size: 15px;">　　接着运行命令git rebase，后面跟一个参数：希望变基到哪条分支的末梢，就使用哪条分支名称做参数。</span></p>
+<p><span style="font-size: 15px;">　　<span>prompt&gt; git rebase RB_1.0</span></span></p>
+<p><span style="font-size: 15px;">　　变基前和变基后的版本库如下面两个图：</span></p>
+<p><span style="font-size: 15px;">&nbsp;<img style="display: block; margin-left: auto; margin-right: auto;" src="http://images.cnitblog.com/blog/325852/201304/09100946-173413395fcc4dc1977eaacf1eb89165.jpg" alt="" width="484" height="249" /></span></p>
+<p><span style="font-size: 15px;"><img style="display: block; margin-left: auto; margin-right: auto;" src="http://images.cnitblog.com/blog/325852/201304/09101006-69f1c18d34ec45ba8976386797ca9ffe.png" alt="" width="496" height="256" /></span></p>
+<p><strong><span style="font-size: 15px;">&nbsp;</span></strong></p>
+<p><span style="font-size: 18pt;"><strong>删除分支</strong></span></p>
+<p><span style="font-size: 15px;">　　作为整理工作的一部分，删除发布分支RB_1.0。</span></p>
+<p><span style="font-size: 15px;">　　<span style="color: #ff0000;">只要标签还在，从标签到版本树起点的一连串提交记录就都在。</span></span></p>
+<p><span style="font-size: 15px;">　　这时候删除分支只是删除了分支的名字，并不会删除分支上的任何实际内容。</span></p>
+<p><span style="font-size: 15px;">　　<span>prompt&gt; git branch &ndash;d RB_1.0</span></span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18pt;"><strong>打补丁</strong></span></p>
+<p><span style="font-size: 15px;">　　如果没有了发布分支，如何给1.0.x分支打补丁呢？很简单，只需要在打标签的地方再创建一条分支即可。</span></p>
+<p><span style="font-size: 15px;">　　前面创建分支的时候，命令的最后一个参数是新分支的父分支名称，现在只须把父分支名称改成发布标签名即可。命令如下：</span></p>
+<p><span style="font-size: 15px;">　　<span>prompt&gt; git branch RB_1.0.1 1.0</span></span></p>
+<p><span style="font-size: 15px;">　　<span>prompt&gt; git checkout RB_1.0.1</span></span></p>
+<p><span style="font-size: 15px;">　　运行命令git log快速查看历史记录：</span></p>
+<p><span style="font-size: 15px;">　　<span>prompt&gt; git log --pretty=oneline</span></span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18pt;"><strong>为代码发布创建归档文件</strong></span></p>
+<p><span style="font-size: 15px;">　　没有必要总是把历史记录（也就是Git版本库）一起发布，通常情况下，将标签对应的版本内容打包成一个tar包或者zip包就足够了。</span></p>
+<p><span style="font-size: 15px;">　　Git提供了git archive命令来做归档处理。</span></p>
+<p><span style="font-size: 15px;">　　<span>prompt&gt; git archive --format=tar --prefix=mysite-1.0/ 1.0 |gzip &gt; mysite-1.0.tar.gz</span></span></p>
+<p><span style="font-size: 15px;">　　该命令中有三个参数：</span></p>
+<p><span style="font-size: 15px;">　　--format指明要产生tar格式的输出。</span></p>
+<p><span style="font-size: 15px;">　　--prefix指明包中所有东西都放到mysite-1.0/目录下。</span></p>
+<p><span style="font-size: 15px;">　　1.0指明要归档的标签的名称。</span></p>
+<p><span style="font-size: 15px;">　　最后一段命令把git archive产生的tar文件用管道输出的方法传递给命令gzip进行压缩，而压缩结果则重定向到mysite-1.0.tar.gz压缩包里。</span></p>
+<p><span style="font-size: 15px;">　　创建zip文件：</span></p>
+<p><span style="font-size: 15px;">　　<span>prompt&gt; git archive --format=zip &ndash;prefix=mysite-1.0/ 1.0 &gt;mysite-1.0.zip</span></span></p>
+<p><span style="font-size: 15px;">　　生成zip格式和tar格式的命令参数几乎一样，只是改变了传递给--format的参数，而且无需通过命令gzip管道输出，直接把归档内容保存到归档文件中。</span></p>
+<p>&nbsp;</p>
+<div class="raised" style="width: 64.49%; height: 42px;">
+<div class="boxcontent">
+<h1><span style="color: #000000; font-size: 18pt;">克隆远程版本库</span></h1>
+</div>
+</div>
+<p><span style="font-size: 15px;">　　git clone带有两个参数：远程版本库的位置和存放该版本库的本地目录。</span></p>
+<p><span style="font-size: 15px;">　　第二个参数是可选的。</span></p>
+<p>&nbsp;</p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info">
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"></div>
+</div>
+
+
+		</div>
+		<div class = "postDesc">posted @ <span id="post-date">2014-08-07 16:46</span> <a href='http://www.cnblogs.com/cy568searchx/'>星语海蓝</a> Views(<span id="post_view_count">...</span>) Comments(<span id="post_comment_count">...</span>)  <a href ="https://i.cnblogs.com/EditPosts.aspx?postid=3897550" rel="nofollow">Edit</a> <a href="#" onclick="AddToWz(3897550);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=124977,cb_entryId=3897550,cb_blogApp=currentBlogApp,cb_blogUserGuid='88dda591-dcdd-e111-aa3f-842b2b196315',cb_entryCreatedDate='2014/8/7 16:46:00';loadViewCount(cb_entryId);</script>
+	
+</div>
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id='comment_form' class='commentform'>
+<a name='commentform'></a>
+<div id='divCommentShow'></div>
+<div id='comment_nav'><span id='span_refresh_tips'></span><a href='javascript:void(0);' onclick='return RefreshCommentList();' id='lnk_RefreshComments' runat='server' clientidmode='Static'>刷新评论</a><a href='#' onclick='return RefreshPage();'>刷新页面</a><a href='#top'>返回顶部</a></div>
+<div id='comment_form_container'></div>
+<div class='ad_text_commentbox' id='ad_text_under_commentbox'></div>
+<div id='ad_t2'></div>
+<div id='opt_under_post'></div>
+<div id='cnblogs_c1' class='c_ad_block'></div>
+<div id='under_post_news'></div>
+<div id='cnblogs_c2' class='c_ad_block'></div>
+<div id='under_post_kb'></div>
+<div id='HistoryToday' class='c_ad_block'></div>
+<script type='text/javascript'>
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar"></div>
+			
+			<DIV id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</DIV>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright &copy;2017 星语海蓝
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+</body>
+</html>
