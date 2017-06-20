@@ -1,0 +1,1394 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+     
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    
+<head>  
+
+            <link rel="canonical" href="http://blog.csdn.net/phenixyf/article/details/52514106"/> 
+ <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848"> 
+       
+    <title>零基础Github Page免费无限流量个人博客搭建教程 - phenixyf的专栏
+        - 博客频道 - CSDN.NET</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="这篇文章主要介绍了什么是Github Page，以及如何用Github Page搭建一个免费的、无限流量的个人博客并绑定独立域名。一、前言1.1 为什么要用Github Page搭建博客借用阮一峰老大的话说，喜欢写Blog的人，会经历三个阶段。1. 第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。2. 第二阶段，发现免费空间限制太多，就自己购买域名和" />
+
+    <meta name="keywords" content="" />
+
+   
+    <script src="http://static.blog.csdn.net/scripts/blog_static_head.min.js" type="text/javascript"></script>
+
+    
+        <!--new top-->
+                      <!--new top-->
+    
+      <!-- ad begin -->
+         
+    <!-- ad end-->
+
+    <link rel="Stylesheet" type="text/css" href="http://static.blog.csdn.net/skin/light_blue/css/style.css?v=1.1" />
+
+    
+
+    <link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="/phenixyf/rss/list" />
+    <link rel="shortcut icon" href="http://c.csdnimg.cn/public/favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="http://static.blog.csdn.net/scripts/SyntaxHighlighter/styles/default.css" />
+ 
+
+
+
+
+    <link href="http://c.csdnimg.cn/blog/csdn_public_blog_detail.min.css" type="text/css" rel="stylesheet" />
+     
+         <link rel="stylesheet" href="http://static.blog.csdn.net/css/csdn_blog_detail.min.css" />
+
+  
+
+
+    <!-- 请置于所有广告位代码之前 --> 
+            <script src="http://dup.baidustatic.com/js/ds.js"></script>
+
+</head>
+
+
+<body>
+        <div class="tracking-ad" data-view="true" data-mod="ad_popu_72"  data-mtp="62" data-order="40" data-con="ad_content_2072" >
+                     <script id="popuLayer_js_q" src="http://ads.csdn.net/js/popuLayer.js" defer="defer"  type="text/javascript"></script>
+                <div id="layerd" style="position: fixed;bottom:0px;right:0px;line-height:0px;z-index:1000">
+    	                <div class="J_close layer_close" style="display:;background-color:#efefef;padding:0px;color:#333;font:12px/24px Helvetica,Tahoma,Arial,sans-serif;text-align:right;">关闭</div><!-- 广告占位容器 --><div id="cpro_u2895327"></div></div>
+                <script>  document.getElementById("popuLayer_js_q").onload = function () { var styObjd = styObj = { width: "300px", "height": parseInt(250) + 28 }; window.CSDN.Layer.PopuLayer("#layerd", { storageName: "layerd", styleObj: styObjd, total: 50, expoire: 1000 * 60 }); }</script><!-- 投放代码 --><script type="text/javascript">                /*服务器频道首页置顶Banner960*90，创建于2014-7-3*/    (window.cproArray = window.cproArray || []).push({ id: "u2895327" });  </script>  <script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>
+     
+        </div>
+
+    <!-- 广告位开始 -->
+        
+    <!-- 广告位结束 -->
+
+    
+   
+      <!--new top-->
+    <script id="toolbar-tpl-scriptId" fixed="true" prod="blog" skin="black" src="http://c.csdnimg.cn/public/common/toolbar/js/html.js" type="text/javascript"></script>
+     <!--new top-->
+    <div id="container">
+        <div id="header">
+    <div class="header">
+        <div id="blog_title">
+            <h2>
+                <a href="http://blog.csdn.net/phenixyf">phenixyf的专栏</a></h2>
+            <h3></h3>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        
+     
+    </div>
+</div>
+<div id="navigator">
+    <div class="navigator_bg">
+    </div>
+    <div class="navigator">
+        <ul>           
+                <li id="btnContents"><a href="http://blog.csdn.net/phenixyf?viewmode=contents"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_mulu'])">
+                    <img src="http://static.blog.csdn.net/images/ico_list.gif">目录视图</span></a></li>
+                <li id="btnView"><a href="http://blog.csdn.net/phenixyf?viewmode=list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_zhaiyao'])">
+                    <img src="http://static.blog.csdn.net/images/ico_summary.gif">摘要视图</span></a></li>
+                <li id="btnRss"><a href="http://blog.csdn.net/phenixyf/rss/list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_RSS'])">
+                    <img src="http://static.blog.csdn.net/images/ico_rss.gif">订阅</span></a></li>                
+            
+
+            </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var username = "phenixyf";
+    var _blogger = username;
+    var blog_address = "http://blog.csdn.net/phenixyf";
+    var static_host = "http://static.blog.csdn.net";
+    var currentUserName = "";  
+</script>
+
+        <div id="body">
+            <div id="main">
+                <div class="main">
+                        <div class="ad_class">
+<div class="notice tracking-ad" data-mod='popu_3' > 
+
+
+<a href="http://blog.csdn.net/blogdevteam/article/details/72917467">
+<font color=red><strong>征文 | 从高考，到程序员</strong></font></a>
+
+&nbsp;&nbsp;&nbsp;&nbsp
+
+<a href="http://blog.csdn.net/blogdevteam/article/details/73350362">
+<font color=blue><strong>CSDN日报20170616 ——《从裁缝到码农》</strong></font></a>
+&nbsp;&nbsp;&nbsp;&nbsp
+
+
+<a href="http://blog.csdn.net/broadview2006/article/details/73230409">
+<font color=red><strong>每周荐书 | Web扫描、HTML 5、Python（评论送书）</strong></font></a>
+
+
+</div>                        </div>
+                        
+
+
+
+  
+
+
+
+
+
+
+<script   type="text/javascript" src="http://static.blog.csdn.net/scripts/category.js"></script>
+
+  <script type="text/ecmascript">
+      window.quickReplyflag = true;
+           
+            var isBole = false;
+            
+      
+      var fasrc="http://my.csdn.net/my/favorite/miniadd?t=%e9%9b%b6%e5%9f%ba%e7%a1%80Github+Page%e5%85%8d%e8%b4%b9%e6%97%a0%e9%99%90%e6%b5%81%e9%87%8f%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2%e6%90%ad%e5%bb%ba%e6%95%99%e7%a8%8b&u=http://blog.csdn.net/phenixyf/article/details/52514106"
+
+    </script>
+<div id="article_details" class="details">
+    <div class="article_title">   
+         <span class="ico ico_type_Repost"></span>
+
+
+    <h1>
+        <span class="link_title"><a href="/phenixyf/article/details/52514106">
+        零基础Github Page免费无限流量个人博客搭建教程            
+        </a></span>
+    </h1>
+</div>
+
+   
+
+        <div class="article_manage clearfix">
+        <div class="article_r">
+            <span class="link_postdate">2016-09-12 15:41</span>
+            <span class="link_view" title="阅读次数">1149人阅读</span>
+            <span class="link_comments" title="评论次数"> <a href="#comments" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_pinglun'])">评论</a>(1)</span>
+            <span class="link_collect tracking-ad" data-mod="popu_171"> <a href="javascript:void(0);" onclick="javascript:collectArticle('%e9%9b%b6%e5%9f%ba%e7%a1%80Github+Page%e5%85%8d%e8%b4%b9%e6%97%a0%e9%99%90%e6%b5%81%e9%87%8f%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2%e6%90%ad%e5%bb%ba%e6%95%99%e7%a8%8b','52514106');return false;" title="收藏">收藏</a></span>
+             <span class="link_report"> <a href="#report" onclick="javascript:report(52514106,2);return false;" title="举报">举报</a></span>
+
+        </div>
+    </div>
+    <div class="embody"  style="display:none" id="embody">
+        <span class="embody_t">本文章已收录于：</span>
+        <div class="embody_c" id="lib" value="{&quot;err&quot;:0,&quot;msg&quot;:&quot;ok&quot;,&quot;data&quot;:[]}"></div>
+    </div>
+    <style type="text/css">        
+            .embody{
+                padding:10px 10px 10px;
+                margin:0 -20px;
+                border-bottom:solid 1px #ededed;                
+            }
+            .embody_b{
+                margin:0 ;
+                padding:10px 0;
+            }
+            .embody .embody_t,.embody .embody_c{
+                display: inline-block;
+                margin-right:10px;
+            }
+            .embody_t{
+                font-size: 12px;
+                color:#999;
+            }
+            .embody_c{
+                font-size: 12px;
+            }
+            .embody_c img,.embody_c em{
+                display: inline-block;
+                vertical-align: middle;               
+            }
+             .embody_c img{               
+                width:30px;
+                height:30px;
+            }
+            .embody_c em{
+                margin: 0 20px 0 10px;
+                color:#333;
+                font-style: normal;
+            }
+    </style>
+    <script  type="text/javascript">
+        $(function () {
+            try
+            {
+                var lib = eval("("+$("#lib").attr("value")+")");
+                var html = "";
+                if (lib.err == 0) {
+                    $.each(lib.data, function (i) {
+                        var obj = lib.data[i];
+                        //html += '<img src="' + obj.logo + '"/>' + obj.name + "&nbsp;&nbsp;";
+                        html += ' <a href="' + obj.url + '" target="_blank">';
+                        html += ' <img src="' + obj.logo + '">';
+                        html += ' <em><b>' + obj.name + '</b></em>';
+                        html += ' </a>';
+                    });
+                    if (html != "") {
+                        setTimeout(function () {
+                            $("#lib").html(html);                      
+                            $("#embody").show();
+                        }, 100);
+                    }
+                }      
+            } catch (err)
+            { }
+            
+        });
+    </script>
+      <div class="category clearfix">
+        <div class="category_l">
+           <img src="http://static.blog.csdn.net/images/category_icon.jpg">
+            <span>分类：</span>
+        </div>
+        <div class="category_r">
+                    <label  onclick="GetCategoryArticles('6813964','phenixyf','top','52514106');">
+                        <span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_fenlei']);">GIT<em>（9）</em></span>
+                      <img class="arrow-down" src="http://static.blog.csdn.net/images/arrow_triangle _down.jpg" style="display:inline;">
+                      <img class="arrow-up" src="http://static.blog.csdn.net/images/arrow_triangle_up.jpg" style="display:none;">
+                        <div class="subItem">
+                            <div class="subItem_t"><a  href="http://blog.csdn.net/phenixyf/article/category/6813964"  target="_blank">作者同类文章</a><i class="J_close">X</i></div>
+                            <ul class="subItem_l" id="top_6813964">                            
+                            </ul>
+                        </div>
+                    </label>                    
+        </div>
+    </div>
+
+  
+
+  
+  
+     
+
+
+<div id="article_content" class="article_content tracking-ad" data-mod=popu_307  data-dsm = "post" >
+
+<p style="margin-bottom:1.625rem; font-size:1.25rem; line-height:26px; font-family:Lato,Calibri,Arial">
+这篇文章主要介绍了什么是Github Page，以及如何用Github Page搭建一个免费的、无限流量的个人博客并绑定独立域名。</p>
+<h3 id="section" style="font-family:Lato,Calibri,Arial,'Microsoft YaHei'"><a target="_blank" target="_blank" name="outline_0" style="color:rgb(34,34,34)"></a>一、前言</h3>
+<h4 id="github-page" style="font-family:Lato,Calibri,Arial,'Microsoft YaHei'; font-size:16px; line-height:26px">
+1.1 为什么要用Github Page搭建博客</h4>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">借用<a target="_blank" target="_blank" href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html" style="color:rgb(65,131,196); text-decoration:none">阮一峰</a>老大的话说，</p>
+<div class="highlighter-rouge" style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">
+<pre class="highlight prettyprint prettyprinted" style="font-family:consolas; overflow-x:auto; font-size:0.75rem; line-height:2.1667; margin:1em auto; color:rgb(208,208,208); border:1px solid rgb(11,12,10); width:640px; padding:1em; background-color:rgb(39,40,34)"><code style="font-family:consolas"><span class="pun" style="color:rgb(255,255,255)">喜欢写</span><span class="typ" style="color:rgb(102,217,239)">Blog</span><span class="pun" style="color:rgb(255,255,255)">的人，会经历三个阶段。</span><span class="pln" style="color:rgb(255,255,255)">
+
+</span><span class="lit" style="color:rgb(174,129,255)">1.</span><span class="pln" style="color:rgb(255,255,255)"> </span><span class="pun" style="color:rgb(255,255,255)">第一阶段，刚接触</span><span class="typ" style="color:rgb(102,217,239)">Blog</span><span class="pun" style="color:rgb(255,255,255)">，觉得很新鲜，试着选择一个免费空间来写。</span><span class="pln" style="color:rgb(255,255,255)">
+
+</span><span class="lit" style="color:rgb(174,129,255)">2.</span><span class="pln" style="color:rgb(255,255,255)"> </span><span class="pun" style="color:rgb(255,255,255)">第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。</span><span class="pln" style="color:rgb(255,255,255)">
+
+</span><span class="lit" style="color:rgb(174,129,255)">3.</span><span class="pln" style="color:rgb(255,255,255)"> </span><span class="pun" style="color:rgb(255,255,255)">第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。</span></code></pre>
+</div>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">那么Github Page无疑就是第三个阶段最Geek范儿的选择了。</p>
+<h4 id="github-page-1" style="font-family:Lato,Calibri,Arial,'Microsoft YaHei'; font-size:16px; line-height:26px">
+1.2什么是Github Page</h4>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">简单的说，Github是一个具有版本管理功能的代码仓库，每个项目都有一个主页，列出项目的源文件。</p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">但是对于一个新手来说，看到一大堆源码，只会让人头晕脑涨，不知何处入手。</p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">他希望看到的是，一个简明易懂的网页，说明每一步应该怎么做。</p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">因此，github就设计了Pages功能，允许用户自定义项目首页，用来替代默认的源码列表。</p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">所以，github Pages可以被认为是用户编写的、托管在github上的静态网页。</p>
+<h3 id="git" style="font-family:Lato,Calibri,Arial,'Microsoft YaHei'"><a target="_blank" target="_blank" name="outline_1" style="color:rgb(34,34,34)"></a>二、安装本地Git环境</h3>
+<h4 id="mygit" style="font-family:Lato,Calibri,Arial,'Microsoft YaHei'; font-size:16px; line-height:26px">
+2.1 安装MyGit</h4>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">首先在<a target="_blank" target="_blank" href="http://www.dss886.com/github/2014/05/05/www.github.com" style="color:rgb(65,131,196); text-decoration:none">Github</a>上注册账号，然后下载Windows下的Git客户端<a target="_blank" target="_blank" href="https://code.google.com/p/msysgit/downloads/list" style="color:rgb(65,131,196); text-decoration:none">MyGit</a>，一路next至安装完毕。</p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">找到桌面的Git Bash，双击打开，熟悉的命令行界面就出来了。</p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px"><img src="http://www.dss886.com/images/post_images/2014.5/6.png" alt="image6" style="height:auto; max-width:100%; vertical-align:middle; border:0px"></p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">使用cd命令进入你想要的目录，比如我进入了d:/working/Git</p>
+<h4 id="git-bash" style="font-family:Lato,Calibri,Arial,'Microsoft YaHei'; font-size:16px; line-height:26px">
+2.2 修改Git Bash默认工作路径</h4>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">&#20540;得注意的是，一般情况下打开Git Bash后默认的路径一般都是<code class="highlighter-rouge" style="font-family:consolas; padding:0px 0.2em; margin:0px 3px; font-size:0.75rem; line-height:1.5; white-space:nowrap; border:1px solid rgb(216,216,216); color:rgb(77,77,77); position:relative; top:-2px; background:rgb(248,248,248)">C:/Users/用户名</code>，每次工作都得切换到常用的目录下，此操作是重复且没有意义的。</p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">我们打开<code class="highlighter-rouge" style="font-family:consolas; padding:0px 0.2em; margin:0px 3px; font-size:0.75rem; line-height:1.5; white-space:nowrap; border:1px solid rgb(216,216,216); color:rgb(77,77,77); position:relative; top:-2px; background:rgb(248,248,248)">Git安装位置\etc\profile</code>文件，找到</p>
+<div class="highlighter-rouge" style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">
+<pre class="highlight prettyprint prettyprinted" style="font-family:consolas; overflow-x:auto; font-size:0.75rem; line-height:2.1667; margin:1em auto; color:rgb(208,208,208); border:1px solid rgb(11,12,10); width:640px; padding:1em; background-color:rgb(39,40,34)"><code style="font-family:consolas"><span class="com" style="color:rgb(117,113,94); font-style:italic"># normalize HOME to unix path</span><span class="pln" style="color:rgb(255,255,255)">
+HOME</span><span class="pun" style="color:rgb(255,255,255)">=</span><span class="str" style="color:rgb(230,219,90)">&quot;$(cd &quot;</span><span class="pln" style="color:rgb(255,255,255)">$HOME</span><span class="str" style="color:rgb(230,219,90)">&quot; ; pwd)&quot;</span><span class="pln" style="color:rgb(255,255,255)">
+</span><span class="kwd" style="color:rgb(102,217,239)">export</span><span class="pln" style="color:rgb(255,255,255)"> PATH</span><span class="pun" style="color:rgb(255,255,255)">=</span><span class="str" style="color:rgb(230,219,90)">&quot;$HOME/bin:$PATH&quot;</span></code></pre>
+</div>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">增加两行，修改后结果如下：</p>
+<div class="highlighter-rouge" style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">
+<pre class="highlight prettyprint prettyprinted" style="font-family:consolas; overflow-x:auto; font-size:0.75rem; line-height:2.1667; margin:1em auto; color:rgb(208,208,208); border:1px solid rgb(11,12,10); width:640px; padding:1em; background-color:rgb(39,40,34)"><code style="font-family:consolas"><span class="com" style="color:rgb(117,113,94); font-style:italic"># normalize HOME to unix path</span><span class="pln" style="color:rgb(255,255,255)">
+HOME</span><span class="pun" style="color:rgb(255,255,255)">=</span><span class="str" style="color:rgb(230,219,90)">&quot;你想要修改的HOME路径&quot;</span><span class="pln" style="color:rgb(255,255,255)">
+HOME</span><span class="pun" style="color:rgb(255,255,255)">=</span><span class="str" style="color:rgb(230,219,90)">&quot;$(cd &quot;</span><span class="pln" style="color:rgb(255,255,255)">$HOME</span><span class="str" style="color:rgb(230,219,90)">&quot; ; pwd)&quot;</span><span class="pln" style="color:rgb(255,255,255)">
+cd
+</span><span class="kwd" style="color:rgb(102,217,239)">export</span><span class="pln" style="color:rgb(255,255,255)"> PATH</span><span class="pun" style="color:rgb(255,255,255)">=</span><span class="str" style="color:rgb(230,219,90)">&quot;$HOME/bin:$PATH&quot;</span></code></pre>
+</div>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">更多的修改路径及自定义Bash路径变量，参考<a target="_blank" target="_blank" href="http://poetcoder.com/2013/03/21/modify-git-root-direction-on-windows/" style="color:rgb(65,131,196); text-decoration:none">这里</a></p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">至此，本地的Git环境已经搭建完毕。</p>
+<h3 id="github" style="font-family:Lato,Calibri,Arial,'Microsoft YaHei'"><a target="_blank" target="_blank" name="outline_2" style="color:rgb(34,34,34)"></a>三、配置Github</h3>
+<h4 id="ssh" style="font-family:Lato,Calibri,Arial,'Microsoft YaHei'; font-size:16px; line-height:26px">
+3.1 本地生成SSH公钥</h4>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">为了保证与服务器通信的安全，Github只提供HTTPS和SSH两种连接方式，这里我们使用SSH。</p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">在Git bash中输入</p>
+<div class="highlighter-rouge" style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">
+<pre class="highlight prettyprint prettyprinted" style="font-family:consolas; overflow-x:auto; font-size:0.75rem; line-height:2.1667; margin:1em auto; color:rgb(208,208,208); border:1px solid rgb(11,12,10); width:640px; padding:1em; background-color:rgb(39,40,34)"><code style="font-family:consolas"><span class="pln" style="color:rgb(255,255,255)">$ ssh</span><span class="pun" style="color:rgb(255,255,255)">-</span><span class="pln" style="color:rgb(255,255,255)">keygen </span><span class="pun" style="color:rgb(255,255,255)">-</span><span class="pln" style="color:rgb(255,255,255)">t rsa </span><span class="pun" style="color:rgb(255,255,255)">-</span><span class="pln" style="color:rgb(255,255,255)">C </span><span class="str" style="color:rgb(230,219,90)">&quot;your_email@youremail.com&quot;</span></code></pre>
+</div>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">看到以下信息，输入你的Github密码：</p>
+<div class="highlighter-rouge" style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">
+<pre class="highlight prettyprint prettyprinted" style="font-family:consolas; overflow-x:auto; font-size:0.75rem; line-height:2.1667; margin:1em auto; color:rgb(208,208,208); border:1px solid rgb(11,12,10); width:640px; padding:1em; background-color:rgb(39,40,34)"><code style="font-family:consolas"><span class="com" style="color:rgb(117,113,94); font-style:italic"># Creates a new ssh key using the provided email Generating public/private rsa key pair. </span><span class="pln" style="color:rgb(255,255,255)">
+</span><span class="typ" style="color:rgb(102,217,239)">Enter</span><span class="pln" style="color:rgb(255,255,255)"> file </span><span class="kwd" style="color:rgb(102,217,239)">in</span><span class="pln" style="color:rgb(255,255,255)"> which to save the key </span><span class="pun" style="color:rgb(255,255,255)">(</span><span class="str" style="color:rgb(230,219,90)">/home/</span><span class="pln" style="color:rgb(255,255,255)">you</span><span class="pun" style="color:rgb(255,255,255)">/.</span><span class="pln" style="color:rgb(255,255,255)">ssh</span><span class="pun" style="color:rgb(255,255,255)">/</span><span class="pln" style="color:rgb(255,255,255)">id_rsa</span><span class="pun" style="color:rgb(255,255,255)">):</span><span class="pln" style="color:rgb(255,255,255)">
+
+</span><span class="typ" style="color:rgb(102,217,239)">Enter</span><span class="pln" style="color:rgb(255,255,255)"> passphrase </span><span class="pun" style="color:rgb(255,255,255)">(</span><span class="pln" style="color:rgb(255,255,255)">empty </span><span class="kwd" style="color:rgb(102,217,239)">for</span><span class="pln" style="color:rgb(255,255,255)"> </span><span class="kwd" style="color:rgb(102,217,239)">no</span><span class="pln" style="color:rgb(255,255,255)"> passphrase</span><span class="pun" style="color:rgb(255,255,255)">):</span><span class="pln" style="color:rgb(255,255,255)"> </span><span class="pun" style="color:rgb(255,255,255)">[</span><span class="typ" style="color:rgb(102,217,239)">Type</span><span class="pln" style="color:rgb(255,255,255)"> a passphrase</span><span class="pun" style="color:rgb(255,255,255)">]</span><span class="pln" style="color:rgb(255,255,255)"> 
+</span><span class="typ" style="color:rgb(102,217,239)">Enter</span><span class="pln" style="color:rgb(255,255,255)"> same passphrase again</span><span class="pun" style="color:rgb(255,255,255)">:</span><span class="pln" style="color:rgb(255,255,255)"> </span><span class="pun" style="color:rgb(255,255,255)">[</span><span class="typ" style="color:rgb(102,217,239)">Type</span><span class="pln" style="color:rgb(255,255,255)"> passphrase again</span><span class="pun" style="color:rgb(255,255,255)">]</span></code></pre>
+</div>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">然后你在你的目录下会发现有一个<code class="highlighter-rouge" style="font-family:consolas; padding:0px 0.2em; margin:0px 3px; font-size:0.75rem; line-height:1.5; white-space:nowrap; border:1px solid rgb(216,216,216); color:rgb(77,77,77); position:relative; top:-2px; background:rgb(248,248,248)">.ssh</code>目录，里面有一个<code class="highlighter-rouge" style="font-family:consolas; padding:0px 0.2em; margin:0px 3px; font-size:0.75rem; line-height:1.5; white-space:nowrap; border:1px solid rgb(216,216,216); color:rgb(77,77,77); position:relative; top:-2px; background:rgb(248,248,248)">id_rsa</code>文件和一个<code class="highlighter-rouge" style="font-family:consolas; padding:0px 0.2em; margin:0px 3px; font-size:0.75rem; line-height:1.5; white-space:nowrap; border:1px solid rgb(216,216,216); color:rgb(77,77,77); position:relative; top:-2px; background:rgb(248,248,248)">id_rsa.pub文件</code>，说明SSH私钥和公钥已经成功生成了。</p>
+<h4 id="sshgithub" style="font-family:Lato,Calibri,Arial,'Microsoft YaHei'; font-size:16px; line-height:26px">
+3.2 将SSH公钥添加到Github</h4>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">在Github网站上找到<code class="highlighter-rouge" style="font-family:consolas; padding:0px 0.2em; margin:0px 3px; font-size:0.75rem; line-height:1.5; white-space:nowrap; border:1px solid rgb(216,216,216); color:rgb(77,77,77); position:relative; top:-2px; background:rgb(248,248,248)">Account
+ Setting -&gt; &quot;SSH Keys&quot; -&gt; Add SSH key</code>，将<code class="highlighter-rouge" style="font-family:consolas; padding:0px 0.2em; margin:0px 3px; font-size:0.75rem; line-height:1.5; white-space:nowrap; border:1px solid rgb(216,216,216); color:rgb(77,77,77); position:relative; top:-2px; background:rgb(248,248,248)">id_rsa.pub</code>中的内容粘贴到<code class="highlighter-rouge" style="font-family:consolas; padding:0px 0.2em; margin:0px 3px; font-size:0.75rem; line-height:1.5; white-space:nowrap; border:1px solid rgb(216,216,216); color:rgb(77,77,77); position:relative; top:-2px; background:rgb(248,248,248)">key</code>一栏，点击<code class="highlighter-rouge" style="font-family:consolas; padding:0px 0.2em; margin:0px 3px; font-size:0.75rem; line-height:1.5; white-space:nowrap; border:1px solid rgb(216,216,216); color:rgb(77,77,77); position:relative; top:-2px; background:rgb(248,248,248)">add
+ key</code>按钮。</p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">在Git Bash中输入以下代码测试：</p>
+<div class="highlighter-rouge" style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">
+<pre class="highlight prettyprint prettyprinted" style="font-family:consolas; overflow-x:auto; font-size:0.75rem; line-height:2.1667; margin:1em auto; color:rgb(208,208,208); border:1px solid rgb(11,12,10); width:640px; padding:1em; background-color:rgb(39,40,34)"><code style="font-family:consolas"><span class="pln" style="color:rgb(255,255,255)">ssh </span><span class="pun" style="color:rgb(255,255,255)">-</span><span class="pln" style="color:rgb(255,255,255)">T git@github</span><span class="pun" style="color:rgb(255,255,255)">.</span><span class="pln" style="color:rgb(255,255,255)">com</span></code></pre>
+</div>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">如果你看到了以下结果，说明成功了：</p>
+<div class="highlighter-rouge" style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">
+<pre class="highlight prettyprint prettyprinted" style="font-family:consolas; overflow-x:auto; font-size:0.75rem; line-height:2.1667; margin:1em auto; color:rgb(208,208,208); border:1px solid rgb(11,12,10); width:640px; padding:1em; background-color:rgb(39,40,34)"><code style="font-family:consolas"><span class="typ" style="color:rgb(102,217,239)">The</span><span class="pln" style="color:rgb(255,255,255)"> authenticity of host </span><span class="str" style="color:rgb(230,219,90)">'github.com (207.97.227.239)'</span><span class="pln" style="color:rgb(255,255,255)"> can</span><span class="str" style="color:rgb(230,219,90)">'t be established. 
+RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48. 
+Are you sure you want to continue connecting (yes/no)?[Type yes]
+
+Hi username! 
+You'</span><span class="pln" style="color:rgb(255,255,255)">ve successfully authenticated</span><span class="pun" style="color:rgb(255,255,255)">,</span><span class="pln" style="color:rgb(255,255,255)"> but </span><span class="typ" style="color:rgb(102,217,239)">GitHub</span><span class="pln" style="color:rgb(255,255,255)"> does </span><span class="kwd" style="color:rgb(102,217,239)">not</span><span class="pln" style="color:rgb(255,255,255)"> provide shell access</span><span class="pun" style="color:rgb(255,255,255)">.</span></code></pre>
+</div>
+<h3 id="github-page-2" style="font-family:Lato,Calibri,Arial,'Microsoft YaHei'"><a target="_blank" target="_blank" name="outline_3" style="color:rgb(34,34,34)"></a>四、创建你的Github Page</h3>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">登录<code class="highlighter-rouge" style="font-family:consolas; padding:0px 0.2em; margin:0px 3px; font-size:0.75rem; line-height:1.5; white-space:nowrap; border:1px solid rgb(216,216,216); color:rgb(77,77,77); position:relative; top:-2px; background:rgb(248,248,248)">https://github.com/yourname</code>，点击<code class="highlighter-rouge" style="font-family:consolas; padding:0px 0.2em; margin:0px 3px; font-size:0.75rem; line-height:1.5; white-space:nowrap; border:1px solid rgb(216,216,216); color:rgb(77,77,77); position:relative; top:-2px; background:rgb(248,248,248)">Repositories
+ -&gt; New</code>创建一个新的仓库。</p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">注意，<code class="highlighter-rouge" style="font-family:consolas; padding:0px 0.2em; margin:0px 3px; font-size:0.75rem; line-height:1.5; white-space:nowrap; border:1px solid rgb(216,216,216); color:rgb(77,77,77); position:relative; top:-2px; background:rgb(248,248,248)">Repository
+ name</code>一定要设置为<code class="highlighter-rouge" style="font-family:consolas; padding:0px 0.2em; margin:0px 3px; font-size:0.75rem; line-height:1.5; white-space:nowrap; border:1px solid rgb(216,216,216); color:rgb(77,77,77); position:relative; top:-2px; background:rgb(248,248,248)">yourname.github.io</code>，其他选项默认，点确认</p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">然后在这个仓库的页面<code class="highlighter-rouge" style="font-family:consolas; padding:0px 0.2em; margin:0px 3px; font-size:0.75rem; line-height:1.5; white-space:nowrap; border:1px solid rgb(216,216,216); color:rgb(77,77,77); position:relative; top:-2px; background:rgb(248,248,248)">https://github.com/yourname/yourname.github.io</code>的右边栏点<code class="highlighter-rouge" style="font-family:consolas; padding:0px 0.2em; margin:0px 3px; font-size:0.75rem; line-height:1.5; white-space:nowrap; border:1px solid rgb(216,216,216); color:rgb(77,77,77); position:relative; top:-2px; background:rgb(248,248,248)">Settings</code></p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">往下拉找到<code class="highlighter-rouge" style="font-family:consolas; padding:0px 0.2em; margin:0px 3px; font-size:0.75rem; line-height:1.5; white-space:nowrap; border:1px solid rgb(216,216,216); color:rgb(77,77,77); position:relative; top:-2px; background:rgb(248,248,248)">GitHub
+ Pages -&gt; Automatic Page generator</code>，一路Next即可</p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">等几分钟，访问http://yourname.github.io就能看到你创建的页面了。</p>
+<h3 id="section-1" style="font-family:Lato,Calibri,Arial,'Microsoft YaHei'"><a target="_blank" target="_blank" name="outline_4" style="color:rgb(34,34,34)"></a>五、本地修改网页和上传</h3>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">在仓库页面右边栏，有一个<code class="highlighter-rouge" style="font-family:consolas; padding:0px 0.2em; margin:0px 3px; font-size:0.75rem; line-height:1.5; white-space:nowrap; border:1px solid rgb(216,216,216); color:rgb(77,77,77); position:relative; top:-2px; background:rgb(248,248,248)">SSH
+ clone URL</code>，将里面的内容复制下来</p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">在Git Bash中输入：</p>
+<div class="highlighter-rouge" style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">
+<pre class="highlight prettyprint prettyprinted" style="font-family:consolas; overflow-x:auto; font-size:0.75rem; line-height:2.1667; margin:1em auto; color:rgb(208,208,208); border:1px solid rgb(11,12,10); width:640px; padding:1em; background-color:rgb(39,40,34)"><code style="font-family:consolas"><span class="pln" style="color:rgb(255,255,255)">$ git clone </span><span class="pun" style="color:rgb(255,255,255)">你复制的内容</span></code></pre>
+</div>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">看看你的工作目录下，Github帮你自动生成的网站就被复制下来了，目录结构类&#20284;于：</p>
+<div class="highlighter-rouge" style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">
+<pre class="highlight prettyprint prettyprinted" style="font-family:consolas; overflow-x:auto; font-size:0.75rem; line-height:2.1667; margin:1em auto; color:rgb(208,208,208); border:1px solid rgb(11,12,10); width:640px; padding:1em; background-color:rgb(39,40,34)"><code style="font-family:consolas"><span class="pun" style="color:rgb(255,255,255)">--</span><span class="pln" style="color:rgb(255,255,255)">images
+</span><span class="pun" style="color:rgb(255,255,255)">--</span><span class="pln" style="color:rgb(255,255,255)">javascripts
+</span><span class="pun" style="color:rgb(255,255,255)">--</span><span class="pln" style="color:rgb(255,255,255)">stylesheets
+  index</span><span class="pun" style="color:rgb(255,255,255)">.</span><span class="pln" style="color:rgb(255,255,255)">html
+  </span><span class="kwd" style="color:rgb(102,217,239)">params</span><span class="pun" style="color:rgb(255,255,255)">.</span><span class="pln" style="color:rgb(255,255,255)">json</span></code></pre>
+</div>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">尝试更改一下index.html，比如将</p>
+<div class="language-html highlighter-rouge" style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">
+<pre class="highlight prettyprint prettyprinted" style="font-family:consolas; overflow-x:auto; font-size:0.75rem; line-height:2.1667; margin:1em auto; color:rgb(208,208,208); border:1px solid rgb(11,12,10); width:640px; padding:1em; background-color:rgb(39,40,34)"><code style="font-family:consolas"><span class="nt" style="color:rgb(249,38,114)"><span class="tag" style="">&lt;title&gt;</span></span><span class="pln" style="color:rgb(255,255,255)">Test</span><span class="nt" style="color:rgb(249,38,114)"><span class="tag" style="">&lt;/title&gt;</span></span>
+</code></pre>
+</div>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">改成：</p>
+<div class="language-html highlighter-rouge" style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">
+<pre class="highlight prettyprint prettyprinted" style="font-family:consolas; overflow-x:auto; font-size:0.75rem; line-height:2.1667; margin:1em auto; color:rgb(208,208,208); border:1px solid rgb(11,12,10); width:640px; padding:1em; background-color:rgb(39,40,34)"><code style="font-family:consolas"><span class="nt" style="color:rgb(249,38,114)"><span class="tag" style="">&lt;title&gt;</span></span><span class="pln" style="color:rgb(255,255,255)">我的博客</span><span class="nt" style="color:rgb(249,38,114)"><span class="tag" style="">&lt;/title&gt;</span></span>
+</code></pre>
+</div>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">然后在Git Bash里面依次输入下面三个命令</p>
+<div class="highlighter-rouge" style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">
+<pre class="highlight prettyprint prettyprinted" style="font-family:consolas; overflow-x:auto; font-size:0.75rem; line-height:2.1667; margin:1em auto; color:rgb(208,208,208); border:1px solid rgb(11,12,10); width:640px; padding:1em; background-color:rgb(39,40,34)"><code style="font-family:consolas"><span class="pln" style="color:rgb(255,255,255)">$ git add </span><span class="pun" style="color:rgb(255,255,255)">-</span><span class="pln" style="color:rgb(255,255,255)">A
+$ git commit </span><span class="pun" style="color:rgb(255,255,255)">-</span><span class="pln" style="color:rgb(255,255,255)">m </span><span class="str" style="color:rgb(230,219,90)">&quot;change title of index.html&quot;</span><span class="pln" style="color:rgb(255,255,255)">
+$ git push</span></code></pre>
+</div>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">这三个命令的意义及更多git命令的用法，见<a target="_blank" target="_blank" href="http://www.cnblogs.com/1-2-3/archive/2010/07/18/git-commands.html" style="color:rgb(65,131,196); text-decoration:none">这里</a></p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">上传完毕后，等几分钟，刷新页面，就会发现页面的标题已经变成“我的博客”了。</p>
+<h3 id="section-2" style="font-family:Lato,Calibri,Arial,'Microsoft YaHei'"><a target="_blank" target="_blank" name="outline_5" style="color:rgb(34,34,34)"></a>六、自定义博客的主题和页面</h3>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">Github Page只是一个静态页面托管服务，也就是说不能运行php和mysql等程序。</p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">Github Page允许站内生成网页（比如我们刚刚做的那样），</p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">也允许用户自己编写网页上传，只不过上传的网页会经过Jekyll程序的再处理。</p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">用Github Page建立博客的思路：</p>
+<ul style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">
+<li style="">使用Jekyll语言人工编写符合规范的代码上传（不推荐）</li><li style="">使用基于Jekyll的Octopress静态博客系统搭建（推荐）</li><li style="">使用其他基于Jekyll的静态博客主题，比如HPSTR或Hexo（推荐）</li></ul>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">这里使用的是HPSTR主题，它的示例链接是<a target="_blank" target="_blank" href="http://mmistakes.github.io/hpstr-jekyll-theme/" style="color:rgb(65,131,196); text-decoration:none">这里</a></p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">它本身就是一个Github Page，我们找到它的<a target="_blank" target="_blank" href="https://github.com/mmistakes/hpstr-jekyll-theme" style="color:rgb(65,131,196); text-decoration:none">git地址</a>clone下来</p>
+<div class="highlighter-rouge" style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">
+<pre class="highlight prettyprint prettyprinted" style="font-family:consolas; overflow-x:auto; font-size:0.75rem; line-height:2.1667; margin:1em auto; color:rgb(208,208,208); border:1px solid rgb(11,12,10); width:640px; padding:1em; background-color:rgb(39,40,34)"><code style="font-family:consolas"><span class="pln" style="color:rgb(255,255,255)">$ git clone git@github</span><span class="pun" style="color:rgb(255,255,255)">.</span><span class="pln" style="color:rgb(255,255,255)">com</span><span class="pun" style="color:rgb(255,255,255)">:</span><span class="pln" style="color:rgb(255,255,255)">mmistakes</span><span class="pun" style="color:rgb(255,255,255)">/</span><span class="pln" style="color:rgb(255,255,255)">hpstr</span><span class="pun" style="color:rgb(255,255,255)">-</span><span class="pln" style="color:rgb(255,255,255)">jekyll</span><span class="pun" style="color:rgb(255,255,255)">-</span><span class="pln" style="color:rgb(255,255,255)">theme</span><span class="pun" style="color:rgb(255,255,255)">.</span><span class="pln" style="color:rgb(255,255,255)">git</span></code></pre>
+</div>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">复制它的文件到你自己的文件夹里，然后按照配置提示修改参数、上传即可</p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">HPSTR主题里有几篇默认文章，讲解了一下如何写文章以及一些简单的Markdown语法等等。</p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">其他主题的安装方法也很类&#20284;，就不一一说明了。</p>
+<h3 id="section-3" style="font-family:Lato,Calibri,Arial,'Microsoft YaHei'"><a target="_blank" target="_blank" name="outline_6" style="color:rgb(34,34,34)"></a>七、绑定域名</h3>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">如果你想要显得更Geek一点，还可以绑定独立域名。</p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">假设你已经有一个域名yourname.com，在你的代码仓库的根目录下创建一个名为<code class="highlighter-rouge" style="font-family:consolas; padding:0px 0.2em; margin:0px 3px; font-size:0.75rem; line-height:1.5; white-space:nowrap; border:1px solid rgb(216,216,216); color:rgb(77,77,77); position:relative; top:-2px; background:rgb(248,248,248)">CNAME</code>的文件，注意没有后缀名。</p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">里面写入你要绑定的域名，比如youname.com</p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">然后前往你的域名托管商处，新增一条CNAME类型的解析记录，指向yourname.github.io</p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">根据域名托管商的默认TTL设置的不同，解析生效需要10分钟至24小时不等。</p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">等解析生效，你就可以使用你的独立域名访问博客了。</p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">（完）</p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">本文首发<a target="_blank" target="_blank" href="http://www.dss886.com/" style="color:rgb(65,131,196); text-decoration:none">http://www.dss886.com</a>，</p>
+<p style="font-family:Lato,Calibri,Arial; font-size:16px; line-height:26px">转载：http://www.dss886.com/github/2014/05/05/03</p>
+   
+</div>
+
+
+
+
+<!-- Baidu Button BEGIN -->
+
+
+
+
+<div class="bdsharebuttonbox tracking-ad" style="float: right;" data-mod="popu_172">
+<a href="#" class="bds_more" data-cmd="more" style="background-position:0 0 !important; background-image: url(http://bdimg.share.baidu.com/static/api/img/share/icons_0_16.png?v=d754dcc0.png) !important"></a>
+<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"  style="background-position:0 -52px !important"></a>
+<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"style="background-position:0 -104px !important"></a>
+<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"style="background-position:0 -260px !important"></a>
+<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"style="background-position:0 -208px !important"></a>
+<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"style="background-position:0 -1612px !important" ></a>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+<!-- Baidu Button END -->
+
+   
+
+    
+<!--172.16.140.15-->
+
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=1536434" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->
+
+
+
+ 
+
+
+        <div id="digg" ArticleId="52514106" >
+            <dl id="btnDigg" class="digg digg_disable"  onclick="btndigga();">
+               
+                 <dt>顶</dt>
+                <dd>0</dd>
+            </dl>
+           
+              
+            <dl id="btnBury" class="digg digg_disable"  onclick="btnburya();">
+              
+                  <dt>踩</dt>
+                <dd>0</dd>               
+            </dl>
+            
+        </div>
+     <div class="tracking-ad" data-mod="popu_222"><a href="javascript:void(0);" >&nbsp;</a>   </div>
+    <div class="tracking-ad" data-mod="popu_223"> <a href="javascript:void(0);" >&nbsp;</a></div>
+    <script type="text/javascript">
+                function btndigga() {
+                    $(".tracking-ad[data-mod='popu_222'] a").click();
+                }
+                function btnburya() {
+                    $(".tracking-ad[data-mod='popu_223'] a").click();
+                }
+            </script>
+
+   <ul class="article_next_prev">
+                <li class="prev_article"><span  onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian']);location.href='/phenixyf/article/details/52513373';">上一篇</span><a href="/phenixyf/article/details/52513373" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian'])">手把手教你实现折线图之------安卓最好用的图表库hellocharts之最详细的使用介绍</a></li>
+                <li class="next_article"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian']);location.href='/phenixyf/article/details/52515598';">下一篇</span><a href="/phenixyf/article/details/52515598" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian'])">Eclipse中导入外部jar包——添加lib</a></li>
+    </ul>
+
+    <div style="clear:both; height:10px;"></div>
+
+
+            <div class="similar_article"   >
+                    <h4></h4>
+                    <div class="similar_c"style="margin:20px 0px 0px 0px">
+                        <div class="similar_c_t">
+                          &nbsp;&nbsp;相关文章推荐
+                        </div>
+                   
+                        <div class="similar_wrap tracking-ad" data-mod="popu_36"  style="max-height:195px;">                       
+                            <ul class="similar_list fl">    
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/jzooo/article/details/46781805" title="零基础免费搭建个人博客-hexo+github" strategy="" target="_blank" style="width: 290px;">零基础免费搭建个人博客-hexo+github</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://bcyy.iteye.com/blog/1875387" title="做到完全免费——分享我的个人博客方案" strategy="" target="_blank" style="width: 290px;">做到完全免费——分享我的个人博客方案</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://kevincefang.iteye.com/blog/2192943" title="hexo+github搭建免费的博客" strategy="" target="_blank" style="width: 290px;">hexo+github搭建免费的博客</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/lslvxy/article/details/14449299" title="GitHub Pages 搭建流程-基于jekyll-bootstrap" strategy="" target="_blank" style="width: 290px;">GitHub Pages 搭建流程-基于jekyll-bootstrap</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://c-j.iteye.com/blog/814264" title="从零搭建个人博客（wordpress+php+nginx+mysql)" strategy="" target="_blank" style="width: 290px;">从零搭建个人博客（wordpress+php+nginx+mysql)</a>
+                                   </li>
+                            </ul>
+                              <ul class="similar_list fr">      
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://xinteng2012.iteye.com/blog/2198239" title="使用Jekyll在Github上搭建个人博客（博客编写）" strategy="" target="_blank" style="width: 290px;">使用Jekyll在Github上搭建个人博客（博客编写）</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/wcc526/article/details/17006849" title="如何在github建免费,无限流量的个人blog" strategy="" target="_blank" style="width: 290px;">如何在github建免费,无限流量的个人blog</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://justcoding.iteye.com/blog/1957617" title="Ubuntu上使用octopress+github建立个人博客" strategy="" target="_blank" style="width: 290px;">Ubuntu上使用octopress+github建立个人博客</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://morry.iteye.com/blog/2031839" title="利用Github自建的个人博客空间" strategy="" target="_blank" style="width: 290px;">利用Github自建的个人博客空间</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/vipyhd/article/details/31350833" title="2014记录文件收藏夹也由于浏览器更换不得不在这保存一份" strategy="" target="_blank" style="width: 290px;">2014记录文件收藏夹也由于浏览器更换不得不在这保存一份</a>
+                                   </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>   
+      
+</div>
+
+     <div>
+           
+
+       
+                           
+            <!-- 广告位：PC端-博客内容页-banner1-960*90 --> 
+            <script> 
+                (function() { 
+                    var s = "_" + Math.random().toString(36).slice(2); 
+                    document.write('<div id="' + s + '"></div>'); 
+                    (window.slotbydup=window.slotbydup || []).push({ 
+                        id: '4228013', 
+                        container: s, 
+                        size: '0,0', 
+                        display: 'inlay-fix' 
+                    }); 
+                })(); 
+            </script>
+    </div>
+
+<div id="suggest"></div>
+         <script  language="javascript" type='text/javascript'>     
+             $(function(){
+                 $.get("/phenixyf/svc/GetSuggestContent/52514106",function(data){
+                     $("#suggest").html(data);
+                 });     
+             });             
+         </script>  
+
+
+<style>
+.blog-ass-articl dd {
+color: #369;
+width: 99%; /*修改行*/
+float: left;
+overflow: hidden;
+font: normal normal 12px/23px "SimSun";
+height: 23px;
+margin: 0;
+padding: 0 0 0 10px;
+margin-right: 30px;
+background: url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;
+}
+</style>
+
+ 
+
+ 
+
+<dl class="blog-ass-articl tracking-ad" id="res-relatived" data-mod="popu_84"  > 
+    <div class="embody embody_b" id="libkeyparent"  style="display:none">
+            <span class="embody_t">更多资料请参考：</span>
+            <div class="embody_c" id="libkey"></div>
+    </div>
+
+
+     <dt><span>猜你在找</span></dt>    
+
+
+   
+
+    
+    <div id="adCollege"> 
+        <div>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/huiyiCourse/detail/422?ref=blog&amp;loc=r1" title="深度学习基础与TensorFlow实践" strategy="undefined" target="_blank">深度学习基础与TensorFlow实践</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/huiyiCourse/series_detail/43?ref=blog&amp;loc=r1" title="【在线峰会】前端开发重点难点技术剖析与创新实践" strategy="undefined" target="_blank">【在线峰会】前端开发重点难点技术剖析与创新实践</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/huiyiCourse/series_detail/42?ref=blog&amp;loc=r1" title="【在线峰会】一天掌握物联网全栈开发之道" strategy="undefined" target="_blank">【在线峰会】一天掌握物联网全栈开发之道</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/huiyiCourse/series_detail/41?ref=blog&amp;loc=r1" title="【在线峰会】如何高质高效的进行Android技术开发" strategy="undefined" target="_blank">【在线峰会】如何高质高效的进行Android技术开发</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/huiyiCourse/detail/404?ref=blog&amp;loc=r1" title="机器学习40天精英计划" strategy="undefined" target="_blank">机器学习40天精英计划</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/huiyiCourse/detail/402?ref=blog&amp;loc=r1" title="Python数据挖掘与分析速成班" strategy="undefined" target="_blank">Python数据挖掘与分析速成班</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/course/detail/3011?ref=blog&amp;loc=r1" title="微信小程序开发实战" strategy="undefined" target="_blank">微信小程序开发实战</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/course/detail/1968?ref=blog&amp;loc=r1" title="JFinal极速开发企业实战" strategy="undefined" target="_blank">JFinal极速开发企业实战</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/combo/detail/23?ref=blog&amp;loc=r1" title="备战2017软考 系统集成项目管理工程师 学习套餐" strategy="undefined" target="_blank">备战2017软考 系统集成项目管理工程师 学习套餐</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/course/detail/3338?ref=blog&amp;loc=r1" title="Python大型网络爬虫项目开发实战（全套）" strategy="undefined" target="_blank">Python大型网络爬虫项目开发实战（全套）</a>
+                </dd>
+            
+        </div>
+    </div>  
+
+    
+
+    
+   
+</dl>
+
+
+
+
+
+    <div id="ad_cen">        
+                <div>
+                                    <div class="tracking-ad" data-view="true" data-mod="ad_popu_199" data-mtp="43" data-order="114" data-con="ad_content_1843" style="width: 960px; height: 90px;">
+                                             <script type="text/javascript">
+                                                 /*博客内容页下方Banner2-960*90，创建于,2016-11-28*/
+                                                 var cpro_id = "u2831143";
+                                            </script>
+                                            <script type="text/javascript" src="http://cpro.baidustatic.com/cpro/ui/c.js"></script>
+                                   </div>
+                    </div>
+    </div>  
+
+        <!-- 广告位开始 -->
+        <!-- 广告位结束 -->
+
+
+<div class="comment_class">
+    <div id="comment_title" class="panel_head">
+        <span class="see_comment">查看评论</span><a name="comments"></a></div>
+    <div id="comment_list">
+    </div>
+    <div id="comment_bar">
+    </div>
+    <div id="comment_form">
+    </div>
+    <div class="announce">
+        * 以上用户言论只代表其个人观点，不代表CSDN网站的观点或立场<a name="reply"></a><a name="quote"></a></div>
+</div>
+
+<script type="text/javascript">
+    var fileName = '52514106';
+    var commentscount = 1;
+    var islock = false
+</script>
+
+    <div id="ad_bot">
+    </div>
+<div id="report_dialog">
+</div>
+
+<div id="d-top"  style="bottom:60px;">
+
+        <a id="quick-reply" class="btn btn-top q-reply" title="快速回复" style="display:none;">
+            <img src="http://static.blog.csdn.net/images/blog-icon-reply.png" alt="快速回复">
+        </a>    
+    <a id="d-top-a" class="btn btn-top backtop"  style="display: none;" title="返回顶部" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_huidaodingbu'])" style="">         
+         <img src="http://static.blog.csdn.net/images/top.png" alt="TOP">
+    </a>
+</div>
+<script type="text/javascript">
+    $(function ()
+    {
+        $("#ad_frm_0").height("90px");
+        
+        setTimeout(function(){
+            $("#ad_frm_2").height("200px");
+        },1000);    
+    });
+  
+</script>
+<style type="text/css">
+    .tag_list
+    {
+        background: none repeat scroll 0 0 #FFFFFF;
+        border: 1px solid #D7CBC1;
+        color: #000000;
+        font-size: 12px;
+        line-height: 20px;
+        list-style: none outside none;
+        margin: 10px 2% 0 1%;
+        padding: 1px;
+    }
+    .tag_list h5
+    {
+        background: none repeat scroll 0 0 #E0DBD3;
+        color: #47381C;
+        font-size: 12px;
+        height: 24px;
+        line-height: 24px;
+        padding: 0 5px;
+        margin: 0;
+    }
+    .tag_list h5 a
+    {
+        color: #47381C;
+    }
+    .classify
+    {
+        margin: 10px 0;
+        padding: 4px 12px 8px;
+    }
+    .classify a
+    {
+        margin-right: 20px;
+        white-space: nowrap;
+    }
+</style>
+
+
+
+
+
+<div id="pop_win" style="display:none ;position: absolute; z-index: 10000; border: 1px solid rgb(220, 220, 220); top: 222.5px; left: 630px; opacity: 1; background: none 0px 0px repeat scroll rgb(255, 255, 255);">
+    
+</div>
+<div id="popup_mask"></div>
+<style>
+    #popup_mask
+    {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: 9999;
+        left: 0px;
+        top: 0px;
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+        display: none;
+    }
+
+</style>
+
+
+
+
+<script type="text/javascript">
+    $(function(){        
+        
+        setTimeout(function(){
+            $(".comment_body:contains('回复')").each(function(index,item){
+                var u=$(this).text().split('：')[0].toString().replace("回复","")
+                var thisComment=$(this);
+                if(u)
+                {
+                    $.getJSON("https://passport.csdn.net/get/nick?callback=?", {users: u}, function(a) {
+                        if(a!=null&&a.data!=null&&a.data.length>0)
+                        {
+                            nick=a.data[0].n; 
+                            if(u!=nick)
+                            {
+                                thisComment.text(thisComment.text().replace(u,nick));  
+                            }
+                        }       
+                    });  
+                }
+            });         
+
+        },200);  
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },5000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },10000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },15000);
+        
+        setTimeout(function(){
+            $("a img[src='http://js.tongji.linezing.com/stats.gif']").parent().css({"position":"absolute","left":"50%"});
+        },300);
+    });
+
+    function loginbox(){
+        var $logpop=$("#pop_win");
+        $logpop.html('<iframe src="https://passport.csdn.net/account/loginbox?service=http://static.blog.csdn.net/callback.htm" frameborder="0" height="600" width="400" scrolling="no"></iframe>');
+
+        $('#popup_mask').css({
+            opacity: 0.5,
+            width: $( document ).width() + 'px',
+            height:  $( document ).height() + 'px'
+        });
+        $('#popup_mask').css("display","block");
+ 
+        $logpop.css( {
+            top: ($( window ).height() - $logpop.height())/ 2  + $( window 
+       ).scrollTop() + 'px',
+            left:($( window ).width() - $logpop.width())/ 2
+        } );
+ 
+        setTimeout( function () {
+            $logpop.show();
+            $logpop.css( {
+                opacity: 1
+            } );
+        }, 200 );
+ 
+        $('#popup_mask').unbind("click");
+        $('#popup_mask').bind("click", function(){
+            $('#popup_mask').hide();
+            var $clopop = $("#pop_win");
+            $("#common_ask_div_sc").css("display","none");
+            $clopop.css( {
+                opacity: 0
+            } );
+            setTimeout( function () {
+                $clopop.hide();
+            }, 350 );
+            return false;
+        });
+    }   
+
+    var articletitle='零基础Github Page免费无限流量个人博客搭建教程';
+
+</script>
+
+
+
+
+
+
+
+
+                        <div class="clear">
+                        </div>
+                    </div>                   
+                
+            </div>
+                   
+           <div id="side">
+               
+    <div class="side">
+<div id="panel_Profile" class="panel">
+<ul class="panel_head"><span>个人资料</span></ul>
+<ul class="panel_body profile">
+<div id="blog_userface">
+    <a href="http://my.csdn.net/phenixyf" target="_blank">
+    <img src="http://avatar.csdn.net/B/7/7/1_phenixyf.jpg" title="访问我的空间" style="max-width:90%"/>
+    </a>
+    <br />
+    <span><a href="http://my.csdn.net/phenixyf" class="user_name" target="_blank">phenixyf</a></span>
+</div>
+<div class="interact">
+
+    <a href="javascript:void(0);" class="attent" id="span_add_follow" title="[加关注]"></a>
+
+ <a href="javascript:void(0);" class="letter"  title="[发私信]" onclick="window.open('http://msg.csdn.net/letters/model?receiver=phenixyf','_blank','height=350,width=700');_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_sixin'])"></a>  
+</div>
+<div id="blog_medal">
+                <div id="bms_box">
+                                            <a  target="_blank">
+                                                    <img src="http://c.csdnimg.cn/jifen/images/xunzhang/xunzhang/chizhiyiheng.png" onmouseover="m_over_m(this,4)" onmouseout="m_out_m()" alt="2" >
+                                            </a>
+               </div>
+</div>
+<ul id="blog_rank">
+    <li>访问：<span>904635次</span></li>
+    <li>积分：<span>11969</span> </li>    
+    <li >等级： <span style="position:relative;display:inline-block;z-index:1" >
+            <img src="http://c.csdnimg.cn/jifen/images/xunzhang/jianzhang/blog7.png" alt="" style="vertical-align: middle;" id="leveImg">
+            <div id="smallTittle" style=" position: absolute;  left: -24px;  top: 25px;  text-align: center;  width: 101px;  height: 32px;  background-color: #fff;  line-height: 32px;  border: 2px #DDDDDD solid;  box-shadow: 0px 2px 2px rgba (0,0,0,0.1);  display: none;   z-index: 999;">
+            <div style="left: 42%;  top: -8px;  position: absolute;  width: 0;  height: 0;  border-left: 10px solid transparent;  border-right: 10px solid transparent;  border-bottom: 8px solid #EAEAEA;"></div>
+            积分：11969 </div>
+        </span>  </li>
+    <li>排名：<span>第1123名</span></li>
+</ul>
+<ul id="blog_statistics">
+    <li>原创：<span>229篇</span></li>
+    <li>转载：<span>650篇</span></li>
+    <li>译文：<span>0篇</span></li>
+    <li>评论：<span>65条</span></li>
+</ul>
+</ul>
+</div>
+
+
+<div class="panel" id="panel_Search">
+    <ul class="panel_head"><span>文章搜索</span></ul>
+    <ul class="panel_body" class="form_search">
+        <form id="frmSearch" action="http://so.csdn.net/search" class="form_search csdn-tracking-statistics" target="_blank"  data-mod="popu_306">
+        <span><input id="inputSearch" type="text" class="blogsearch" title="请输入关键字" /></span>
+        <input id="btnSubmit" type="button" value="搜索" title="search in blog" />
+        <input type="hidden" name="q" id="inputQ" />
+        <input type="hidden" name="t" value="blog" />
+        <a id="btnSearchBlog" target="_blank"></a>
+        </form>
+    </ul>
+</div>
+
+<script type="text/javascript">
+
+   
+    $(function () {
+        $("#btnSubmit").unbind("click");
+        $("#btnSubmit").click(function () {           
+            search();
+        });
+
+        $("#frmSearch").submit(function () {           
+            search();
+            return false;
+        });
+
+        function search()
+        {
+            if ($("#inputSearch").val() == "") {               
+                alert("请录入搜索关键词！");                         
+                return false;
+            }
+            //var url = "http://so.csdn.net/so/search/s.do?q=" + encodeURIComponent($("#inputSearch").val()) + "&u=" + username + "&t=blog";           
+            var url = "https://www.baidu.com/s?wd=" + encodeURIComponent($("#inputSearch").val()) + "%20site%3Ablog.csdn.net"
+            window.location.href = url;
+        }   
+    });
+</script><div id="panel_Category" class="panel">
+<ul class="panel_head"><span>文章分类</span></ul>
+<ul class="panel_body">    
+                 <li>
+                    <a href="/phenixyf/article/category/2473089" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">VC++ Debug &amp; 常见 error</a><span>(22)</span>
+                </li>
+                 <li>
+                    <a href="/phenixyf/article/category/5793087" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">XILINX ISE</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/phenixyf/article/category/1309147" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">HardWare</a><span>(31)</span>
+                </li>
+                 <li>
+                    <a href="/phenixyf/article/category/1264172" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">TPMS</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/phenixyf/article/category/1212196" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">MEMS</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/phenixyf/article/category/1527637" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">ARM</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/phenixyf/article/category/1286680" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">软件开发环境</a><span>(23)</span>
+                </li>
+                 <li>
+                    <a href="/phenixyf/article/category/1409063" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Matlab</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/phenixyf/article/category/1675099" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">PADS</a><span>(5)</span>
+                </li>
+                 <li>
+                    <a href="/phenixyf/article/category/1258280" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">RF</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/phenixyf/article/category/1489129" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">UART</a><span>(9)</span>
+                </li>
+                 <li>
+                    <a href="/phenixyf/article/category/1447693" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">蓝牙</a><span>(18)</span>
+                </li>
+                 <li>
+                    <a href="/phenixyf/article/category/5722985" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">I2C</a><span>(9)</span>
+                </li>
+                 <li>
+                    <a href="/phenixyf/article/category/1241357" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">其它</a><span>(20)</span>
+                </li>
+                 <li>
+                    <a href="/phenixyf/article/category/1262768" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">电子知识</a><span>(10)</span>
+                </li>
+                 <li>
+                    <a href="/phenixyf/article/category/1313350" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Display</a><span>(6)</span>
+                </li>
+                 <li>
+                    <a href="/phenixyf/article/category/1427402" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">C#</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/phenixyf/article/category/2783397" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">常用程序、算法</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/phenixyf/article/category/3173001" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Driver IC</a><span>(6)</span>
+                </li>
+                 <li>
+                    <a href="/phenixyf/article/category/5643699" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Windows使用</a><span>(7)</span>
+                </li>
+                 <li>
+                    <a href="/phenixyf/article/category/6467071" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">网文转载</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/phenixyf/article/category/6819491" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Robot</a><span>(8)</span>
+                </li>
+                 <li>
+                    <a href="/phenixyf/article/category/6813964" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">GIT</a><span>(10)</span>
+                </li>
+                 <li>
+                    <a href="/phenixyf/article/category/6836518" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">数据库</a><span>(11)</span>
+                </li>
+                 <li>
+                    <a href="/phenixyf/article/category/6801372" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">QT</a><span>(23)</span>
+                </li>
+                 <li>
+                    <a href="/phenixyf/article/category/6878467" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">QT 数据库</a><span>(9)</span>
+                </li>
+</ul>
+</div><div id="hotarticls" class="panel">
+<ul class="panel_head">
+    <span>       
+阅读排行    </span>
+</ul>
+
+<ul class="panel_body itemlist">
+<li>
+<a href="/phenixyf/article/details/36442785" title="VC++ CString Find函数的用法说明">VC++ CString Find函数的用法说明</a><span>(21286)</span>
+</li>
+<li>
+<a href="/phenixyf/article/details/17846969" title="I2C通信 读写数据过程">I2C通信 读写数据过程</a><span>(16337)</span>
+</li>
+<li>
+<a href="/phenixyf/article/details/42873699" title="（Xilinx）FPGA中LVDS差分高速传输的实现">（Xilinx）FPGA中LVDS差分高速传输的实现</a><span>(15042)</span>
+</li>
+<li>
+<a href="/phenixyf/article/details/41896727" title="VC小技巧一：获取窗口句柄、控件ID、DC等">VC小技巧一：获取窗口句柄、控件ID、DC等</a><span>(13378)</span>
+</li>
+<li>
+<a href="/phenixyf/article/details/46364193" title="verilog入门经验（一） always块使用">verilog入门经验（一） always块使用</a><span>(12330)</span>
+</li>
+<li>
+<a href="/phenixyf/article/details/42874011" title="Xilinx公司原语的使用方法">Xilinx公司原语的使用方法</a><span>(10498)</span>
+</li>
+<li>
+<a href="/phenixyf/article/details/50562714" title="图像知识 太经典 膜拜">图像知识 太经典 膜拜</a><span>(10093)</span>
+</li>
+<li>
+<a href="/phenixyf/article/details/41744039" title="VC中MessageBox与AfxMessageBox用法与区别">VC中MessageBox与AfxMessageBox用法与区别</a><span>(9689)</span>
+</li>
+<li>
+<a href="/phenixyf/article/details/12579627" title="WIN7 64位如何安装虚拟机使用32位程序">WIN7 64位如何安装虚拟机使用32位程序</a><span>(9523)</span>
+</li>
+<li>
+<a href="/phenixyf/article/details/9194235" title="开发android蓝牙4.0 BLE低功耗应用的感受">开发android蓝牙4.0 BLE低功耗应用的感受</a><span>(9477)</span>
+</li>
+</ul>
+</div>
+<div id="hotarticls2" class="panel">
+<ul class="panel_head"><span>评论排行</span></ul>
+<ul class="panel_body itemlist">
+<li>
+<a href="/phenixyf/article/details/39054427" title="ISE ChipScope使用">ISE ChipScope使用</a><span>(7)</span>
+</li>
+<li>
+<a href="/phenixyf/article/details/48269771" title="LP 读操作流程">LP 读操作流程</a><span>(3)</span>
+</li>
+<li>
+<a href="/phenixyf/article/details/7951493" title="I2C Verilog的实现（一）">I2C Verilog的实现（一）</a><span>(3)</span>
+</li>
+<li>
+<a href="/phenixyf/article/details/51480220" title="关于Android蓝牙串口通信那点破事">关于Android蓝牙串口通信那点破事</a><span>(3)</span>
+</li>
+<li>
+<a href="/phenixyf/article/details/17846969" title="I2C通信 读写数据过程">I2C通信 读写数据过程</a><span>(2)</span>
+</li>
+<li>
+<a href="/phenixyf/article/details/42712441" title="VC2010 对话框显示菜单栏并响应">VC2010 对话框显示菜单栏并响应</a><span>(2)</span>
+</li>
+<li>
+<a href="/phenixyf/article/details/9208043" title="vc字符串转换处理：（绝对精华，收集所有的例子）">vc字符串转换处理：（绝对精华，收集所有的例子）</a><span>(2)</span>
+</li>
+<li>
+<a href="/phenixyf/article/details/9194235" title="开发android蓝牙4.0 BLE低功耗应用的感受">开发android蓝牙4.0 BLE低功耗应用的感受</a><span>(2)</span>
+</li>
+<li>
+<a href="/phenixyf/article/details/25705175" title="VS2010入门">VS2010入门</a><span>(2)</span>
+</li>
+<li>
+<a href="/phenixyf/article/details/7852262" title="基于F340 实现Bridge功能（二）：上位机应用程序编写">基于F340 实现Bridge功能（二）：上位机应用程序编写</a><span>(2)</span>
+</li>
+</ul>
+</div>
+<div id="homepageArticles" class="panel tracking-ad" data-mod="popu_4">
+<ul class="panel_head"><span>推荐文章</span></ul>
+<ul class="panel_body" id="ad_commend">
+<ul>
+<li><a href="http://blog.csdn.net/blogdevteam/article/details/73295305" target="_blank">* CSDN日报20170615 ——《11 年高考结束到 17 年日本修士的心路历程》</a></li>
+<li><a href="http://blog.csdn.net/tangxiaoyin/article/details/73274955" 
+target="_blank">* 一文理清散乱的物联网里开发者必须关注的技术！</a></li>
+<li><a href="http://blog.csdn.net/vipzjyno1/article/details/21039349"target="_blank">* Android APK反编译就这么简单 详解</a></li>
+<li><a href="http://blog.csdn.net/aliceyangxi1987/article/details/73210204" 
+target="_blank">* 如何选择优化器 optimizer</a></li>
+<li><a href="http://blog.csdn.net/u013970991/article/details/73222046" 
+target="_blank">* 性能测试场景设计杂谈</a></li>
+<li><a href="http://blog.csdn.net/yinwenjie/article/details/72909981" 
+target="_blank">* 线程进阶：多任务处理——Java 中的锁</a></li>
+
+</ul></ul>
+</div>
+
+
+<div id="newcomments" class="panel">
+<ul class="panel_head"><span>最新评论</span></ul>
+<ul class="panel_body itemlist">
+    <li>
+   
+         <a href="/phenixyf/article/details/42712441#comments">VC2010 对话框显示菜单栏并响应</a>
+    <p style="margin:0px;"><a href="/qq_38264031" class="user_name">qq_38264031</a>:
+写的很详细，谢谢
+    </p>
+    </li>
+    <li>
+   
+         <a href="/phenixyf/article/details/38516119#comments">MFC中进度条控件的使用方法</a>
+    <p style="margin:0px;"><a href="/u010627377" class="user_name">u010627377</a>:
+怎样在进程中控制啊？
+    </p>
+    </li>
+    <li>
+   
+         <a href="/phenixyf/article/details/49304903#comments">c++ new和delete产生的debug error</a>
+    <p style="margin:0px;"><a href="/qq_32175379" class="user_name">qq_32175379</a>:
+谢谢大神
+    </p>
+    </li>
+    <li>
+   
+         <a href="/phenixyf/article/details/41808117#comments">MFC子父窗口发送消息</a>
+    <p style="margin:0px;"><a href="/x_xd123" class="user_name">x_xd123</a>:
+多谢
+    </p>
+    </li>
+    <li>
+   
+         <a href="/phenixyf/article/details/12506101#comments">PADS 差分信号如何画</a>
+    <p style="margin:0px;"><a href="/wuzhuo123456" class="user_name">wuzhuo123456</a>:
+好用
+    </p>
+    </li>
+    <li>
+   
+         <a href="/phenixyf/article/details/52050302#comments">在一个Activity中调用另外一个Activity的变量或方法</a>
+    <p style="margin:0px;"><a href="/Jalon2015" class="user_name">Jalon2015</a>:
+感谢哈，最后那个方法不错
+    </p>
+    </li>
+    <li>
+   
+         <a href="/phenixyf/article/details/52050302#comments">VC2010 对话框显示菜单栏并响应</a>
+    <p style="margin:0px;"><a href="/kui1989tkol" class="user_name">kui1989tkol</a>:
+帮到我了，谢谢，写的很清晰
+    </p>
+    </li>
+    <li>
+   
+         <a href="/phenixyf/article/details/52050302#comments">c++ new和delete产生的debug error</a>
+    <p style="margin:0px;"><a href="/StarEight" class="user_name">StarEight</a>:
+大神，刚才遇到这个问题，看了您的解释豁然开朗啊
+    </p>
+    </li>
+    <li>
+   
+         <a href="/phenixyf/article/details/51087804#comments">真机调试时eclipse报错：adb rejected install command with: device offline</a>
+    <p style="margin:0px;"><a href="/l1049827983" class="user_name">l1049827983</a>:
+感谢帮助，第四条成功的解决了我的问题
+    </p>
+    </li>
+    <li>
+   
+         <a href="/phenixyf/article/details/52513373#comments">手把手教你实现折线图之------安卓最好用的图表库hellocharts之最详细的使用介绍</a>
+    <p style="margin:0px;"><a href="/ankang_java" class="user_name">ankang_java</a>:
+好文啊，正好派上用场。mark
+    </p>
+    </li>
+</ul>
+</div>
+    </div>
+    <div class="clear">
+    </div>
+
+
+                   <!-- 广告位开始 -->                    <!-- 广告位结束 -->
+                   <div class="tracking-ad" data-view="true"  data-mtp="63" data-order="40" data-con="ad_content_1260" style="width: 200px; height: 200px;">
+                         <div id="nav_show_top_stop" style="width: 200px;height: 200px;z-index:1000"><div id="cpro_u2734128"></div></div>
+                   </div>
+    <script type="text/javascript">    
+        setTimeout(function () {
+            var naviga_offsetTop = 0;
+            function naviga_stay_top() { var scrollTop = jQuery(document).scrollTop(); if (scrollTop > naviga_offsetTop) { jQuery("#nav_show_top_stop").css({ "position": "fixed" }); jQuery("#nav_show_top_stop").css({ "top": "0px" }); } else { jQuery("#nav_show_top_stop").css({ "position": "fixed" }); jQuery("#nav_show_top_stop").css({ "top": naviga_offsetTop - scrollTop + "px" }); } }
+            function onload_function() { naviga_offsetTop = jQuery("#nav_show_top_stop").position().top; jQuery(window).bind("scroll", naviga_stay_top); jQuery(window).bind("mousewheel", naviga_stay_top); jQuery(document).bind("scroll", naviga_stay_top); jQuery(document).bind("mousewheel", naviga_stay_top); } jQuery(document).ready(onload_function);
+               
+        }, 200);    
+    </script>
+<script type="text/javascript">(window.cproArray = window.cproArray || []).push({ id: "u2734128" });  </script> 
+                    <script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script> 
+
+           </div>   
+
+            <div class="clear">
+            </div>
+        </div>
+
+        
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="http://passport.csdn.net/content/loginbox/login.js"></script>
+<script type="text/javascript">
+    $(function () {
+        function __get_code_toolbar(snippet_id) {
+            return $("<span class='tracking-ad' data-mod='popu_167'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "' target='_blank' title='在CODE上查看代码片'  style='text-indent:0;'><img src='https://code.csdn.net/assets/CODE_ico.png' width=12 height=12 alt='在CODE上查看代码片' style='position:relative;top:1px;left:2px;'/></a></span>"
+                    + "<span class='tracking-ad' data-mod='popu_170'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "/fork' target='_blank' title='派生到我的代码片' style='text-indent:0;'><img src='https://code.csdn.net/assets/ico_fork.svg' width=12 height=12 alt='派生到我的代码片' style='position:relative;top:2px;left:2px;'/></a></span>");
+        }
+        
+        $("[code_snippet_id]").each(function () {
+            __s_id = $(this).attr("code_snippet_id");
+            if (__s_id != null && __s_id != "" && __s_id != 0 && parseInt(__s_id) > 70020) {
+                __code_tool = __get_code_toolbar(__s_id);
+                $(this).prev().find(".tools").append(__code_tool);
+            }
+        });
+
+        $(".bar").show();
+    });
+</script>
+
+
+
+
+
+    </div>
+      <!--new top-->
+    
+
+     
+
+   
+        <!--new top-->
+   
+   
+
+    
+    
+    
+   
+
+   
+
+
+       <script type="text/javascript" src="http://static.blog.csdn.net/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS_HTML"></script>
+          <script type="text/javascript">
+              //$(function () {
+              //    setTimeout(function () {
+              //        var searchtitletags = articletitle + ',' + $("#tags").html();
+              //        searchService({
+              //            index: 'blog',
+              //            query: searchtitletags,
+              //            from: 5,
+              //            size: 5,
+              //            appendTo: '#res',
+              //            url: 'recommend',
+              //            his: 2,
+              //            client: "blog_cf_enhance",
+              //            tmpl: '<dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;"><a href="#{ url }" title="#{ title }" strategy="#{ strategy }">#{ title }</a></dd>'
+              //        });
+              //    }, 1000);
+              //});
+
+         </script>
+    
+    <script src="http://static.blog.csdn.net/scripts/csdn_blog_detail.min.js" type="text/javascript"></script>
+        
+    <script type="text/javascript" src="http://c.csdnimg.cn/blog/csdn_public_blog_detail.min.js?20170615001"></script>
+
+    <script type="text/javascript" src="http://medal.blog.csdn.net/showblogmedal.ashx?blogid=1296608"></script>
+
+     
+    
+
+
+  <div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+                    <script id="adJs52b5334"></script>
+                    <script>document.getElementById("adJs52b5334").src = "http://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+   </div>
+
+    
+    
+        
+     
+
+    
+          
+    <div class="pop_CA_cover"  style="display:none"></div>
+    <div class="pop pop_CA"  style="display:none">
+          <div class="CA_header">
+            收藏助手
+            <span class="cancel_icon"  id="fapancle"  onclick="$('.pop_CA').hide();$('.pop_CA_cover').hide();"></span>
+          </div>
+          <iframe src="" id="fa" frameborder="0" width="100%" height="360"  scrolling="no" ></iframe>
+    </div>
+
+
+        <script type="text/javascript">
+
+            $(function () {
+                var fromjs = $("#fromjs");
+                if (fromjs.length > 0) {
+                    $("#fromjs .markdown_views pre").addClass("prettyprint");
+                    prettyPrint();
+
+                    $('pre.prettyprint code').each(function () {
+                        var lines = $(this).text().split('\n').length;
+                        var $numbering = $('<ul/>').addClass('pre-numbering').hide();
+                        $(this).addClass('has-numbering').parent().append($numbering);
+                        for (i = 1; i <= lines; i++) {
+                            $numbering.append($('<li/>').text(i));
+                        };
+                        $numbering.fadeIn(1700);
+                    });
+
+                    $('.pre-numbering li').css("color", "#999");
+                }
+            });
+           
+            $(".markdown_views a[target!='_blank']").attr("target", "_blank");
+
+            //$(".toc a[target='_blank']").attr("target", "");
+
+            setTimeout(function () {
+                $(".toc a[target='_blank']").attr("target", "");
+            },500);
+
+        </script>
+
+</body>
+</html>   
+ 
