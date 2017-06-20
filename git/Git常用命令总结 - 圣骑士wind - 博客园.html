@@ -1,0 +1,374 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Git常用命令总结 - 圣骑士wind - 博客园</title>
+<link type="text/css" rel="stylesheet" href="/bundles/blog-common.css?v=m_FXmwz3wxZoecUwNEK23PAzc-j9vbX_C6MblJ5ouMc1"/>
+<link id="MainCss" type="text/css" rel="stylesheet" href="/skins/BlueSky/bundle-BlueSky.css?v=_lYRTG5SjWWADGcuS8G-fWWj62fg5g8s6xd9-hRa-g01"/>
+<link type="text/css" rel="stylesheet" href="/blog/customcss/122894.css?v=6NxGxxK7PSza7KC3THc09uZsvUI%3d"/>
+<link id="mobile-style" media="only screen and (max-width: 768px)" type="text/css" rel="stylesheet" href="/skins/BlueSky/bundle-BlueSky-mobile.css?v=Dtzal0Wa5_I-LWyzNOlvfF2nC7aL5I-tOtpheayh1tc1"/>
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/mengdd/rss"/>
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/mengdd/rsd.xml"/>
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/mengdd/wlwmanifest.xml"/>
+<script src="//common.cnblogs.com/script/jquery.js" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'mengdd', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="/bundles/blog-common.js?v=E1-LyrzANB2jbN9omtnpOHx3eU0Kt3DyislfhU0b5p81" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+<div id="page_begin_html"></div><script>load_page_begin_html();</script>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="http://www.cnblogs.com/mengdd/"><img id="blogLogo" src="/Skins/custom/images/logo.gif" alt="返回主页" /></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/mengdd/">圣骑士Wind的博客</a></h1>
+<h2>技术让生活更美好。</h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+<li><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/mengdd/">首页</a></li>
+<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/%E5%9C%A3%E9%AA%91%E5%A3%ABwind">联系</a></li>
+<li><a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/mengdd/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="http://www.cnblogs.com/mengdd/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<span id="stats_post_count">随笔 - 430&nbsp; </span>
+<span id="stats_article_count">文章 - 8&nbsp; </span>
+<span id="stats-comment_count">评论 - 501</span>
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class = "post">
+		<h1 class = "postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/mengdd/p/4153773.html">Git常用命令总结</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><h1 style="text-align: center;"><span style="font-size: 18pt;">Git常用命令总结</span></h1>
+<div><strong><span style="font-size: 15px;">git init</span></strong></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;在本地新建一个repo,进入一个项目目录,执行git init,会初始化一个repo,并在当前文件夹下创建一个.git文件夹.</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><strong><span style="font-size: 15px;">git clone</span></strong></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;获取一个url对应的远程Git repo, 创建一个local copy.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;一般的格式是git clone [url].</span></div>
+<div><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;clone下来的repo会以url最后一个斜线后面的名称命名,创建一个文件夹,如果想要指定特定的名称,可以git clone [url] newname指定.</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><strong><span style="font-size: 15px;">git status</span></strong></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;查询repo的状态.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git status -s: -s表示short, -s的输出标记会有两列,第一列是对staging区域而言,第二列是对working目录而言.</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><strong><span style="font-size: 15px;">git log</span></strong></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;show commit history of a branch.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git log --oneline --number: 每条log只显示一行,显示number条.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git log --oneline --graph:可以图形化地表示出分支合并历史.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git log branchname可以显示特定分支的log.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git log --oneline branch1 ^branch2,可以查看在分支1,却不在分支2中的提交.^表示排除这个分支(Window下可能要给^branch2加上引号).</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git log --decorate会显示出tag信息.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git log --author=[author name] 可以指定作者的提交历史.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git log --since --before --until --after 根据提交时间筛选log.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;--no-merges可以将merge的commits排除在外.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git log --grep 根据commit信息过滤log: git log --grep=keywords</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;默认情况下, git log --grep --author是OR的关系,即满足一条即被返回,如果你想让它们是AND的关系,可以加上--all-match的option.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git log -S: filter by introduced diff.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;比如: git log -SmethodName (注意S和后面的词之间没有等号分隔).</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git log -p: show patch introduced at each commit.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;每一个提交都是一个快照(snapshot),Git会把每次提交的diff计算出来,作为一个patch显示给你看.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;另一种方法是git show [SHA].</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git log --stat: show diffstat of changes introduced at each commit.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;同样是用来看改动的相对信息的,--stat比-p的输出更简单一些.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp;&nbsp;</span></div>
+<div><strong><span style="font-size: 15px;">git add</span></strong></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;在提交之前,Git有一个暂存区(staging area),可以放入新添加的文件或者加入新的改动. commit时提交的改动是上一次加入到staging area中的改动,而不是我们disk上的改动.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git add <span style="color: #ff0000;">.</span></span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;会递归地添加当前工作目录中的所有文件.</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><strong><span style="font-size: 15px;">git diff</span></strong></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;不加参数的git diff:</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;show diff of unstaged changes.</span></div>
+<div><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;此命令比较的是工作目录中当前文件和暂存区域快照之间的差异,也就是修改之后还没有暂存起来的变化内容.</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;若要看已经暂存起来的文件和上次提交时的快照之间的差异,可以用:</span></div>
+<div><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;git diff --cached 命令.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;show diff of staged changes.</span></div>
+<div><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Git 1.6.1 及更高版本还允许使用 git diff --staged，效果是相同的).</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git diff HEAD</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;show diff of all staged or unstated changes.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;也即比较woking directory和上次提交之间所有的改动.</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;如果想看自从某个版本之后都改动了什么,可以用:</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git diff [version tag]</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;跟log命令一样,diff也可以加上--stat参数来简化输出.</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git diff [branchA] [branchB]可以用来比较两个分支.</span></div>
+<div><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;它实际上会返回一个由A到B的patch,不是我们想要的结果.</span></div>
+<div><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一般我们想要的结果是两个分支分开以后各自的改动都是什么,是由命令:</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git diff [branchA]&hellip;[branchB]给出的.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;实际上它是:git diff $(git merge-base [branchA] [branchB]) [branchB]的结果.</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><strong><span style="font-size: 15px;">git commit</span></strong></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;提交已经被add进来的改动.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git commit -m &ldquo;the commit message"</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git commit -a 会先把所有已经track的文件的改动add进来,然后提交(有点像svn的一次提交,不用先暂存). 对于没有track的文件,还是需要git add一下.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git commit --amend 增补提交. 会使用与当前提交节点相同的父节点进行一次新的提交,旧的提交将会被取消.</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><strong><span style="font-size: 15px;">git reset</span></strong></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;undo changes and commits.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;<span style="color: #ff0000;">这里的HEAD关键字指的是当前分支最末梢最新的一个提交.也就是版本库中该分支上的最新版本.</span></span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git reset HEAD: unstage files from index and reset pointer to HEAD</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;这个命令用来把不小心add进去的文件从staged状态取出来,可以单独针对某一个文件操作: git reset HEAD - - filename, 这个- - 也可以不加.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git reset --soft</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;move HEAD to specific commit reference, index and staging are untouched.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git reset --hard</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;unstage files AND undo any changes in the working directory since last commit.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;使用git reset &mdash;hard HEAD进行reset,即上次提交之后,所有staged的改动和工作目录的改动都会消失,还原到上次提交的状态.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;这里的HEAD可以被写成任何一次提交的SHA-1.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;不带soft和hard参数的git reset,实际上带的是默认参数mixed.</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;总结:</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git reset --mixed id,是将git的HEAD变了(也就是提交记录变了),但文件并没有改变，(也就是working tree并没有改变). 取消了commit和add的内容.</span></div>
+<div><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;git reset --soft id. 实际上，是git reset &ndash;mixed id 后,又做了一次git add.即取消了commit的内容.</span></div>
+<div><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;git reset --hard id.是将git的HEAD变了,文件也变了.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;按改动范围排序如下:</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;<span style="color: #ff0000;">soft (commit) &lt; mixed (commit + add) &lt; hard (commit + add + local working)</span></span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><strong><span style="font-size: 15px;">git revert</span></strong></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;反转撤销提交.只要把出错的提交(commit)的名字(reference)作为参数传给命令就可以了.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git revert HEAD: 撤销最近的一个提交.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git revert会创建一个反向的新提交,可以通过参数-n来告诉Git先不要提交.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp;&nbsp;</span></div>
+<div><strong><span style="font-size: 15px;">git rm</span></strong></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git rm file: 从staging区移除文件,同时也移除出工作目录.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git rm --cached: 从staging区移除文件,但留在工作目录中.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git rm --cached从功能上等同于git reset HEAD,清除了缓存区,但不动工作目录树.</span></div>
+<div>&nbsp;</div>
+<div>
+<div><strong><span style="font-size: 15px;">git clean</span></strong></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git&nbsp;clean是从工作目录中移除没有track的文件.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;通常的参数是git clean -df:</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;-d表示同时移除目录,-f表示force,因为在git的配置文件中, clean.requireForce=true,如果不加-f,clean将会拒绝执行.</span></div>
+</div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><span style="font-size: 15px;"><strong>git mv</strong></span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git rm - - cached orig; mv orig new; git add new</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><strong><span style="font-size: 15px;">git stash</span></strong></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;把当前的改动压入一个栈.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git stash将会把当前目录和index中的所有改动(但不包括未track的文件)压入一个栈,然后留给你一个clean的工作状态,即处于上一次最新提交处.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git stash list会显示这个栈的list.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git stash apply:取出stash中的上一个项目(stash@{0}),并且应用于当前的工作目录.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;也可以指定别的项目,比如git stash apply stash@{1}.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;如果你在应用stash中项目的同时想要删除它,可以用git stash pop</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;删除stash中的项目:</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git stash drop: 删除上一个,也可指定参数删除指定的一个项目.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git stash clear: 删除所有项目.</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><strong><span style="font-size: 15px;">git branch</span></strong></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git branch可以用来列出分支,创建分支和删除分支.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git branch -v可以看见每一个分支的最后一次提交.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git branch: 列出本地所有分支,当前分支会被星号标示出.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git branch (branchname): 创建一个新的分支(当你用这种方式创建分支的时候,分支是基于你的上一次提交建立的).&nbsp;</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git branch -d (branchname): 删除一个分支.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;删除remote的分支:</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git push (remote-name) :(branch-name): delete a remote branch.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;这个是因为完整的命令形式是:</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git push remote-name local-branch:remote-branch</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;而这里local-branch的部分为空,就意味着删除了remote-branch</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><strong><span style="font-size: 15px;">git checkout</span></strong><span style="font-size: 15px;"><span><br /></span></span></div>
+<div>
+<div style="display: inline !important;">　　git checkout (branchname)</div>
+<p style="display: inline !important;">&nbsp;</p>
+
+<em id="__mceDel" style="line-height: 1.5;"><em id="__mceDel"><em id="__mceDel"><em id="__mceDel"><span style="font-size: 15px;">切换到一个分支.</span></em></em></em></em></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git checkout -b (branchname): 创建并切换到新的分支.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;这个命令是将git branch newbranch和git checkout newbranch合在一起的结果.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;<span style="color: #ff0000;">checkout还有另一个作用:替换本地改动:</span></span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git checkout --&lt;filename&gt;</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;此命令会使用HEAD中的最新内容替换掉你的工作目录中的文件.已添加到暂存区的改动以及新文件都不会受到影响.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;注意:git checkout filename会删除该文件中所有没有暂存和提交的改动,这个操作是不可逆的.</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><strong><span style="font-size: 15px;">git merge</span></strong></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;把一个分支merge进当前的分支.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git merge [alias]/[branch]</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;把远程分支merge到当前分支.</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;如果出现冲突,需要手动修改,可以用git mergetool.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;解决冲突的时候可以用到git diff,解决完之后用git add添加,即表示冲突已经被resolved.</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><strong><span style="font-size: 15px;">git tag</span></strong></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;tag a point in history as import.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;会在一个提交上建立永久性的书签,通常是发布一个release版本或者ship了什么东西之后加tag.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;比如: git tag v1.0</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git tag -a v1.0, -a参数会允许你添加一些信息,即make an annotated tag.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;当你运行git tag -a命令的时候,Git会打开一个编辑器让你输入tag信息.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;我们可以利用commit SHA来给一个过去的提交打tag:</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git tag -a v0.9 XXXX</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;push的时候是不包含tag的,如果想包含,可以在push时加上--tags参数.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;fetch的时候,branch HEAD可以reach的tags是自动被fetch下来的, tags that aren&rsquo;t reachable from branch heads will be skipped.如果想确保所有的tags都被包含进来,需要加上--tags选项.</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><strong><span style="font-size: 15px;">git remote</span></strong></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;list, add and delete remote repository aliases.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;因为不需要每次都用完整的url,所以Git为每一个remote repo的url都建立一个别名,然后用git remote来管理这个list.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git remote: 列出remote aliases.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;如果你clone一个project,Git会自动将原来的url添加进来,别名就叫做:origin.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git remote -v:可以看见每一个别名对应的实际url.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git remote add [alias] [url]: 添加一个新的remote repo.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git remote rm [alias]: 删除一个存在的remote alias.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git remote rename [old-alias] [new-alias]: 重命名.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git remote set-url [alias] [url]:更新url. 可以加上&mdash;push和fetch参数,为同一个别名set不同的存取地址.</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><strong><span style="font-size: 15px;">git fetch</span></strong></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;download new branches and data from a remote repository.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;可以git fetch [alias]取某一个远程repo,也可以git fetch --all取到全部repo</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;fetch将会取到所有你本地没有的数据,所有取下来的分支可以被叫做remote branches,它们和本地分支一样(可以看diff,log等,也可以merge到其他分支),但是Git不允许你checkout到它们.&nbsp;</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><strong><span style="font-size: 15px;">git pull</span></strong></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;fetch from a remote repo and try to merge into the current branch.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;<span style="color: #ff0000;">pull == fetch + merge FETCH_HEAD</span></span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git pull会首先执行git fetch,然后执行git merge,把取来的分支的head merge到当前分支.这个merge操作会产生一个新的commit.&nbsp; &nbsp;&nbsp;</span></div>
+<div><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果使用--rebase参数,它会执行git rebase来取代原来的git merge.</span></div>
+<div><span style="font-size: 15px;">&nbsp;&nbsp;</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><strong><span style="font-size: 15px;">git rebase</span></strong></div>
+<div><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--rebase不会产生合并的提交,它会将本地的所有提交临时保存为补丁(patch),放在&rdquo;.git/rebase&rdquo;目录中,然后将当前分支更新到最新的分支尖端,最后把保存的补丁应用到分支上.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;rebase的过程中,也许会出现冲突,Git会停止rebase并让你解决冲突,在解决完冲突之后,用git add去更新这些内容,然后无需执行commit,只需要:</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git rebase --continue就会继续打余下的补丁.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git rebase --abort将会终止rebase,当前分支将会回到rebase之前的状态.</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><strong><span style="font-size: 15px;">git push</span></strong></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;push your new branches and data to a remote repository.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git push [alias] [branch]</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;将会把当前分支merge到alias上的[branch]分支.如果分支已经存在,将会更新,如果不存在,将会添加这个分支.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;如果有多个人向同一个remote repo push代码, Git会首先在你试图push的分支上运行git log,检查它的历史中是否能看到server上的branch现在的tip,如果本地历史中不能看到server的tip,说明本地的代码不是最新的,Git会拒绝你的push,让你先fetch,merge,之后再push,这样就保证了所有人的改动都会被考虑进来.</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><strong><span style="font-size: 15px;">git reflog</span></strong></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git reflog是对reflog进行管理的命令,reflog是git用来记录引用变化的一种机制,比如记录分支的变化或者是HEAD引用的变化.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;当git reflog不指定引用的时候,默认列出HEAD的reflog.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;HEAD@{0}代表HEAD当前的值,HEAD@{3}代表HEAD在3次变化之前的值.</span></div>
+<div><span style="font-size: 15px;">&nbsp; &nbsp; &nbsp;git会将变化记录到HEAD对应的reflog文件中,其路径为.git/logs/HEAD, 分支的reflog文件都放在.git/logs/refs目录下的子目录中.</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><strong><span style="font-size: 15px;"><span style="color: #ff0000;">特殊符号</span>:</span></strong></div>
+<div><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^代表父提交,当一个提交有多个父提交时,可以通过在^后面跟上一个数字,表示第几个父提交: ^相当于^1.</span></div>
+<div><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~&lt;n&gt;相当于连续的&lt;n&gt;个^.</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div>&nbsp;</div>
+<h2><span style="font-size: 18pt;">参考资料</span></h2>
+<div>
+<div><span style="font-size: 15px;">　　reference:&nbsp;<a href="http://gitref.org/index.html">http://gitref.org/index.html</a></span></div>
+<div><span style="font-size: 15px;">&nbsp;　　<a href="http://git-scm.com/book/zh/v1">http://git-scm.com/book/zh/v1</a></span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+<div><span style="font-size: 15px;">&nbsp;</span></div>
+
+</div>
+<div><span style="font-size: 15px;">&nbsp;</span></div></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info">
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"></div>
+</div>
+
+
+		</div>
+		<div class = "postDesc">posted @ <span id="post-date">2014-12-09 17:34</span> <a href='http://www.cnblogs.com/mengdd/'>圣骑士wind</a> 阅读(<span id="post_view_count">...</span>) 评论(<span id="post_comment_count">...</span>)  <a href ="https://i.cnblogs.com/EditPosts.aspx?postid=4153773" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(4153773);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=122894,cb_entryId=4153773,cb_blogApp=currentBlogApp,cb_blogUserGuid='6ef3479d-7ccc-e011-8ee0-842b2b196315',cb_entryCreatedDate='2014/12/9 17:34:00';loadViewCount(cb_entryId);</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id='comment_form' class='commentform'>
+<a name='commentform'></a>
+<div id='divCommentShow'></div>
+<div id='comment_nav'><span id='span_refresh_tips'></span><a href='javascript:void(0);' onclick='return RefreshCommentList();' id='lnk_RefreshComments' runat='server' clientidmode='Static'>刷新评论</a><a href='#' onclick='return RefreshPage();'>刷新页面</a><a href='#top'>返回顶部</a></div>
+<div id='comment_form_container'></div>
+<div class='ad_text_commentbox' id='ad_text_under_commentbox'></div>
+<div id='ad_t2'></div>
+<div id='opt_under_post'></div>
+<div id='cnblogs_c1' class='c_ad_block'></div>
+<div id='under_post_news'></div>
+<div id='cnblogs_c2' class='c_ad_block'></div>
+<div id='under_post_kb'></div>
+<div id='HistoryToday' class='c_ad_block'></div>
+<script type='text/javascript'>
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright &copy;2017 圣骑士wind
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+</body>
+</html>
