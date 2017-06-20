@@ -1,0 +1,1049 @@
+
+<link rel="stylesheet" href="http://static.blog.csdn.net/code/prettify.css" />
+<script type="text/javascript" src="http://static.blog.csdn.net/code/prettify.js"></script>
+
+<script type="text/javascript">
+    var username = "u010781856";
+    var _blogger = username;
+    var blog_address = "http://blog.csdn.net/u010781856";
+    var static_host = "http://static.blog.csdn.net";
+    var currentUserName = "";  
+
+    var fileName = '47704801';
+    var commentscount = 0;
+    var islock = false
+
+   window.quickReplyflag = true;
+            
+             var isBole = false;
+            
+
+</script>
+
+<!DOCTYPE html>
+<html>
+  <head>    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+   
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <script type="text/javascript" src="http://c.csdnimg.cn/pubfooter/js/tracking.js" charset="utf-8"></script> 
+   
+     <link rel="shortcut icon" href="http://c.csdnimg.cn/public/favicon.ico" />    
+     <link type="text/css" rel="stylesheet" href="http://static.blog.csdn.net/scripts/SyntaxHighlighter/styles/default.css" />
+
+
+    <script src="http://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+
+     <!-- ad begin -->
+         <script language="javascript" type="text/javascript" src="http://ads.csdn.net/js/tracking.js"></script>
+    <!-- ad end-->
+
+      <script src="//csdnimg.cn/rabbit/tracking-ad/main.js"></script>
+
+    <link rel="stylesheet" href="http://static.csdn.net/public/common/toolbar/css/index.css">
+    <link rel="stylesheet" href="http://csdnimg.cn/public/common/libs/bootstrap/css/bootstrap.css">
+ 	<link rel="stylesheet" href="http://csdnimg.cn/public/static/css/avatar.css">
+    <link rel="stylesheet" href="http://static.blog.csdn.net/skin/skin2-template/css/common.css">
+    <!-- [if IE 7]-->
+    <link rel="stylesheet" href="http://static.blog.csdn.net/skin/skin2-template/css/font-awesome.min.css">
+    <!-- [endif]-->
+    <link rel="stylesheet" href="http://static.blog.csdn.net/skin/skin2-template/css/main.css">
+    
+     <link rel="stylesheet" href="http://static.blog.csdn.net/skin/skin2-template/css/jquery.rollbar.css">
+    <link rel="stylesheet" href="http://static.blog.csdn.net/skin/skin2-template/css/style.css">
+    
+    
+    <!-- [if lt IE 9]-->
+    <script src="http://static.blog.csdn.net/skin/skin2-template/js/libs/html5shiv.min.js"></script>
+    <!-- [endif]-->
+	<script src="http://static.blog.csdn.net/scripts/skintemplatecommon.js" type="text/javascript"></script>
+
+    <script src="http://static.blog.csdn.net/scripts/skintemplateprovider.js" type="text/javascript"></script>      
+	<script src="http://static.blog.csdn.net/scripts/skintemplatecomment.js" type="text/javascript"></script>
+
+    <script src="http://c.csdnimg.cn/rabbit/cnick/cnick.js" type="text/javascript"></script>      
+   
+       
+    
+
+      <script type="text/javascript">
+          $(function () {
+              setTimeout(function () {
+                  $(".mess_name").each(function (index, item) {
+                      var u = $(this).text().split('：')[0].toString().replace("回复", "")
+                      var thisComment = $(this);
+                      if (u) {
+                          $.getJSON("https://passport.csdn.net/get/nick?callback=?", { users: u }, function (a) {
+                              if (a != null && a.data != null && a.data.length > 0) {
+                                  nick = a.data[0].n;
+                                  if (u != nick) {
+                                      thisComment.text(thisComment.text().replace(u, nick));
+                                  }
+                              }
+                          });
+                      }
+                  });
+
+                  $(".username").each(function (index, item) {
+                      var u = $(this).text().split('：')[0].toString().replace("回复", "")
+                      var thisComment = $(this);
+                      if (u) {
+                          $.getJSON("https://passport.csdn.net/get/nick?callback=?", { users: u }, function (a) {
+                              if (a != null && a.data != null && a.data.length > 0) {
+                                  nick = a.data[0].n;
+                                  if (u != nick) {
+                                      thisComment.text(thisComment.text().replace(u, nick));
+                                  }
+                              }
+                          });
+                      }
+                  });
+
+              }, 200);
+
+          });
+      </script>
+
+    <title>Git 本身不支持对某一特定文件夹或者子目录的权限控制，但是可以通过子模块的形式间接实现 - 博客频道 - CSDN.NET</title>	
+  </head>
+  <body>
+
+<div class="J_adv" data-view="true" data-mod="ad_popu_72" data-mtp="62" data-order="40" data-con="ad_content_2072">
+			 <script id="popuLayer_js_q" src="http://ads.csdn.net/js/popuLayer.js" defer="defer"  type="text/javascript"></script>
+		    <div id="layerd" style="position: fixed;bottom:0px;right:0px;line-height:0px;z-index:1000">
+			    <div class="J_close layer_close" style="display:;background-color:#efefef;padding:0px;color:#333;font:12px/24px Helvetica,Tahoma,Arial,sans-serif;text-align:right;">关闭</div><!-- 广告占位容器 --><div id="cpro_u2895327"></div></div>
+		    <script>  document.getElementById("popuLayer_js_q").onload=function(){      var styObjd=styObj={width:"300px","height":parseInt(250)+28};window.CSDN.Layer.PopuLayer("#layerd",{storageName:"layerd",styleObj:styObjd,total:50,expoire:1000*60});  }</script><!-- 投放代码 --><script type="text/javascript">                /*服务器频道首页置顶Banner960*90，创建于2014-7-3*/    (window.cproArray = window.cproArray || []).push({        id: "u2895327"      });  </script>  <script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>
+	     
+	</div>
+
+       <!-- 广告位开始 -->
+        <ins data-revive-zoneid="149" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+    <!-- 广告位结束 -->
+
+   <script id="toolbar-tpl-scriptId" fixed="true" prod="blog" skin="black" src="http://c.csdnimg.cn/public/common/toolbar/js/html.js" type="text/javascript"></script>
+    <div class="blog_left">
+      <div class="blog_l_c">
+        <h2 class="blog_l_t">dxmz的专栏</h2>
+        <h6 class="blog_l_sign"></h6>
+        <div class="item_wrap">
+          <dl class="item_l">
+            <dt class="item">17</dt>
+            <dd class="item_name">原创</dd>
+          </dl>
+          <dl class="item_l">
+            <dt class="item">653</dt>
+            <dd class="item_name">转载</dd>
+          </dl>
+          <dl class="item_l">
+            <dt class="item">1</dt>
+            <dd class="item_name">译文</dd>
+          </dl>
+          <dl class="item_l">
+            <dt class="item">8</dt>
+            <dd class="item_name">评论</dd>
+          </dl>
+          <dl class="item_l">
+            <dt class="item">151081</dt>
+            <dd class="item_name">访问</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="blog_copyright">
+        <p><span>京 ICP 证 070598 号</span><img src="http://static.blog.csdn.net/skin/skin2-template/images/copyright.png" alt="img"></p>
+        <p>
+          Copyright © 1999-2016,
+          <br/>
+          CSDN.NET, All Rights Reserved
+        </p>
+       </div>
+    </div>
+    <div id="skin_m" class="skin_m">
+      <div id="skin_center" class="skin_center">
+          <div class="skin_center_t">
+                <h2 class="mod_most"></h2>
+                <!--include ../modules/mod_list.jade-->
+                <div class="skin_list">
+                  <dl class="list_c clearfix detail_list">
+                    <dt>
+                      <div class="date">
+                        <div class="date_t"><span>2015</span><em>八月</em></div>
+                        <div class="date_b">16</div>
+                      </div>
+                    </dt>
+                    <dd>
+                      <div class="skin_icon"><a href="javascript:;" class="set_reprint">转</a></div>
+                      <h3 class="list_c_t"><a href="/u010781856/article/details/47704801">Git 本身不支持对某一特定文件夹或者子目录的权限控制，但是可以通过子模块的形式间接实现</a></h3>  
+                        <div class="list_c_Title">
+                          <p class="detail_p">
+                            <label></label>
+                         </p>
+                         <p class="read_r">
+                            <label><i class="fa fa-eye" style="cursor:default"></i><span style="cursor:default"> （2922）</span></label>
+                            <label><i class="fa fa-comment-o"style="cursor:default"></i><span  style="cursor:default"> （0）</span></label>
+                             
+                             
+
+                             
+                          </p>
+                        </div>
+                      <div class="skin_detail" id="article_content">
+                        
+<h2 class="ng-scope" style="line-height:1.225; position:relative; margin-bottom:16px; padding-bottom:0.3em; border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:rgb(238,238,238); font-size:18px; font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei; margin-top:0px!important">
+https://coding.net/u/coding/p/Coding-Feedback/git/blob/master/git-submodule-tutorial.md<br>
+</h2>
+<h2 class="ng-scope" style="line-height:1.225; position:relative; margin-bottom:16px; padding-bottom:0.3em; border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:rgb(238,238,238); font-size:18px; font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei; margin-top:0px!important">
+是什么是子模块？</h2>
+<p class="ng-scope" style="line-height:1.6; margin-top:0px; margin-bottom:16px; font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei; font-size:14px">
+为什么要引入子模块，当项目A需要引用其他需要定制的库或者其它定制项目B的时候，我们会发现，如果用包含的方式（项目A和定制的项目放在一起），项目A被修改时，任何你定制化的修改都很难被合并。所以，最好的方法是分开管理。所以git引入了子模块的概念，相当于你的子目录（子模块）拥有独立的git仓库，可以独立的分开管理。</p>
+<h2 class="ng-scope" style="line-height:1.225; position:relative; margin-top:1em; margin-bottom:16px; padding-bottom:0.3em; border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:rgb(238,238,238); font-size:18px; font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei">
+<a target="_blank" class="coding icon coding-anchor" href="https://coding.net/u/coding/p/Coding-Feedback/git/blob/master/git-submodule-tutorial.md#%E5%AD%90%E6%A8%A1%E5%9D%97%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96" rel="nofollow" style=""></a>子模块的初始化</h2>
+<p class="ng-scope" style="line-height:1.6; margin-top:0px; margin-bottom:16px; font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei; font-size:14px">
+如何在本地仓库中引入子模块呢？首先，你必须把外部仓库拷贝到你的子目录中，通过git submodule add的方式：</p>
+<pre class="ng-scope" style="padding:16px; overflow:auto; font-size:14px; word-wrap:normal; font-family:monospace,monospace; margin-top:0px; margin-bottom:16px; background-color:rgb(247,247,247)"><code class="hljs groovy" style="display:inline; padding:0px; color:rgb(51,51,51); line-height:inherit; margin:0px; word-wrap:normal; border:0px; word-break:normal; font-family:Consolas,'Liberation Mono',Menlo,Courier,monospace!important; font-size:14px!important; background:0px 0px">$ git submodule add <span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">https:</span><span class="hljs-comment" style="color:rgb(153,153,136); font-style:italic; line-height:1.6">//coding.net/zhanzhenchao/Be-a-submodule.git</span>
+Cloning into <span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">'Be-a-submodule'</span>...
+<span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">remote:</span> Counting <span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">objects:</span> <span class="hljs-number" style="color:teal; line-height:1.6">3</span>, done.        
+<span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">remote:</span> Total <span class="hljs-number" style="color:teal; line-height:1.6">3</span> (delta <span class="hljs-number" style="color:teal; line-height:1.6">0</span>), reused <span class="hljs-number" style="color:teal; line-height:1.6">0</span> (delta <span class="hljs-number" style="color:teal; line-height:1.6">0</span>)        
+Unpacking <span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">objects:</span> <span class="hljs-number" style="color:teal; line-height:1.6">100</span>% (<span class="hljs-number" style="color:teal; line-height:1.6">3</span>/<span class="hljs-number" style="color:teal; line-height:1.6">3</span>), done.
+</code></pre>
+<p class="ng-scope" style="line-height:1.6; margin-top:0px; margin-bottom:16px; font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei; font-size:14px">
+回车后，你将在本地的仓库内创建了一个子模块（默认会用子项目的名字作为子模块的文件名）。我们可以是用git status来查看一下状态，如下面：</p>
+<pre class="ng-scope" style="padding:16px; overflow:auto; font-size:14px; word-wrap:normal; font-family:monospace,monospace; margin-top:0px; margin-bottom:16px; background-color:rgb(247,247,247)"><code class="hljs ruby" style="display:inline; padding:0px; color:rgb(51,51,51); line-height:inherit; margin:0px; word-wrap:normal; border:0px; word-break:normal; font-family:Consolas,'Liberation Mono',Menlo,Courier,monospace!important; font-size:14px!important; background:0px 0px"><span class="hljs-variable" style="color:teal; line-height:1.6">$ </span>git status
+<span class="hljs-comment" style="color:rgb(153,153,136); font-style:italic; line-height:1.6"># On branch master</span>
+<span class="hljs-comment" style="color:rgb(153,153,136); font-style:italic; line-height:1.6"># Changes to be committed:</span>
+<span class="hljs-comment" style="color:rgb(153,153,136); font-style:italic; line-height:1.6">#   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)</span>
+<span class="hljs-comment" style="color:rgb(153,153,136); font-style:italic; line-height:1.6">#</span>
+<span class="hljs-comment" style="color:rgb(153,153,136); font-style:italic; line-height:1.6">#   new file:   .gitmodules</span>
+<span class="hljs-comment" style="color:rgb(153,153,136); font-style:italic; line-height:1.6">#   new file:   Be-a-submodule</span>
+<span class="hljs-comment" style="color:rgb(153,153,136); font-style:italic; line-height:1.6">#</span>
+</code></pre>
+<p class="ng-scope" style="line-height:1.6; margin-top:0px; margin-bottom:16px; font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei; font-size:14px">
+在这里我们可以看到两个文件：</p>
+<ul class="ng-scope" style="line-height:1.6; padding:0px 0px 0px 2em; margin-top:0px; margin-bottom:16px; font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei; font-size:14px">
+<li style="line-height:1.4">文件.gitmodules</li></ul>
+<p class="ng-scope" style="line-height:1.6; margin-top:0px; margin-bottom:16px; font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei; font-size:14px">
+.gitmodules文件里面记录着子模块的路径和项目的url。如果你有多个子模块，你都可以在这里查看到具体的信息，同时也是他人获取你子模块信息的地方。</p>
+<ul class="ng-scope" style="line-height:1.6; padding:0px 0px 0px 2em; margin-top:0px; margin-bottom:16px; font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei; font-size:14px">
+<li style="line-height:1.4">文件DbConnector</li></ul>
+<p class="ng-scope" style="line-height:1.6; margin-top:0px; margin-bottom:16px; font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei; font-size:14px">
+DbConnector是你的子模块的路径。当你不在该路径时，git将不会记录其内容。相反的，git把该模块当作一个特别的提交。</p>
+<p class="ng-scope" style="line-height:1.6; margin-top:0px; margin-bottom:16px; font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei; font-size:14px">
+当你项目提交的时候，例如：</p>
+<pre class="ng-scope" style="padding:16px; overflow:auto; font-size:14px; word-wrap:normal; font-family:monospace,monospace; margin-top:0px; margin-bottom:16px; background-color:rgb(247,247,247)"><code class="hljs sql" style="display:inline; padding:0px; color:rgb(51,51,51); line-height:inherit; margin:0px; word-wrap:normal; border:0px; word-break:normal; font-family:Consolas,'Liberation Mono',Menlo,Courier,monospace!important; font-size:14px!important; background:0px 0px">$ git <span class="hljs-operator" style="line-height:1.6"><span class="hljs-keyword" style="font-weight:700; line-height:1.6">commit</span> -am <span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">'added one module'</span>
+[<span class="hljs-keyword" style="font-weight:700; line-height:1.6">master</span> c020505] added one <span class="hljs-keyword" style="font-weight:700; line-height:1.6">module</span>
+ <span class="hljs-number" style="color:teal; line-height:1.6">2</span> files <span class="hljs-keyword" style="font-weight:700; line-height:1.6">changed</span>, <span class="hljs-number" style="color:teal; line-height:1.6">4</span> insertions(&#43;)
+ <span class="hljs-keyword" style="font-weight:700; line-height:1.6">create</span> <span class="hljs-keyword" style="font-weight:700; line-height:1.6">mode</span> <span class="hljs-number" style="color:teal; line-height:1.6">100644</span> .gitmodules
+ <span class="hljs-keyword" style="font-weight:700; line-height:1.6">create</span> <span class="hljs-keyword" style="font-weight:700; line-height:1.6">mode</span> <span class="hljs-number" style="color:teal; line-height:1.6">160000</span> Be-a-submodule
+</span></code></pre>
+<p class="ng-scope" style="line-height:1.6; margin-top:0px; margin-bottom:16px; font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei; font-size:14px">
+在这里你可以再一次看到子模块当作一个特别的提交（160000模式是git的一个特殊的模式）</p>
+<blockquote class="ng-scope" style="line-height:1.6; margin:0px 0px 16px; padding:0px 15px; color:rgb(119,119,119); border-left-width:4px; border-left-style:solid; border-left-color:rgb(221,221,221); font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei; font-size:14px">
+<p style="line-height:1.6; margin-top:0px; margin-bottom:0px">小结：直接在要引入的项目目录下中克隆一个子模块：git submodule add [url]</p>
+</blockquote>
+<hr class="ng-scope" style="line-height:1.6; overflow:hidden; height:4px; padding:0px; margin:16px 0px; border-style:solid none none; border-top-color:rgb(221,221,221); font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei; font-size:14px; background:rgb(231,231,231)">
+<h2 class="ng-scope" style="line-height:1.225; position:relative; margin-top:1em; margin-bottom:16px; padding-bottom:0.3em; border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:rgb(238,238,238); font-size:18px; font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei">
+<a target="_blank" class="coding icon coding-anchor" href="https://coding.net/u/coding/p/Coding-Feedback/git/blob/master/git-submodule-tutorial.md#%E5%85%8B%E9%9A%86%E4%B8%80%E4%B8%AA%E5%B8%A6%E6%9C%89%E5%AD%90%E6%A8%A1%E5%9D%97%E7%9A%84%E9%A1%B9%E7%9B%AE" rel="nofollow" style=""></a>克隆一个带有子模块的项目</h2>
+<p class="ng-scope" style="line-height:1.6; margin-top:0px; margin-bottom:16px; font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei; font-size:14px">
+当你克隆一个带有子模块的项目时，你会惊奇的发现，子模块（子路径）里面的内容完全为空。</p>
+<pre class="ng-scope" style="padding:16px; overflow:auto; font-size:14px; word-wrap:normal; font-family:monospace,monospace; margin-top:0px; margin-bottom:16px; background-color:rgb(247,247,247)"><code class="hljs groovy" style="display:inline; padding:0px; color:rgb(51,51,51); line-height:inherit; margin:0px; word-wrap:normal; border:0px; word-break:normal; font-family:Consolas,'Liberation Mono',Menlo,Courier,monospace!important; font-size:14px!important; background:0px 0px">$ git clone <span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">https:</span><span class="hljs-comment" style="color:rgb(153,153,136); font-style:italic; line-height:1.6">//coding.net/zhanzhenchao/submodules-test.git</span>
+Cloning into <span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">'submodules-test'</span>...
+<span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">remote:</span> Counting <span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">objects:</span> <span class="hljs-number" style="color:teal; line-height:1.6">6</span>, done.        
+<span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">remote:</span> Compressing <span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">objects:</span> <span class="hljs-number" style="color:teal; line-height:1.6">100</span>% (<span class="hljs-number" style="color:teal; line-height:1.6">4</span>/<span class="hljs-number" style="color:teal; line-height:1.6">4</span>), done.        
+<span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">remote:</span> Total <span class="hljs-number" style="color:teal; line-height:1.6">6</span> (delta <span class="hljs-number" style="color:teal; line-height:1.6">0</span>), reused <span class="hljs-number" style="color:teal; line-height:1.6">0</span> (delta <span class="hljs-number" style="color:teal; line-height:1.6">0</span>)        
+Unpacking <span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">objects:</span> <span class="hljs-number" style="color:teal; line-height:1.6">100</span>% (<span class="hljs-number" style="color:teal; line-height:1.6">6</span>/<span class="hljs-number" style="color:teal; line-height:1.6">6</span>), done.
+$ cd submodules-test/
+$ ls -la
+total <span class="hljs-number" style="color:teal; line-height:1.6">24</span>
+drwxr-xr-x <span class="hljs-number" style="color:teal; line-height:1.6">4</span> root root <span class="hljs-number" style="color:teal; line-height:1.6">4096</span> Nov  <span class="hljs-number" style="color:teal; line-height:1.6">5</span> <span class="hljs-number" style="color:teal; line-height:1.6">13</span>:<span class="hljs-number" style="color:teal; line-height:1.6">38</span> .
+drwxr-xr-x <span class="hljs-number" style="color:teal; line-height:1.6">3</span> root root <span class="hljs-number" style="color:teal; line-height:1.6">4096</span> Nov  <span class="hljs-number" style="color:teal; line-height:1.6">5</span> <span class="hljs-number" style="color:teal; line-height:1.6">13</span>:<span class="hljs-number" style="color:teal; line-height:1.6">38</span> ..
+drwxr-xr-x <span class="hljs-number" style="color:teal; line-height:1.6">2</span> root root <span class="hljs-number" style="color:teal; line-height:1.6">4096</span> Nov  <span class="hljs-number" style="color:teal; line-height:1.6">5</span> <span class="hljs-number" style="color:teal; line-height:1.6">13</span>:<span class="hljs-number" style="color:teal; line-height:1.6">38</span> Be-a-submodule
+drwxr-xr-x <span class="hljs-number" style="color:teal; line-height:1.6">8</span> root root <span class="hljs-number" style="color:teal; line-height:1.6">4096</span> Nov  <span class="hljs-number" style="color:teal; line-height:1.6">5</span> <span class="hljs-number" style="color:teal; line-height:1.6">13</span>:<span class="hljs-number" style="color:teal; line-height:1.6">38</span> .git
+-rw-r--r-- <span class="hljs-number" style="color:teal; line-height:1.6">1</span> root root  <span class="hljs-number" style="color:teal; line-height:1.6">110</span> Nov  <span class="hljs-number" style="color:teal; line-height:1.6">5</span> <span class="hljs-number" style="color:teal; line-height:1.6">13</span>:<span class="hljs-number" style="color:teal; line-height:1.6">38</span> .gitmodules
+-rw-r--r-- <span class="hljs-number" style="color:teal; line-height:1.6">1</span> root root   <span class="hljs-number" style="color:teal; line-height:1.6">17</span> Nov  <span class="hljs-number" style="color:teal; line-height:1.6">5</span> <span class="hljs-number" style="color:teal; line-height:1.6">13</span>:<span class="hljs-number" style="color:teal; line-height:1.6">38</span> README.md
+$ cd Be-a-submodule/
+$ ls
+$ 
+</code></pre>
+<p class="ng-scope" style="line-height:1.6; margin-top:0px; margin-bottom:16px; font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei; font-size:14px">
+此时，你应该在主项目路径下运行git submodule init初始化，再运行git submodule update命令抓取内容下来。</p>
+<pre class="ng-scope" style="padding:16px; overflow:auto; font-size:14px; word-wrap:normal; font-family:monospace,monospace; margin-top:0px; margin-bottom:16px; background-color:rgb(247,247,247)"><code class="hljs groovy" style="display:inline; padding:0px; color:rgb(51,51,51); line-height:inherit; margin:0px; word-wrap:normal; border:0px; word-break:normal; font-family:Consolas,'Liberation Mono',Menlo,Courier,monospace!important; font-size:14px!important; background:0px 0px">$ cd ..
+$ git submodule init
+Submodule <span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">'Be-a-submodule'</span> (<span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">https:</span><span class="hljs-comment" style="color:rgb(153,153,136); font-style:italic; line-height:1.6">//coding.net/zhanzhenchao/Be-a-submodule.git) registered for path 'Be-a-submodule'</span>
+$ git submodule update
+Cloning into <span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">'Be-a-submodule'</span>...
+<span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">remote:</span> Counting <span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">objects:</span> <span class="hljs-number" style="color:teal; line-height:1.6">3</span>, done.        
+<span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">remote:</span> Total <span class="hljs-number" style="color:teal; line-height:1.6">3</span> (delta <span class="hljs-number" style="color:teal; line-height:1.6">0</span>), reused <span class="hljs-number" style="color:teal; line-height:1.6">0</span> (delta <span class="hljs-number" style="color:teal; line-height:1.6">0</span>)        
+Unpacking <span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">objects:</span> <span class="hljs-number" style="color:teal; line-height:1.6">100</span>% (<span class="hljs-number" style="color:teal; line-height:1.6">3</span>/<span class="hljs-number" style="color:teal; line-height:1.6">3</span>), done.
+Submodule path <span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">'Be-a-submodule'</span>: checked out <span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">'1cd699621fb9f29a910e5ede48782bbbfd41a627'</span>
+</code></pre>
+<p class="ng-scope" style="line-height:1.6; margin-top:0px; margin-bottom:16px; font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei; font-size:14px">
+这个时候，你就能看到你子模块下上次最新提交后的内容。 如果你不想这么麻烦，你可以在克隆项目时，附上--recursive参数，这样git会自动的初始化和抓取子模块的过程。 克隆项目的时候需要谨记的是，每一次抓取包含子模块的项目都必须要这么做。 另外还需要注意的是，如果开发者在本地对子模块进行了修改，却没有push上远程仓库上，其他开发者进行根据它非公开的指针拉取的时会出现以下这个错误</p>
+<pre class="ng-scope" style="padding:16px; overflow:auto; font-size:14px; word-wrap:normal; font-family:monospace,monospace; margin-top:0px; margin-bottom:16px; background-color:rgb(247,247,247)"><code class="hljs groovy" style="display:inline; padding:0px; color:rgb(51,51,51); line-height:inherit; margin:0px; word-wrap:normal; border:0px; word-break:normal; font-family:Consolas,'Liberation Mono',Menlo,Courier,monospace!important; font-size:14px!important; background:0px 0px">$ git submodule update
+<span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">fatal:</span> reference isn’t a <span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">tree:</span> <span class="hljs-number" style="color:teal; line-height:1.6">6</span>c5e70b984a60b3cecd395edd5b48a7575bf58e0
+Unable to checkout <span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">'6c5e70b984a60b3cecd395edd5ba7575bf58e0'</span> <span class="hljs-keyword" style="font-weight:700; line-height:1.6">in</span> submodule path…
+</code></pre>
+<p class="ng-scope" style="line-height:1.6; margin-top:0px; margin-bottom:16px; font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei; font-size:14px">
+会出现这个原因是因为子模块会从.gitmodules中获取url相应的提交，可是此时由于之前的开发者没有push到相应的url，导致而找不到提交的内容，因此会发生非公开的指针和url不匹配的原因。如果想要避免这样的情况，你需要查看一下谁是最后提交的人(git log -1)，然后告知该开发者进行push。</p>
+<blockquote class="ng-scope" style="line-height:1.6; margin:0px 0px 16px; padding:0px 15px; color:rgb(119,119,119); border-left-width:4px; border-left-style:solid; border-left-color:rgb(221,221,221); font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei; font-size:14px">
+<p style="line-height:1.6; margin-top:0px; margin-bottom:0px">小结：克隆完一个带有子模块的项目，需要初始化子模块，然后更新子模块（或者克隆项目时带有--recursive参数）。</p>
+</blockquote>
+<hr class="ng-scope" style="line-height:1.6; overflow:hidden; height:4px; padding:0px; margin:16px 0px; border-style:solid none none; border-top-color:rgb(221,221,221); font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei; font-size:14px; background:rgb(231,231,231)">
+<h2 class="ng-scope" style="line-height:1.225; position:relative; margin-top:1em; margin-bottom:16px; padding-bottom:0.3em; border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:rgb(238,238,238); font-size:18px; font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei">
+<a target="_blank" class="coding icon coding-anchor" href="https://coding.net/u/coding/p/Coding-Feedback/git/blob/master/git-submodule-tutorial.md#%E5%B7%A5%E4%BD%9C%E5%9C%A8%E5%B8%A6%E6%9C%89%E5%AD%90%E6%A8%A1%E5%9D%97%E7%9A%84%E9%A1%B9%E7%9B%AE%E4%B8%AD" rel="nofollow" style=""></a>工作在带有子模块的项目中</h2>
+<p class="ng-scope" style="line-height:1.6; margin-top:0px; margin-bottom:16px; font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei; font-size:14px">
+我们克隆了一个新的带有子模块的项目在我们本地仓库，如果此时我们想要知道远程仓库是否更新了子模块的部分，我们可以抓取下来git fetch，然后合并git merge上流的分支</p>
+<pre class="ng-scope" style="padding:16px; overflow:auto; font-size:14px; word-wrap:normal; font-family:monospace,monospace; margin-top:0px; margin-bottom:16px; background-color:rgb(247,247,247)"><code class="hljs groovy" style="display:inline; padding:0px; color:rgb(51,51,51); line-height:inherit; margin:0px; word-wrap:normal; border:0px; word-break:normal; font-family:Consolas,'Liberation Mono',Menlo,Courier,monospace!important; font-size:14px!important; background:0px 0px">$ git fetch
+<span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">remote:</span> Counting <span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">objects:</span> <span class="hljs-number" style="color:teal; line-height:1.6">3</span>, done.        
+<span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">remote:</span> Total <span class="hljs-number" style="color:teal; line-height:1.6">3</span> (delta <span class="hljs-number" style="color:teal; line-height:1.6">0</span>), reused <span class="hljs-number" style="color:teal; line-height:1.6">0</span> (delta <span class="hljs-number" style="color:teal; line-height:1.6">0</span>)        
+Unpacking <span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">objects:</span> <span class="hljs-number" style="color:teal; line-height:1.6">100</span>% (<span class="hljs-number" style="color:teal; line-height:1.6">3</span>/<span class="hljs-number" style="color:teal; line-height:1.6">3</span>), done.
+From <span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">https:</span><span class="hljs-comment" style="color:rgb(153,153,136); font-style:italic; line-height:1.6">//coding.net/zhanzhenchao/Be-a-submodule</span>
+   <span class="hljs-number" style="color:teal; line-height:1.6">1</span>cd6996..a02c01c  master     -&gt; origin/master
+
+root<span class="hljs-annotation" style="line-height:1.6">@rico</span>:<span class="hljs-regexp" style="color:rgb(0,153,38); line-height:1.6">/home/</span>rico<span class="hljs-regexp" style="color:rgb(0,153,38); line-height:1.6">/test/</span>submodules-test<span class="hljs-regexp" style="color:rgb(0,153,38); line-height:1.6">/Be-a-submodule# git merge origin/</span>master
+Updating <span class="hljs-number" style="color:teal; line-height:1.6">1</span>cd6996..a02c01c
+
+Fast-forward
+ README.md |    <span class="hljs-number" style="color:teal; line-height:1.6">2</span> &#43;&#43;
+ <span class="hljs-number" style="color:teal; line-height:1.6">1</span> file changed, <span class="hljs-number" style="color:teal; line-height:1.6">2</span> insertions(&#43;)
+</code></pre>
+<p class="ng-scope" style="line-height:1.6; margin-top:0px; margin-bottom:16px; font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei; font-size:14px">
+这个时候，你回到主项目的目录下可以查看子模块的更型状况git log --submodule</p>
+<pre class="ng-scope" style="padding:16px; overflow:auto; font-size:14px; word-wrap:normal; font-family:monospace,monospace; margin-top:0px; margin-bottom:16px; background-color:rgb(247,247,247)"><code class="hljs groovy" style="display:inline; padding:0px; color:rgb(51,51,51); line-height:inherit; margin:0px; word-wrap:normal; border:0px; word-break:normal; font-family:Consolas,'Liberation Mono',Menlo,Courier,monospace!important; font-size:14px!important; background:0px 0px">$git diff --submodule
+Submodule Be-a-submodule <span class="hljs-number" style="color:teal; line-height:1.6">1</span>cd6996..<span class="hljs-string" style="color:rgb(221,17,68); line-height:1.6">a02c01c:</span>
+  &gt; update README.md
+</code></pre>
+<p class="ng-scope" style="line-height:1.6; margin-top:0px; margin-bottom:16px; font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei; font-size:14px">
+如果你不想git fetch然后git merge的方式，你可以用git submodule update --remote [submodule-name]的方式替代。</p>
+<hr class="ng-scope" style="line-height:1.6; overflow:hidden; height:4px; padding:0px; margin:16px 0px; border-style:solid none none; border-top-color:rgb(221,221,221); font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei; font-size:14px; background:rgb(231,231,231)">
+<h2 class="ng-scope" style="line-height:1.225; position:relative; margin-top:1em; margin-bottom:16px; padding-bottom:0.3em; border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:rgb(238,238,238); font-size:18px; font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei">
+<a target="_blank" class="coding icon coding-anchor" href="https://coding.net/u/coding/p/Coding-Feedback/git/blob/master/git-submodule-tutorial.md#%E5%AD%90%E6%A8%A1%E5%9D%97%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E5%92%8C%E5%B0%8F%E6%8F%90%E7%A4%BA" rel="nofollow" style=""></a>子模块注意事项和小提示</h2>
+<ol class="ng-scope" style="line-height:1.6; padding:0px 0px 0px 2em; margin-top:0px; margin-bottom:16px; font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei; font-size:14px">
+<li style="line-height:1.4">子模块可以理解为某仓库的指定版本的内容作为当前仓库的某一子目录</li><li style="line-height:1.4">父仓库不直接关注子模块的内容变化，只关注子模块版本号的变化</li><li style="line-height:1.4">父仓库的任意一个版本都唯一的确定了子模块的版本</li><li style="line-height:1.4">子模块的版本号发生变化将导致父仓库产生变化（diff）父仓库需要提交这一变化来记录相应改动，而这，也将导致父仓库产生一个新的版本</li><li style="line-height:1.4">子仓库可以完全不知道父仓库的存在</li><li style="line-height:1.4">父仓库可以不存储任何代码，而仅仅是记录一系列子模块的版本号，这些版本号的变更形成了父仓库的历史</li><li style="line-height:1.4">可以使用子模块来划分目录的权限</li></ol>
+<hr class="ng-scope" style="line-height:1.6; overflow:hidden; height:4px; padding:0px; margin:16px 0px; border-style:solid none none; border-top-color:rgb(221,221,221); font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei; font-size:14px; background:rgb(231,231,231)">
+<h2 class="ng-scope" style="line-height:1.225; position:relative; margin-top:1em; margin-bottom:16px; padding-bottom:0.3em; border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:rgb(238,238,238); font-size:18px; font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei">
+<a target="_blank" class="coding icon coding-anchor" href="https://coding.net/u/coding/p/Coding-Feedback/git/blob/master/git-submodule-tutorial.md#Git%20%E5%AD%90%E6%A8%A1%E5%9D%97%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0" rel="nofollow" style=""></a>Git 子模块参考文章</h2>
+<ol class="ng-scope" style="line-height:1.6; padding:0px 0px 0px 2em; margin-top:0px; font-family:微软雅黑,'Helvetica Neue',sans-serif,SimHei; font-size:14px; margin-bottom:0px!important">
+<li style="line-height:1.4"><a target="_blank" href="http://git-scm.com/book/zh/v1/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97" rel="nofollow" style="color:rgb(45,89,162); text-decoration:none; line-height:1.6; background:0px 0px">http://git-scm.com/book/zh/v1/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97</a></li><li style="line-height:1.4"><a target="_blank" href="http://git-scm.com/book/en/v2/Git-Tools-Submodules" rel="nofollow" style="color:rgb(45,89,162); text-decoration:none; line-height:1.6; background:0px 0px">http://git-scm.com/book/en/v2/Git-Tools-Submodules</a></li></ol>
+<link rel="stylesheet" href="http://static.blog.csdn.net/public/res-min/markdown_views.css?v=1.0" />
+                      </div>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="skin_nav">        
+                     <div class="skin_edit"><i class="fa fa-th-list"></i>
+                     <div class="nav_list nav_list_edit"><a href="/u010781856">文章列表</a></div>
+                  </div>
+                     
+                </div>
+                <div class="rssFix">
+        	        <a href="http://blog.csdn.net/u010781856/rss/list" class="column"  onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_RSS'])"><i class="fa fa-rss"></i></a>
+                </div>        
+
+                <div id="goTopBtn" class="skin_backTop"><i class="fa fa-chevron-up"></i></div>
+        </div>
+        <div class="detail_b">
+          <p class="reprint_copy" style="display:none" id="copyright"></p>  
+		   <!--      
+          <div class="bole" style="display:none">
+            <h2 class="bole_t clearfix"><span>伯乐推荐</span>
+              <label>一共有<em>{bolecount}</em>位博乐进行推荐</label>
+            </h2>
+           {bolecomment}              
+          </div>		
+          -->  
+           <!-- style=""style=""-->
+          <h2 class="praise" >
+            <label id="digg" ArticleId="47704801" onclick="btndigga();" ><span id="btnDigg">顶</span><em>0</em></label>
+            <label id="bury" onclick="btnburya();"><span id="btnBury"   >踩</span><em>0</em></label>
+          </h2>           
+                <div class="tracking-ad" data-mod="popu_222"><a href="javascript:void(0);" >&nbsp;</a>   </div>
+                <div class="tracking-ad" data-mod="popu_223"> <a href="javascript:void(0);" >&nbsp;</a></div>
+           
+             <script type="text/javascript">
+                 function btndigga() {
+                     $(".tracking-ad[data-mod='popu_222'] a").click();
+                 }
+                 function btnburya() {
+                     $(".tracking-ad[data-mod='popu_223'] a").click();
+                 }
+
+                 $(function () {
+                     if ($(".markdown_views").length > 0) {
+			if($("#fromjs").length==0)
+			{
+                         $('pre.prettyprint code').each(function () {
+                             var lines = $(this).text().split('\n').length;
+                             var $numbering = $('<ul/>').addClass('pre-numbering').hide();
+                             $(this).addClass('has-numbering').parent().append($numbering);
+                             for (i = 1; i <= lines; i++) {
+                                 $numbering.append($('<li/>').text(i));
+                             };
+                             $numbering.fadeIn(1700);
+                         });
+			}
+                     }
+                     else {
+                         $("#article_content pre").each(function () {
+                             var $this = $(this);
+                             if ($this.attr("class") != undefined) {
+                                 if ($this.attr("class").indexOf("brush:") != -1) {
+                                     var lang = $this.attr("class").split(';')[0].split(':')[1];
+                                     $this.attr('name', 'code');
+                                     $this.attr('class', lang);
+                                 }
+                                 if ($this.attr("class")) {
+                                     $this.attr('name', 'code');
+                                 }
+                             }
+                         });
+                         $('#article_content textarea[name=code]').each(function () {
+                             var $this = $(this);
+                             if ($this.attr("class").indexOf(":") != -1) {
+                                 $this.attr("class", $this.attr("class").split(':')[0]);
+                             }
+                         });
+                         dp.SyntaxHighlighter.HighlightAll('code');
+                         $('.highlighter').addClass('dp-highlighter');
+                         if (!window.clipboardData) {
+                             setTimeout("setCopyBtn()", 500);
+                         }
+
+                         function __get_code_toolbar(snippet_id) {
+                             return $("<span class='tracking-ad' data-mod='popu_167'><a href='https://code.csdn.net/snippets/"
+                                     + snippet_id
+                                     + "' target='_blank' title='在CODE上查看代码片'  style='text-indent:0;'><img src='https://code.csdn.net/assets/CODE_ico.png' width=12 height=12 alt='在CODE上查看代码片' style='position:relative;top:1px;left:2px;'/></a></span>"
+                                     + "<span class='tracking-ad' data-mod='popu_170'><a href='https://code.csdn.net/snippets/"
+                                     + snippet_id
+                                     + "/fork' target='_blank' title='派生到我的代码片' style='text-indent:0;'><img src='https://code.csdn.net/assets/ico_fork.svg' width=12 height=12 alt='派生到我的代码片' style='position:relative;top:2px;left:2px;'/></a></span>");
+                         }
+
+                         $("[code_snippet_id]").each(function () {
+                             __s_id = $(this).attr("code_snippet_id");
+                             if (__s_id != null && __s_id != "" && __s_id != 0 && parseInt(__s_id) > 70020) {
+                                 __code_tool = __get_code_toolbar(__s_id);
+                                 $(this).prev().find(".tools").append(__code_tool);
+                             }
+                         });
+
+                         $(".bar").show();
+                     }
+                 });
+            </script>
+          <div class="blog_share">
+              <!--<i class="fa fa-qq"></i><i class="fa fa-weixin"></i><i class="fa fa-weibo"></i><i class="fa fa-renren"></i><i class="fa fa-qq"></i><i class="fa fa-weixin"></i>
+              <i class="fa fa-weibo"></i><i class="fa fa-renren"></i>-->                
+               <div class="bdsharebuttonbox tracking-ad" style="float: right;" data-mod="popu_172">
+                <a href="#" class="bds_more" data-cmd="more" style="background-position:0 0 !important; background-image: url(http://bdimg.share.baidu.com/static/api/img/share/icons_0_16.png?v=d754dcc0.png) !important"></a>
+                <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"  style="background-position:0 -52px !important"></a>
+                <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"style="background-position:0 -104px !important"></a>
+                <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"style="background-position:0 -260px !important"></a>
+                <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"style="background-position:0 -208px !important"></a>
+                <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"style="background-position:0 -1612px !important" ></a>
+                </div>
+                <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+                <!-- Baidu Button END -->
+          </div>
+          <div class="forward_back">
+            <div class="back fl"><a href="javascript:void(0);" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian']);location.href='/u010781856/article/details/47702337';"><span><i class="fa fa-arrow-left"></i></span><em>Windows平台下MySQL常用操作与命令</em></a></div><div class="forward fr"><a href="javascript:void(0);" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian']);location.href='/u010781856/article/details/47704923';"><em>20个你可能不知道的 Linux 网络工具</em><span><i class="fa fa-arrow-right"></i></span></a></div>
+          </div>
+            <div>
+                <script type="text/javascript">
+    /*博客内容页下方Banner2-728*90，创建于2014-7-3*/
+    var cpro_id = "u1607657";
+</script>
+<script type="text/javascript" src="http://cpro.baidustatic.com/cpro/ui/c.js"></script>
+            </div>            
+        <!--  
+		{articleinsamecategory}
+            -->
+          <div class="comment" id="comment_form">
+              <div id="commentsbmitarear">
+                    <h2 class="comment_t">发表评论</h2>
+                    <dl class="publish_comment clearfix" id="commentbox">
+                      <dt><a href="http://my.csdn.net/"><img src=""></a></dt>
+                      <dd>                 
+			          <form action="/u010781856/comment/submit?id=47704801" method="post" onsubmit="return subform(this);" id="commentform">
+					        <textarea class="publish_txt" id="comment_content"></textarea>
+					        <div class="publish clearfix">
+					
+					          <div class="publish_l"><i class="fa fa-code J_code"></i></div>
+
+					          <input type="hidden" id="comment_replyId" name="comment_replyId">
+					          <input type="hidden" id="comment_userId" name="comment_userId" value="">
+					          <input type="hidden" id="commentId" name="commentId" value="">
+					  
+					          <a href="javascript:void(0);" class="publish_btn"> 发表评论</a>&nbsp;&nbsp;<span id="tip_comment" style="color: Red; display: none;"></span>
+					
+					          <div class="comment-code-pop J_lang_list" id="lang_list" code="code"><a href="#html" style="width:95px;" class="long_name">HTML/XML</a><a href="#objc" style="width:95px;" class="long_name">objective-c</a><a href="#delphi" style="width:58px;" class="zhong_name">Delphi</a><a href="#ruby" class="zhong_name">Ruby</a><a href="#php">PHP</a><a href="#csharp" class="duan_name">C#</a><a style=" border-right: none;" href="#cpp" class="duan_name">C++</a><a style=" border-bottom:none;width:95px;" href="#javascript" class="long_name">JavaScript</a><a style=" border-bottom:none;width:95px;" href="#vb" class="long_name">Visual Basic</a><a style=" border-bottom:none;" href="#python" class="zhong_name">Python</a><a style=" border-bottom:none;" href="#java" class="zhong_name">Java</a><a style="border-bottom:none;" href="#css" class="duan_name">CSS</a><a style="border-bottom:none;" href="#sql" class="duan_name">SQL</a><a style="border:none; " href="#plain" class="duan_name">其它</a><span class="arrb"></span></div>
+					        </div>
+			         </form>
+                      </dd>
+                    </dl>
+               </div>
+              <a name="comments"></a>
+            <div class="comment_list" id="comment_list"></div>
+            <div  style="height:60px">&nbsp;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="skin_right">
+      <div id="skin_r_wrap" class="skin_r_wrap">
+        <div id="skin_r" class="skin_r"><i id="arrow_r" class="fa fa-arrow-right"></i>
+          <div class="mess"><a href="http://my.csdn.net/u010781856"><img src="http://avatar.csdn.net/6/4/C/1_u010781856.jpg" alt="img" class="head"></a>
+            <p class="mess_name">u010781856</p>
+            <div class="grade">
+                <p><span>等级：</span><img src="http://c.csdnimg.cn/jifen/images/xunzhang/jianzhang/blog5.png"></p>
+                <p><span>排名：</span><span>第12517名</span></p>
+            </div>
+            <div class="blog_medal"><a href="http://blog.csdn.net/experts/rule.html"></a>
+              <div class="medal_c"><a href='javascript:void(0);'><img src='http://c.csdnimg.cn/jifen/images/xunzhang/xunzhang/chizhiyiheng.png' alt='img'></a></div>
+              <div class="attention">
+			  <a href="javascript:void(0);" id="span_add_follow"><i class="fa fa-plus"></i><span>加关注</span></a>
+			  <a href="javascript:void(0);" onClick="window.open('http://msg.csdn.net/letters/model?receiver=u010781856','_blank','height=350,width=700');_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_sixin'])"><i class="fa fa-envelope-o"></i><span>发私信</span></a>			  			 
+			  </div>   
+			   <div class="contact"></div>         
+            </div>
+          </div>
+          <div class="classify">     
+             <!--
+            <dl class="classify_list js_list">
+	             <dt>
+	                  <div class="js_column"><i class="fa fa-th"></i><a href="#" class="column">文章分类</a></div>
+	            </dt>
+            </dl>
+
+                  <dl class="classify_list">
+              <dt><i class="fa fa-play-circle"></i><a  href="/u010781856/blog/course" class="column">我的课程</a></dt>
+            </dl> 
+		    -->	    	
+            
+            
+                
+               
+               <dl class="classify_list">
+                     <div class="article_search">
+                         <div class="article_search_c">
+                            <form id="frmSearch" action="http://so.csdn.net/search" class="form_search csdn-tracking-statistics" target="_blank"  data-mod="popu_306">
+                                <input type="text" id="inputSearch" placeholder="文章搜索"><i class="fa fa-search" id="btnSubmit"></i>
+                            </form>
+                         </div>
+                     </div>
+               </dl>  
+			<script type="text/javascript">
+
+		   
+		    $(function () {
+		        $("#btnSubmit").unbind("click");
+		        $("#btnSubmit").click(function () {           
+		            search();
+		        });
+
+		        $("#frmSearch").submit(function () {           
+		            search();
+		            return false;
+		        });
+
+		        function search()
+		        {
+		            if ($("#inputSearch").val() == "") {               
+		                alert("请录入搜索关键词！");                         
+		                return false;
+		            }
+		            //var url = "http://so.csdn.net/so/search/s.do?q=" + encodeURIComponent($("#inputSearch").val()) + "&u=" + username + "&t=blog";           
+		            var url = "https://www.baidu.com/s?wd=" + encodeURIComponent($("#inputSearch").val()) + "%20site%3Ablog.csdn.net"
+		            window.location.href = url;
+		        }   
+		    });
+		</script>
+                    
+            <dl class="classify_list">
+              <dt><i class="fa fa-file-text"></i><a  href="/u010781856/blog/column" class="column">博客专栏</a> </dt>
+            </dl>  
+                    
+           <dl class="classify_list js_list">
+              <dt>
+                <div class="js_column_wrap"><i class="fa fa-th"></i><span class="column">文章分类</span></div>
+                <ul id="article_list0" class="article_list">
+				  <li><a href="/u010781856/article/category/6712579" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">ACT改分/ACT改分-百度-经验</a><span>（0）</span></li><li><a href="/u010781856/article/category/6712580" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">怎么修改考研成绩-百度-经验</a><span>（0）</span></li><li><a href="/u010781856/article/category/6712581" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">高级经济师成绩能修改吗-百度-经验</a><span>（0）</span></li><li><a href="/u010781856/article/category/6712582" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">黑客修改执业药师考试分数-百度-经验</a><span>（0）</span></li>                  
+                </ul>
+              </dt>
+              <dd style="display:none"><a href="#" class="article_add"><i class="fa fa-plus"></i></a></dd>
+            </dl>
+            
+            <dl class="classify_list js_list">
+              <dt>
+                <div class="js_column_wrap"><i class="fa fa-calendar"></i><span class="column">文章存档</span></div>
+                <ul id="article_list1" class="article_list">
+                 
+                    <li><a href="/u010781856/article/month/2017/06">2017年06月</a><span>(2)</span></li>
+                
+                    <li><a href="/u010781856/article/month/2017/03">2017年03月</a><span>(2)</span></li>
+                
+                    <li><a href="/u010781856/article/month/2016/11">2016年11月</a><span>(1)</span></li>
+                
+                    <li><a href="/u010781856/article/month/2016/10">2016年10月</a><span>(1)</span></li>
+                
+                    <li><a href="/u010781856/article/month/2016/09">2016年09月</a><span>(7)</span></li>
+                
+                    <li><a href="/u010781856/article/month/2015/12">2015年12月</a><span>(5)</span></li>
+                
+                    <li><a href="/u010781856/article/month/2015/11">2015年11月</a><span>(18)</span></li>
+                
+                    <li><a href="/u010781856/article/month/2015/10">2015年10月</a><span>(6)</span></li>
+                
+                    <li><a href="/u010781856/article/month/2015/09">2015年09月</a><span>(48)</span></li>
+                
+                    <li><a href="/u010781856/article/month/2015/08">2015年08月</a><span>(170)</span></li>
+                
+                    <li><a href="/u010781856/article/month/2015/07">2015年07月</a><span>(108)</span></li>
+                
+                    <li><a href="/u010781856/article/month/2015/06">2015年06月</a><span>(72)</span></li>
+                
+                    <li><a href="/u010781856/article/month/2015/05">2015年05月</a><span>(34)</span></li>
+                
+                    <li><a href="/u010781856/article/month/2015/04">2015年04月</a><span>(55)</span></li>
+                
+                    <li><a href="/u010781856/article/month/2015/03">2015年03月</a><span>(26)</span></li>
+                
+                    <li><a href="/u010781856/article/month/2015/02">2015年02月</a><span>(3)</span></li>
+                
+                    <li><a href="/u010781856/article/month/2015/01">2015年01月</a><span>(82)</span></li>
+                
+                    <li><a href="/u010781856/article/month/2014/12">2014年12月</a><span>(24)</span></li>
+                
+                    <li><a href="/u010781856/article/month/2014/11">2014年11月</a><span>(7)</span></li>
+                
+                </ul>
+              </dt>
+            </dl>
+                 
+            <dl class="classify_list js_list">
+              <dt>
+                <div class="js_column_wrap"><i class="fa fa-eye"></i><span class="column">阅读排行</span></div>
+                <ul class="article_list">
+                
+                 <li><a href="/u010781856/article/details/47704801">Git 本身不支持对某一特定文件夹或者子目录的权限控制，但是可以通过子模块的形式间接实现</a><span>（2922）</span></li>
+                 
+                 <li><a href="/u010781856/article/details/46593625">C++中的C_str()函数用法</a><span>（2094）</span></li>
+                 
+                 <li><a href="/u010781856/article/details/46971671">java集合框架中List的定义以及一些注意事项</a><span>（1753）</span></li>
+                 
+                 <li><a href="/u010781856/article/details/47782895">自顶向下测试和自底向上测试</a><span>（1709）</span></li>
+                 
+                 <li><a href="/u010781856/article/details/52598590">Jenkins使用经验谈4（创建Job）</a><span>（1530）</span></li>
+                 
+                 <li><a href="/u010781856/article/details/52655084">持续集成JenkinsAPI常见用法</a><span>（1470）</span></li>
+                 
+                 <li><a href="/u010781856/article/details/49644707">Python 中 import 的机制与实现</a><span>（1422）</span></li>
+                 
+                 <li><a href="/u010781856/article/details/47376753">ubuntu查看系统日志及相关文件介绍</a><span>（1412）</span></li>
+                 
+                 <li><a href="/u010781856/article/details/42177409">VBP/VFP/HBP/HFP</a><span>（1344）</span></li>
+                 
+                 <li><a href="/u010781856/article/details/47303885">使用Python开发windows桌面程序</a><span>（1254）</span></li>
+                 
+                </ul>
+              </dt>
+            </dl>
+            
+            <dl class="classify_list js_list">
+              <dt>
+                <div class="js_column_wrap"><i class="fa fa-comments"></i><span class="column">评论排行</span></div>
+                <ul class="article_list">
+                  
+                  <li><a href="/u010781856/article/details/52598590">Jenkins使用经验谈4（创建Job）</a><span>（2）</span></li>
+                  
+                  <li><a href="/u010781856/article/details/41965489">int main(int argc,char* argv[])详解</a><span>（1）</span></li>
+                  
+                  <li><a href="/u010781856/article/details/42177409">VBP/VFP/HBP/HFP</a><span>（1）</span></li>
+                  
+                  <li><a href="/u010781856/article/details/46348281">STL系列之十 全排列(百度迅雷笔试题)</a><span>（1）</span></li>
+                  
+                  <li><a href="/u010781856/article/details/49644707">Python 中 import 的机制与实现</a><span>（1）</span></li>
+                  
+                  <li><a href="/u010781856/article/details/47280499">Android.mk编译APK范例</a><span>（1）</span></li>
+                  
+                  <li><a href="/u010781856/article/details/46911999">linux shell比较两个文件夹下的文本内容</a><span>（1）</span></li>
+                  
+                  <li><a href="/u010781856/article/details/41253201">Linux下查看和添加PATH环境变量</a><span>（0）</span></li>
+                  
+                  <li><a href="/u010781856/article/details/41242479">authentication failure</a><span>（0）</span></li>
+                  
+                  <li><a href="/u010781856/article/details/41178633">什么是Linux操作系统单用户模式</a><span>（0）</span></li>
+                  
+                </ul>
+              </dt>
+            </dl>
+                
+            <dl class="classify_list js_list">
+              <dt>
+                <div class="js_column_wrap"><i class="fa fa-list-ol"></i><span class="column">推荐文章</span></div>
+                <ul class="article_list">
+                 <ul>
+<li><a href="http://blog.csdn.net/blogdevteam/article/details/73350362" target="_blank">* CSDN日报20170617 ——《深度学习，先跟上再说》</a></li>
+<li><a href="http://blog.csdn.net/tangxiaoyin/article/details/73274955" 
+target="_blank">* 一文理清散乱的物联网里开发者必须关注的技术！</a></li>
+<li><a href="http://blog.csdn.net/vipzjyno1/article/details/21039349"target="_blank">* Android APK反编译就这么简单 详解</a></li>
+<li><a href="http://blog.csdn.net/aliceyangxi1987/article/details/73210204" 
+target="_blank">* 如何选择优化器 optimizer</a></li>
+<li><a href="http://blog.csdn.net/u013970991/article/details/73222046" 
+target="_blank">* 性能测试场景设计杂谈</a></li>
+<li><a href="http://blog.csdn.net/yinwenjie/article/details/72909981" 
+target="_blank">* 线程进阶：多任务处理——Java 中的锁</a></li>
+
+</ul>
+                </ul>
+              </dt>
+            </dl>
+                  
+            <dl class="classify_list js_list">
+              <dt>
+                <div class="js_column_wrap"><i class="fa fa-commenting"></i><span class="column">最新评论</span></div>
+                <ul class="article_list new_comment">
+                  
+                    <li>                    
+                    <p><a href="/u010781856/article/details/47280499">Android.mk编译APK范例</a></p>                   
+                    <p><a href="/sunhuaqiang1" class="reply_name">sunhuaqiang1</a><span>回复：</span></p>
+                    <p class="reply_c"><em></em><i>CSDN博友你好，我是孙华强，现将此篇博文收录进“Android知识库”。CSDN现在在做CSDN博...</i></p>                    
+                  </li>      
+                 
+                    <li>                    
+                    <p><a href="/u010781856/article/details/42177409">VBP/VFP/HBP/HFP</a></p>                   
+                    <p><a href="/m0_38081481" class="reply_name">m0_38081481</a><span>回复：</span></p>
+                    <p class="reply_c"><em></em><i>作者在开始对hfp、hbp、hsw几个定义有错误，说明和图有出入，还有hsw的必要性的定义有问题。</i></p>                    
+                  </li>      
+                 
+                    <li>                    
+                    <p><a href="/u010781856/article/details/52598590">Jenkins使用经验谈4（创建Job）</a></p>                   
+                    <p><a href="/u013038643" class="reply_name">u013038643</a><span>回复：</span></p>
+                    <p class="reply_c"><em></em><i>看的不是很明白</i></p>                    
+                  </li>      
+                 
+                    <li>                    
+                    <p><a href="">Jenkins使用经验谈4（创建Job）</a></p>                   
+                    <p><a href="/qq_18799863" class="reply_name">qq_18799863</a><span>回复：</span></p>
+                    <p class="reply_c"><em></em><i>as</i></p>                    
+                  </li>      
+                 
+                    <li>                    
+                    <p><a href="/u010781856/article/details/49644707">Python 中 import 的机制与实现</a></p>                   
+                    <p><a href="/cjmqas" class="reply_name">cjmqas</a><span>回复：</span></p>
+                    <p class="reply_c"><em></em><i>大神级别的文章</i></p>                    
+                  </li>      
+                 
+                    <li>                    
+                    <p><a href="/u010781856/article/details/46911999">linux shell比较两个文件夹下的文本内容</a></p>                   
+                    <p><a href="/qq_29462715" class="reply_name">qq_29462715</a><span>回复：</span></p>
+                    <p class="reply_c"><em></em><i>使用起来不错</i></p>                    
+                  </li>      
+                 
+                    <li>                    
+                    <p><a href="/u010781856/article/details/46348281">STL系列之十 全排列(百度迅雷笔试题)</a></p>                   
+                    <p><a href="/Colinmacreaylly" class="reply_name">Colinmacreaylly</a><span>回复：</span></p>
+                    <p class="reply_c"><em></em><i>支持</i></p>                    
+                  </li>      
+                 
+                    <li>                    
+                    <p><a href="/u010781856/article/details/41965489">int main(int argc,char* argv[])详解</a></p>                   
+                    <p><a href="/u010464679" class="reply_name">u010464679</a><span>回复：</span></p>
+                    <p class="reply_c"><em></em><i>好东西啊</i></p>                    
+                  </li>      
+                           
+                </ul>
+              </dt>
+            </dl>
+                
+
+            <!--
+           [startblogcolumn]            
+             [startsearch]   
+               <dl class="classify_list">
+                     <div class="article_search">
+                         <div class="article_search_c">
+                            <form id="frmSearch" action="http://so.csdn.net/search" class="form_search csdn-tracking-statistics" target="_blank"  data-mod="popu_306">
+                                <input type="text" id="inputSearch" placeholder="文章搜索"><i class="fa fa-search" id="btnSubmit"></i>
+                            </form>
+                         </div>
+                     </div>
+               </dl>  
+			<script type="text/javascript">
+
+		   
+		    $(function () {
+		        $("#btnSubmit").unbind("click");
+		        $("#btnSubmit").click(function () {           
+		            search();
+		        });
+
+		        $("#frmSearch").submit(function () {           
+		            search();
+		            return false;
+		        });
+
+		        function search()
+		        {
+		            if ($("#inputSearch").val() == "") {               
+		                alert("请录入搜索关键词！");                         
+		                return false;
+		            }
+		            //var url = "http://so.csdn.net/so/search/s.do?q=" + encodeURIComponent($("#inputSearch").val()) + "&u=" + username + "&t=blog";           
+		            var url = "https://www.baidu.com/s?wd=" + encodeURIComponent($("#inputSearch").val()) + "%20site%3Ablog.csdn.net"
+		            window.location.href = url;
+		        }   
+		    });
+		</script>
+            [endsearch]   
+            
+            [startspecialcolumn]        
+            <dl class="classify_list">
+              <dt><i class="fa fa-file-text"></i><a  href="/u010781856/blog/column" class="column">博客专栏</a> </dt>
+            </dl>  
+            [endspecialcolumn]   
+            
+             [startcategory]        
+           <dl class="classify_list js_list">
+              <dt>
+                <div class="js_column_wrap"><i class="fa fa-th"></i><span class="column">文章分类</span></div>
+                <ul id="article_list0" class="article_list">
+				  {articlecategorys}                  
+                </ul>
+              </dt>
+              <dd style="display:none"><a href="#" class="article_add"><i class="fa fa-plus"></i></a></dd>
+            </dl>
+            [endcategory]
+
+            [startarchive]
+            <dl class="classify_list js_list">
+              <dt>
+                <div class="js_column_wrap"><i class="fa fa-calendar"></i><span class="column">文章存档</span></div>
+                <ul id="article_list1" class="article_list">
+                 [startlist]
+                    <li><a href="/{0}/article/month/{1}/{2}">{1}年{2}月</a><span>({3})</span></li>
+                [endlist]
+                </ul>
+              </dt>
+            </dl>
+             [endarchive]    
+                [startviewcountarticles]    
+            <dl class="classify_list js_list">
+              <dt>
+                <div class="js_column_wrap"><i class="fa fa-eye"></i><span class="column">阅读排行</span></div>
+                <ul class="article_list">
+                [startlist]
+                 <li><a href="{columnarticleurl}">{columnarticletitle}</a><span>（{columnarticlecount}）</span></li>
+                 [endlist]
+                </ul>
+              </dt>
+            </dl>
+            [endviewcountarticles]
+                [startcommentcountarticles]
+            <dl class="classify_list js_list">
+              <dt>
+                <div class="js_column_wrap"><i class="fa fa-comments"></i><span class="column">评论排行</span></div>
+                <ul class="article_list">
+                  [startlist]
+                  <li><a href="{columnarticleurl}">{columnarticletitle}</a><span>（{columnarticlecommentcount}）</span></li>
+                  [endlist]
+                </ul>
+              </dt>
+            </dl>
+                [endcommentcountarticles]
+                [starthomepagearticles]
+            <dl class="classify_list js_list">
+              <dt>
+                <div class="js_column_wrap"><i class="fa fa-list-ol"></i><span class="column">推荐文章</span></div>
+                <ul class="article_list">
+                 {cloumcontent}
+                </ul>
+              </dt>
+            </dl>
+                  [endhomepagearticles]
+                [startnewcomments]
+            <dl class="classify_list js_list">
+              <dt>
+                <div class="js_column_wrap"><i class="fa fa-commenting"></i><span class="column">最新评论</span></div>
+                <ul class="article_list new_comment">
+                  [startlist]
+                    <li>                    
+                    <p><a href="{articleurl}">Git 本身不支持对某一特定文件夹或者子目录的权限控制，但是可以通过子模块的形式间接实现</a></p>                   
+                    <p><a href="/{commentusername}" class="reply_name">{commentusername}</a><span>回复：</span></p>
+                    <p class="reply_c"><em></em><i>{commentcontent}</i></p>                    
+                  </li>      
+                 [endlist]          
+                </ul>
+              </dt>
+            </dl>
+                [endnewcomments]
+                [startcustom]
+                   <dl class="classify_list js_list">
+                      <dt>
+                        <div class="js_column_wrap"><i class="fa fa-cube"></i><span class="column">{columntitle}</span></div>
+                        <ul class="article_list">
+                         {columcontent}
+                        </ul>
+                      </dt>
+                    </dl>
+                [endcustom]
+         [endblogcolumn]    
+            -->
+
+            <!--
+            <dl class="classify_list">
+              <dt class="rss"><i class="fa fa-rss"></i>			 
+			  <span class="column">
+			   	<a href="http://blog.csdn.net/u010781856/rss/list" class="column"  onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_RSS'])">RSS订阅</a>
+			   </span>
+			  </dt>
+            </dl>
+            -->
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="skin_right_small" class="skin_right_small">
+      <div class="skin_r_small"><i id="faNavicon" class="fa fa-navicon"></i>
+        <div class="head_small"><a href="http://my.csdn.net/u010781856"><img src="http://avatar.csdn.net/6/4/C/1_u010781856.jpg" alt="img"></a></div>
+        <ul class="rSmallList">  
+           
+                
+                  <li class="small_article"><i class="fa fa-file-text"></i><a href="/u010781856/blog/column" class="small_column">博客专栏</a></li>
+                    
+                  <li class="small_article js_smallArticle"><i class="fa fa-th"></i><a href="#" class="small_column">文章分类</a></li>
+                
+                  <li class="small_article js_smallArticle"><i class="fa fa-calendar"></i><a href="#" class="small_column">文章存档</a></li>
+                
+                  <li class="small_article js_smallArticle"><i class="fa fa-eye"></i><a href="#" class="small_column">阅读排行</a></li>
+              
+                  <li class="small_article js_smallArticle"><i class="fa fa-comments"></i><a href="#" class="small_column">评论排行</a></li>
+              
+                  <li class="small_article js_smallArticle"><i class="fa fa-list-ol"></i><a href="#" class="small_column">推荐文章</a></li>
+              
+                  <li class="small_article js_smallArticle"><i class="fa fa-commenting"></i><a href="#" class="small_column">最新评论</a></li>
+                      
+          <!-- 
+           [startblogcolumnsmall]   
+               [startspecialcolumn]    
+                  <li class="small_article"><i class="fa fa-file-text"></i><a href="/u010781856/blog/column" class="small_column">博客专栏</a></li>
+               [endspecialcolumn]  
+                [startcategory]     
+                  <li class="small_article js_smallArticle"><i class="fa fa-th"></i><a href="#" class="small_column">文章分类</a></li>
+                [endcategory]     
+              [startarchive]
+                  <li class="small_article js_smallArticle"><i class="fa fa-calendar"></i><a href="#" class="small_column">文章存档</a></li>
+              [endarchive]
+              [startviewcountarticles]  
+                  <li class="small_article js_smallArticle"><i class="fa fa-eye"></i><a href="#" class="small_column">阅读排行</a></li>
+              [endviewcountarticles]  
+              [startcommentcountarticles]
+                  <li class="small_article js_smallArticle"><i class="fa fa-comments"></i><a href="#" class="small_column">评论排行</a></li>
+              [endcommentcountarticles]
+              [starthomepagearticles]
+                  <li class="small_article js_smallArticle"><i class="fa fa-list-ol"></i><a href="#" class="small_column">推荐文章</a></li>
+              [endhomepagearticles]
+              [startnewcomments]
+                  <li class="small_article js_smallArticle"><i class="fa fa-commenting"></i><a href="#" class="small_column">最新评论</a></li>
+              [endnewcomments]
+              [startcustom]
+                  <li class="small_article js_smallArticle"><i class="fa fa-cube"></i><a href="#" class="small_column">{columntitle}</a></li>
+              [endcustom]
+          [endblogcolumnsmall]    
+          -->         
+        </ul>        
+      </div>
+    </div>
+	
+    <div id="mask"></div>
+    <script type="text/javascript" src="http://static.blog.csdn.net/skin/skin2-template/js/apps/accordion.js"></script>
+    
+    <script type="text/javascript" src="http://static.blog.csdn.net/skin/skin2-template/js/apps/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="http://static.blog.csdn.net/skin/skin2-template/js/apps/jquery.rollbar.min.js"></script>
+    
+    <script type="text/javascript" src="http://static.blog.csdn.net/skin/skin2-template/js/apps/transition.js"></script>  
+     <script id="noticeScript" type="text/javascript" charset="utf-8" btnId="header_notice_num" wrapId="note1" count="5" subCount="5" src="http://c.csdnimg.cn/public/common/toolbar/js/notify.js"></script>  
+    <!--script( type="text/javascript" src="http://csdnimg.cn/pubfooter/js/publib_footer.js" )-->
+    <!--script( type="text/javascript" src="http://static.csdn.net/public/common/toolbar/js/toolbar.js" )-->
+    <script id="csdn-toolbar-id" btnId="header_notice_num" wrapId="note1" count="5" subCount="5" type="text/javascript" src="http://c.csdnimg.cn/public/common/toolbar/js/toolbar.js"></script>
+
+     <div id="pop_win" style="display:none ;position: absolute; z-index: 10000; border: 1px solid rgb(220, 220, 220); top: 222.5px; left: 630px; opacity: 1; background: none 0px 0px repeat scroll rgb(255, 255, 255);">
+    
+    </div>
+    <div id="report_dialog">
+    </div>
+
+    <div id="popup_mask"></div>
+    <style  type="text/css">
+        #popup_mask
+        {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 9999;
+            left: 0px;
+            top: 0px;
+            opacity: 0.3;
+            filter: alpha(opacity=30);
+            display: none;
+        }
+
+         .skin_list  dl dd div ol {  
+        margin-left:15px;
+            }  
+
+       .skin_list dl dd div ol li {  
+         display:list-item;list-style-type:decimal;margin-left:15px;
+            }       
+
+    </style>     
+      
+        <div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+                    <script id="adJs52b5334"></script>
+                    <script>document.getElementById("adJs52b5334").src = "http://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+        </div> 
+
+       <!-- 广告位开始 -->
+        <ins data-revive-zoneid="72" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+    <!-- 广告位结束 -->
+
+   <link rel="stylesheet" href="http://static.blog.csdn.net/css/blog_code.css" />
+            <script type="text/javascript" src="http://static.blog.csdn.net/scripts/saveToCode.js"></script>     
+	<script type="text/javascript" src="//csdnimg.cn/rabbit/tracking-ad/main.js?75eacd8></script>
+  </body>
+</html>
+ <script language="javascript" type="text/javascript" src="http://ads.csdn.net/js/async_new.js"></script>
+
+
+<script  type="text/javascript">
+    var fromjs=$("#fromjs");
+    if(fromjs.length>0)
+    {                  
+        $("#fromjs .markdown_views pre").addClass("prettyprint");       
+        prettyPrint();
+
+        $('pre.prettyprint code').each(function () {
+            var lines = $(this).text().split('\n').length;
+            var $numbering = $('<ul/>').addClass('pre-numbering').hide();
+            $(this).addClass('has-numbering').parent().append($numbering);
+            for (i = 1; i <= lines; i++) {
+                $numbering.append($('<li/>').text(i));
+            };
+            $numbering.fadeIn(1700);
+        });
+
+        $('.pre-numbering li').css("color","#999");             
+    }
+
+    $(function(){
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },500);         
+       
+
+    });
+
+</script>
+
