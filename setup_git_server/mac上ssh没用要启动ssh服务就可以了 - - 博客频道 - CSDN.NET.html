@@ -1,0 +1,1297 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+     
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    
+<head>  
+
+            <link rel="canonical" href="http://blog.csdn.net/cwj649956781/article/details/37913637"/> 
+ <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848"> 
+       
+    <title>mac上ssh没用要启动ssh服务就可以了 - 
+        - 博客频道 - CSDN.NET</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="mac无法ssh localhost2012-03-15 13:10:52 &#160;&#160;&#160;&#160;我来说两句&#160;&#160;&#160; &#160;&#160;收藏&#160;&#160;&#160;&#160;我要投稿mac 无法ssh localhost，错误提示：bash: /usr/local/bin/ssh_session: Permission denied在网上找了很久也没有找到解决方案，最后根据提示自己摸索如下：1.编辑/etc/" />
+
+    <meta name="keywords" content="" />
+
+   
+    <script src="http://static.blog.csdn.net/scripts/blog_static_head.min.js" type="text/javascript"></script>
+
+    
+        <!--new top-->
+                      <!--new top-->
+    
+      <!-- ad begin -->
+         
+    <!-- ad end-->
+
+    <link rel="Stylesheet" type="text/css" href="http://static.blog.csdn.net/skin/default/css/style.css?v=1.1" />
+
+    
+
+    <link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="/cwj649956781/rss/list" />
+    <link rel="shortcut icon" href="http://c.csdnimg.cn/public/favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="http://static.blog.csdn.net/scripts/SyntaxHighlighter/styles/default.css" />
+ 
+
+
+
+
+    <link href="http://c.csdnimg.cn/blog/csdn_public_blog_detail.min.css" type="text/css" rel="stylesheet" />
+     
+         <link rel="stylesheet" href="http://static.blog.csdn.net/css/csdn_blog_detail.min.css" />
+
+  
+
+
+    <!-- 请置于所有广告位代码之前 --> 
+            <script src="http://dup.baidustatic.com/js/ds.js"></script>
+
+</head>
+
+
+<body>
+        <div class="tracking-ad" data-view="true" data-mod="ad_popu_72"  data-mtp="62" data-order="40" data-con="ad_content_2072" >
+                     <script id="popuLayer_js_q" src="http://ads.csdn.net/js/popuLayer.js" defer="defer"  type="text/javascript"></script>
+                <div id="layerd" style="position: fixed;bottom:0px;right:0px;line-height:0px;z-index:1000">
+    	                <div class="J_close layer_close" style="display:;background-color:#efefef;padding:0px;color:#333;font:12px/24px Helvetica,Tahoma,Arial,sans-serif;text-align:right;">关闭</div><!-- 广告占位容器 --><div id="cpro_u2895327"></div></div>
+                <script>  document.getElementById("popuLayer_js_q").onload = function () { var styObjd = styObj = { width: "300px", "height": parseInt(250) + 28 }; window.CSDN.Layer.PopuLayer("#layerd", { storageName: "layerd", styleObj: styObjd, total: 50, expoire: 1000 * 60 }); }</script><!-- 投放代码 --><script type="text/javascript">                /*服务器频道首页置顶Banner960*90，创建于2014-7-3*/    (window.cproArray = window.cproArray || []).push({ id: "u2895327" });  </script>  <script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>
+     
+        </div>
+
+    <!-- 广告位开始 -->
+        
+    <!-- 广告位结束 -->
+
+    
+   
+      <!--new top-->
+    <script id="toolbar-tpl-scriptId" fixed="true" prod="blog" skin="black" src="http://c.csdnimg.cn/public/common/toolbar/js/html.js" type="text/javascript"></script>
+     <!--new top-->
+    <div id="container">
+        <div id="header">
+    <div class="header">
+        <div id="blog_title">
+            <h2>
+                <a href="http://blog.csdn.net/cwj649956781"></a></h2>
+            <h3></h3>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        
+     
+    </div>
+</div>
+<div id="navigator">
+    <div class="navigator_bg">
+    </div>
+    <div class="navigator">
+        <ul>           
+                <li id="btnContents"><a href="http://blog.csdn.net/cwj649956781?viewmode=contents"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_mulu'])">
+                    <img src="http://static.blog.csdn.net/images/ico_list.gif">目录视图</span></a></li>
+                <li id="btnView"><a href="http://blog.csdn.net/cwj649956781?viewmode=list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_zhaiyao'])">
+                    <img src="http://static.blog.csdn.net/images/ico_summary.gif">摘要视图</span></a></li>
+                <li id="btnRss"><a href="http://blog.csdn.net/cwj649956781/rss/list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_RSS'])">
+                    <img src="http://static.blog.csdn.net/images/ico_rss.gif">订阅</span></a></li>                
+            
+
+            </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var username = "cwj649956781";
+    var _blogger = username;
+    var blog_address = "http://blog.csdn.net/cwj649956781";
+    var static_host = "http://static.blog.csdn.net";
+    var currentUserName = "";  
+</script>
+
+        <div id="body">
+            <div id="main">
+                <div class="main">
+                        <div class="ad_class">
+<div class="notice tracking-ad" data-mod='popu_3' > 
+
+
+<a href="http://blog.csdn.net/blogdevteam/article/details/72917467">
+<font color=red><strong>征文 | 从高考，到程序员</strong></font></a>
+
+&nbsp;&nbsp;&nbsp;&nbsp
+
+<a href="http://blog.csdn.net/blogdevteam/article/details/73499368">
+<font color=blue><strong>CSDN日报20170620——《找一个好工作，谈一份好薪水》</strong></font></a>
+&nbsp;&nbsp;&nbsp;&nbsp
+
+
+<a href="http://blog.csdn.net/turingbooks/article/details/73480804">
+<font color=red><strong>6 月书讯 | 最受欢迎的 SQL 入门书重磅升级</strong></font></a>
+
+
+</div>                        </div>
+                        
+
+
+
+  
+
+
+
+
+
+
+<script   type="text/javascript" src="http://static.blog.csdn.net/scripts/category.js"></script>
+
+  <script type="text/ecmascript">
+      window.quickReplyflag = true;
+           
+            var isBole = false;
+            
+      
+      var fasrc="http://my.csdn.net/my/favorite/miniadd?t=mac%e4%b8%8assh%e6%b2%a1%e7%94%a8%e8%a6%81%e5%90%af%e5%8a%a8ssh%e6%9c%8d%e5%8a%a1%e5%b0%b1%e5%8f%af%e4%bb%a5%e4%ba%86&u=http://blog.csdn.net/cwj649956781/article/details/37913637"
+
+    </script>
+<div id="article_details" class="details">
+    <div class="article_title">   
+         <span class="ico ico_type_Original"></span>
+
+
+    <h1>
+        <span class="link_title"><a href="/cwj649956781/article/details/37913637">
+        mac上ssh没用要启动ssh服务就可以了            
+        </a></span>
+    </h1>
+</div>
+
+   
+
+        <div class="article_manage clearfix">
+        <div class="article_r">
+            <span class="link_postdate">2014-07-17 19:44</span>
+            <span class="link_view" title="阅读次数">15042人阅读</span>
+            <span class="link_comments" title="评论次数"> <a href="#comments" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_pinglun'])">评论</a>(0)</span>
+            <span class="link_collect tracking-ad" data-mod="popu_171"> <a href="javascript:void(0);" onclick="javascript:collectArticle('mac%e4%b8%8assh%e6%b2%a1%e7%94%a8%e8%a6%81%e5%90%af%e5%8a%a8ssh%e6%9c%8d%e5%8a%a1%e5%b0%b1%e5%8f%af%e4%bb%a5%e4%ba%86','37913637');return false;" title="收藏">收藏</a></span>
+             <span class="link_report"> <a href="#report" onclick="javascript:report(37913637,2);return false;" title="举报">举报</a></span>
+
+        </div>
+    </div>
+    <div class="embody"  style="display:none" id="embody">
+        <span class="embody_t">本文章已收录于：</span>
+        <div class="embody_c" id="lib" value="{&quot;err&quot;:0,&quot;msg&quot;:&quot;ok&quot;,&quot;data&quot;:[]}"></div>
+    </div>
+    <style type="text/css">        
+            .embody{
+                padding:10px 10px 10px;
+                margin:0 -20px;
+                border-bottom:solid 1px #ededed;                
+            }
+            .embody_b{
+                margin:0 ;
+                padding:10px 0;
+            }
+            .embody .embody_t,.embody .embody_c{
+                display: inline-block;
+                margin-right:10px;
+            }
+            .embody_t{
+                font-size: 12px;
+                color:#999;
+            }
+            .embody_c{
+                font-size: 12px;
+            }
+            .embody_c img,.embody_c em{
+                display: inline-block;
+                vertical-align: middle;               
+            }
+             .embody_c img{               
+                width:30px;
+                height:30px;
+            }
+            .embody_c em{
+                margin: 0 20px 0 10px;
+                color:#333;
+                font-style: normal;
+            }
+    </style>
+    <script  type="text/javascript">
+        $(function () {
+            try
+            {
+                var lib = eval("("+$("#lib").attr("value")+")");
+                var html = "";
+                if (lib.err == 0) {
+                    $.each(lib.data, function (i) {
+                        var obj = lib.data[i];
+                        //html += '<img src="' + obj.logo + '"/>' + obj.name + "&nbsp;&nbsp;";
+                        html += ' <a href="' + obj.url + '" target="_blank">';
+                        html += ' <img src="' + obj.logo + '">';
+                        html += ' <em><b>' + obj.name + '</b></em>';
+                        html += ' </a>';
+                    });
+                    if (html != "") {
+                        setTimeout(function () {
+                            $("#lib").html(html);                      
+                            $("#embody").show();
+                        }, 100);
+                    }
+                }      
+            } catch (err)
+            { }
+            
+        });
+    </script>
+      <div class="category clearfix">
+        <div class="category_l">
+           <img src="http://static.blog.csdn.net/images/category_icon.jpg">
+            <span>分类：</span>
+        </div>
+        <div class="category_r">
+                    <label  onclick="GetCategoryArticles('2403623','cwj649956781','top','37913637');">
+                        <span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_fenlei']);">mac<em>（3）</em></span>
+                      <img class="arrow-down" src="http://static.blog.csdn.net/images/arrow_triangle _down.jpg" style="display:inline;">
+                      <img class="arrow-up" src="http://static.blog.csdn.net/images/arrow_triangle_up.jpg" style="display:none;">
+                        <div class="subItem">
+                            <div class="subItem_t"><a  href="http://blog.csdn.net/cwj649956781/article/category/2403623"  target="_blank">作者同类文章</a><i class="J_close">X</i></div>
+                            <ul class="subItem_l" id="top_2403623">                            
+                            </ul>
+                        </div>
+                    </label>                    
+        </div>
+    </div>
+        <div   class="bog_copyright">         
+            <p  class="copyright_p" >版权声明：本文为博主原创文章，未经博主允许不得转载。</p>
+        </div>
+
+  
+
+  
+  
+     
+
+
+<div id="article_content" class="article_content tracking-ad" data-mod=popu_307  data-dsm = "post" >
+
+<dl class="box_t" style="border-width:0px; padding:15px 0px 0px; margin:0px; list-style:none; float:left; width:670px; height:35px; text-align:center; font-size:21px; font-weight:bold; font-family:宋体">
+<dd style="border-width:0px; padding:0px; margin:0px; list-style:none">mac无法ssh localhost</dd></dl>
+<dl class="box_INFO" style="border-width:0px; padding:10px 20px; margin:0px; list-style:none; float:left; width:630px; color:rgb(153,153,153); font-family:宋体">
+<dd class="frinfo line_blue" style="border-width:0px; padding:0px; margin:0px; list-style:none; height:30px; overflow:hidden; float:left; width:500px">
+2012-03-15 13:10:52 &nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://www.2cto.com/os/201203/123274.html#comment_iframe" style="color:rgb(31,58,135); text-decoration:none; font-weight:bold; padding:5px 0px 5px 20px">我来说两句&nbsp;</a>&nbsp;&nbsp; &nbsp;&nbsp;</dd><dd class="frsize line_blue" style="border-width:0px; padding:0px; margin:0px; list-style:none; height:30px; overflow:hidden; float:left; width:130px; text-align:right">
+<span id="favorite"><a target="_blank" class="t6" style="color:rgb(31,58,135)">收藏</a>&nbsp;</span>&nbsp;&nbsp;&nbsp;<a target="_blank" target="_blank" href="http://www.2cto.com/index.php?m=member&amp;c=content&amp;a=publish&amp;modid=1&amp;siteid=1" style="color:rgb(31,58,135); text-decoration:none"><img border="0" src="http://www.2cto.com/statics/images/dl.jpg" alt="" style="border-width:0px; padding:0px; margin:0px; list-style:none">我要投稿</a></dd></dl>
+<dl class="box_body" id="fontzoom" style="border-width:0px; padding:0px 20px 20px; margin:0px; list-style:none; float:left; width:630px; font-size:14px; color:rgb(51,51,51); line-height:28px; font-family:宋体">
+<dd id="Article" style="border-width:0px; padding:0px; margin:0px; list-style:none">
+<p style="border-width:0px; padding-top:0px; padding-bottom:0px; margin-top:0px; margin-bottom:8px; list-style:none; text-indent:2em">
+mac 无法ssh localhost，错误提示：bash: /usr/local/bin/ssh_session: Permission denied<br>
+在网上找了很久也没有找到解决方案，最后根据提示自己摸索如下：</p>
+<p style="border-width:0px; padding-top:0px; padding-bottom:0px; margin-top:0px; margin-bottom:8px; list-style:none; text-indent:2em">
+1.编辑/etc/sshd_config文件，注释掉<br>
+#ForceCommand /usr/local/bin/ssh_session</p>
+<p style="border-width:0px; padding-top:0px; padding-bottom:0px; margin-top:0px; margin-bottom:8px; list-style:none; text-indent:2em">
+2.启动sshd服务：<br>
+sudo launchctl load -w /System/Library/LaunchDaemons/ssh.plist</p>
+<p style="border-width:0px; padding-top:0px; padding-bottom:0px; margin-top:0px; margin-bottom:8px; list-style:none; text-indent:2em">
+3.停止sshd服务：<br>
+sudo launchctl unload -w /System/Library/LaunchDaemons/ssh.plist</p>
+<p style="border-width:0px; padding-top:0px; padding-bottom:0px; margin-top:0px; margin-bottom:8px; list-style:none; text-indent:2em">
+4查看是否启动：<br>
+sudo launchctl list | grep ssh</p>
+<p style="border-width:0px; padding-top:0px; padding-bottom:0px; margin-top:0px; margin-bottom:8px; list-style:none; text-indent:2em">
+如果看到下面的输出表示成功启动了：<br>
+－－－－－－－－－－－－－－<br>
+-&nbsp;0&nbsp;com.openssh.sshd</p>
+<p style="border-width:0px; padding-top:0px; padding-bottom:0px; margin-top:0px; margin-bottom:8px; list-style:none; text-indent:2em">
+5.最后ssh localhost 成功<br>
+</p>
+</dd></dl>
+   
+</div>
+
+
+
+
+<!-- Baidu Button BEGIN -->
+
+
+
+
+<div class="bdsharebuttonbox tracking-ad" style="float: right;" data-mod="popu_172">
+<a href="#" class="bds_more" data-cmd="more" style="background-position:0 0 !important; background-image: url(http://bdimg.share.baidu.com/static/api/img/share/icons_0_16.png?v=d754dcc0.png) !important"></a>
+<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"  style="background-position:0 -52px !important"></a>
+<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"style="background-position:0 -104px !important"></a>
+<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"style="background-position:0 -260px !important"></a>
+<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"style="background-position:0 -208px !important"></a>
+<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"style="background-position:0 -1612px !important" ></a>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+<!-- Baidu Button END -->
+
+   
+
+    
+<!--172.16.140.12-->
+
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=1536434" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->
+
+
+
+ 
+
+
+        <div id="digg" ArticleId="37913637" >
+            <dl id="btnDigg" class="digg digg_disable"  onclick="btndigga();">
+               
+                 <dt>顶</dt>
+                <dd>0</dd>
+            </dl>
+           
+              
+            <dl id="btnBury" class="digg digg_disable"  onclick="btnburya();">
+              
+                  <dt>踩</dt>
+                <dd>0</dd>               
+            </dl>
+            
+        </div>
+     <div class="tracking-ad" data-mod="popu_222"><a href="javascript:void(0);" >&nbsp;</a>   </div>
+    <div class="tracking-ad" data-mod="popu_223"> <a href="javascript:void(0);" >&nbsp;</a></div>
+    <script type="text/javascript">
+                function btndigga() {
+                    $(".tracking-ad[data-mod='popu_222'] a").click();
+                }
+                function btnburya() {
+                    $(".tracking-ad[data-mod='popu_223'] a").click();
+                }
+            </script>
+
+   <ul class="article_next_prev">
+                <li class="prev_article"><span  onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian']);location.href='/cwj649956781/article/details/37884875';">上一篇</span><a href="/cwj649956781/article/details/37884875" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian'])">cygwin怎么执行bat文件</a></li>
+                <li class="next_article"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian']);location.href='/cwj649956781/article/details/38020355';">下一篇</span><a href="/cwj649956781/article/details/38020355" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian'])">Mac 启动加载文件位置（可设置环境变量）</a></li>
+    </ul>
+
+    <div style="clear:both; height:10px;"></div>
+
+
+            <div class="similar_article"   >
+                    <h4></h4>
+                    <div class="similar_c"style="margin:20px 0px 0px 0px">
+                        <div class="similar_c_t">
+                          &nbsp;&nbsp;相关文章推荐
+                        </div>
+                   
+                        <div class="similar_wrap tracking-ad" data-mod="popu_36"  style="max-height:195px;">                       
+                            <ul class="similar_list fl">    
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/isfly_cool/article/details/39337989" title="Mac实用软件及功能总结" strategy="" target="_blank" style="width: 290px;">Mac实用软件及功能总结</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://chengxusheji113.iteye.com/blog/2151668" title="Git详解之四：服务器上的Git" strategy="" target="_blank" style="width: 290px;">Git详解之四：服务器上的Git</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/qq629290/article/details/69831410" title="Mac实用软件及功能吐血总结" strategy="" target="_blank" style="width: 290px;">Mac实用软件及功能吐血总结</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/qq910438219/article/details/7059399" title="黑客技术" strategy="" target="_blank" style="width: 290px;">黑客技术</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/Al_xin/article/details/39300207" title="Iptables服务全攻略之实战" strategy="" target="_blank" style="width: 290px;">Iptables服务全攻略之实战</a>
+                                   </li>
+                            </ul>
+                              <ul class="similar_list fr">      
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://xuela-net.iteye.com/blog/1888768" title="趣谈个人建站" strategy="" target="_blank" style="width: 290px;">趣谈个人建站</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/Real_Myth/article/details/56012539" title="Linux下的经典软件(史上最全)" strategy="" target="_blank" style="width: 290px;">Linux下的经典软件(史上最全)</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://dingtao.iteye.com/blog/201858" title="LINUX 常见问题1000个详细解答" strategy="" target="_blank" style="width: 290px;">LINUX 常见问题1000个详细解答</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/WangPo292753522/article/details/42678559" title="模糊测试--强制性安全漏洞发掘" strategy="" target="_blank" style="width: 290px;">模糊测试--强制性安全漏洞发掘</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://xiaoruanjian.iteye.com/blog/1366665" title="Git详解之四     服务器上的Git" strategy="" target="_blank" style="width: 290px;">Git详解之四     服务器上的Git</a>
+                                   </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>   
+      
+</div>
+
+    <div>
+        
+
+        <script type="text/javascript">
+            /*博客内容页下方Banner1-728*90，创建于2016-12-13*/
+            var cpro_id = "u2843949";
+        </script>
+        <script type="text/javascript" src="http://cpro.baidustatic.com/cpro/ui/c.js"></script>
+
+     </div>
+
+<div id="suggest"></div>
+         <script  language="javascript" type='text/javascript'>     
+             $(function(){
+                 $.get("/cwj649956781/svc/GetSuggestContent/37913637",function(data){
+                     $("#suggest").html(data);
+                 });     
+             });             
+         </script>  
+
+
+<style>
+.blog-ass-articl dd {
+color: #369;
+width: 99%; /*修改行*/
+float: left;
+overflow: hidden;
+font: normal normal 12px/23px "SimSun";
+height: 23px;
+margin: 0;
+padding: 0 0 0 10px;
+margin-right: 30px;
+background: url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;
+}
+</style>
+
+ 
+
+ 
+
+<dl class="blog-ass-articl tracking-ad" id="res-relatived" data-mod="popu_84"  > 
+     <dt><span>猜你在找</span></dt>    
+
+
+   
+
+    
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/huiyiCourse/detail/422?ref=blog&amp;loc=r1" title="深度学习基础与TensorFlow实践" strategy="undefined" target="_blank">深度学习基础与TensorFlow实践</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/huiyiCourse/series_detail/43?ref=blog&amp;loc=r1" title="【在线峰会】前端开发重点难点技术剖析与创新实践" strategy="undefined" target="_blank">【在线峰会】前端开发重点难点技术剖析与创新实践</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/huiyiCourse/series_detail/42?ref=blog&amp;loc=r1" title="【在线峰会】一天掌握物联网全栈开发之道" strategy="undefined" target="_blank">【在线峰会】一天掌握物联网全栈开发之道</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/huiyiCourse/series_detail/41?ref=blog&amp;loc=r1" title="【在线峰会】如何高质高效的进行Android技术开发" strategy="undefined" target="_blank">【在线峰会】如何高质高效的进行Android技术开发</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/huiyiCourse/detail/404?ref=blog&amp;loc=r1" title="机器学习40天精英计划" strategy="undefined" target="_blank">机器学习40天精英计划</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/huiyiCourse/detail/402?ref=blog&amp;loc=r1" title="Python数据挖掘与分析速成班" strategy="undefined" target="_blank">Python数据挖掘与分析速成班</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/course/detail/3011?ref=blog&amp;loc=r1" title="微信小程序开发实战" strategy="undefined" target="_blank">微信小程序开发实战</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/course/detail/1968?ref=blog&amp;loc=r1" title="JFinal极速开发企业实战" strategy="undefined" target="_blank">JFinal极速开发企业实战</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/combo/detail/23?ref=blog&amp;loc=r1" title="备战2017软考 系统集成项目管理工程师 学习套餐" strategy="undefined" target="_blank">备战2017软考 系统集成项目管理工程师 学习套餐</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/course/detail/3338?ref=blog&amp;loc=r1" title="Python大型网络爬虫项目开发实战（全套）" strategy="undefined" target="_blank">Python大型网络爬虫项目开发实战（全套）</a>
+                </dd>
+
+    
+
+    
+   
+</dl>
+
+
+
+
+
+    <div id="ad_cen">        
+                <div>
+                              <script type="text/javascript">
+                                  /*博客内容页下方Banner-728*90，创建于2014-7-3*/
+                                  var cpro_id = "u1607657";
+                                            </script>
+                              <script type="text/javascript" src="http://cpro.baidustatic.com/cpro/ui/c.js"></script>
+                    </div>
+    </div>  
+
+        <!-- 广告位开始 -->
+        <!-- 广告位结束 -->
+
+
+<div class="comment_class">
+    <div id="comment_title" class="panel_head">
+        <span class="see_comment">查看评论</span><a name="comments"></a></div>
+    <div id="comment_list">
+    </div>
+    <div id="comment_bar">
+    </div>
+    <div id="comment_form">
+    </div>
+    <div class="announce">
+        * 以上用户言论只代表其个人观点，不代表CSDN网站的观点或立场<a name="reply"></a><a name="quote"></a></div>
+</div>
+
+<script type="text/javascript">
+    var fileName = '37913637';
+    var commentscount = 0;
+    var islock = false
+</script>
+
+    <div id="ad_bot">
+    </div>
+<div id="report_dialog">
+</div>
+
+<div id="d-top"  style="bottom:60px;">
+
+        <a id="quick-reply" class="btn btn-top q-reply" title="快速回复" style="display:none;">
+            <img src="http://static.blog.csdn.net/images/blog-icon-reply.png" alt="快速回复">
+        </a>    
+    <a id="d-top-a" class="btn btn-top backtop"  style="display: none;" title="返回顶部" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_huidaodingbu'])" style="">         
+         <img src="http://static.blog.csdn.net/images/top.png" alt="TOP">
+    </a>
+</div>
+<script type="text/javascript">
+    $(function ()
+    {
+        $("#ad_frm_0").height("90px");
+        
+        setTimeout(function(){
+            $("#ad_frm_2").height("200px");
+        },1000);    
+    });
+  
+</script>
+<style type="text/css">
+    .tag_list
+    {
+        background: none repeat scroll 0 0 #FFFFFF;
+        border: 1px solid #D7CBC1;
+        color: #000000;
+        font-size: 12px;
+        line-height: 20px;
+        list-style: none outside none;
+        margin: 10px 2% 0 1%;
+        padding: 1px;
+    }
+    .tag_list h5
+    {
+        background: none repeat scroll 0 0 #E0DBD3;
+        color: #47381C;
+        font-size: 12px;
+        height: 24px;
+        line-height: 24px;
+        padding: 0 5px;
+        margin: 0;
+    }
+    .tag_list h5 a
+    {
+        color: #47381C;
+    }
+    .classify
+    {
+        margin: 10px 0;
+        padding: 4px 12px 8px;
+    }
+    .classify a
+    {
+        margin-right: 20px;
+        white-space: nowrap;
+    }
+</style>
+
+
+
+
+
+<div id="pop_win" style="display:none ;position: absolute; z-index: 10000; border: 1px solid rgb(220, 220, 220); top: 222.5px; left: 630px; opacity: 1; background: none 0px 0px repeat scroll rgb(255, 255, 255);">
+    
+</div>
+<div id="popup_mask"></div>
+<style>
+    #popup_mask
+    {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: 9999;
+        left: 0px;
+        top: 0px;
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+        display: none;
+    }
+
+</style>
+
+
+
+
+<script type="text/javascript">
+    $(function(){        
+        
+        setTimeout(function(){
+            $(".comment_body:contains('回复')").each(function(index,item){
+                var u=$(this).text().split('：')[0].toString().replace("回复","")
+                var thisComment=$(this);
+                if(u)
+                {
+                    $.getJSON("https://passport.csdn.net/get/nick?callback=?", {users: u}, function(a) {
+                        if(a!=null&&a.data!=null&&a.data.length>0)
+                        {
+                            nick=a.data[0].n; 
+                            if(u!=nick)
+                            {
+                                thisComment.text(thisComment.text().replace(u,nick));  
+                            }
+                        }       
+                    });  
+                }
+            });         
+
+        },200);  
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },5000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },10000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },15000);
+        
+        setTimeout(function(){
+            $("a img[src='http://js.tongji.linezing.com/stats.gif']").parent().css({"position":"absolute","left":"50%"});
+        },300);
+    });
+
+    function loginbox(){
+        var $logpop=$("#pop_win");
+        $logpop.html('<iframe src="https://passport.csdn.net/account/loginbox?service=http://static.blog.csdn.net/callback.htm" frameborder="0" height="600" width="400" scrolling="no"></iframe>');
+
+        $('#popup_mask').css({
+            opacity: 0.5,
+            width: $( document ).width() + 'px',
+            height:  $( document ).height() + 'px'
+        });
+        $('#popup_mask').css("display","block");
+ 
+        $logpop.css( {
+            top: ($( window ).height() - $logpop.height())/ 2  + $( window 
+       ).scrollTop() + 'px',
+            left:($( window ).width() - $logpop.width())/ 2
+        } );
+ 
+        setTimeout( function () {
+            $logpop.show();
+            $logpop.css( {
+                opacity: 1
+            } );
+        }, 200 );
+ 
+        $('#popup_mask').unbind("click");
+        $('#popup_mask').bind("click", function(){
+            $('#popup_mask').hide();
+            var $clopop = $("#pop_win");
+            $("#common_ask_div_sc").css("display","none");
+            $clopop.css( {
+                opacity: 0
+            } );
+            setTimeout( function () {
+                $clopop.hide();
+            }, 350 );
+            return false;
+        });
+    }   
+
+    var articletitle='mac上ssh没用要启动ssh服务就可以了';
+
+</script>
+
+
+
+
+
+
+
+
+                        <div class="clear">
+                        </div>
+                    </div>                   
+                
+            </div>
+                   
+           <div id="side">
+               
+    <div class="side">
+<div id="panel_Profile" class="panel">
+<ul class="panel_head"><span>个人资料</span></ul>
+<ul class="panel_body profile">
+<div id="blog_userface">
+    <a href="http://my.csdn.net/cwj649956781" target="_blank">
+    <img src="http://avatar.csdn.net/5/0/D/1_cwj649956781.jpg" title="访问我的空间" style="max-width:90%"/>
+    </a>
+    <br />
+    <span><a href="http://my.csdn.net/cwj649956781" class="user_name" target="_blank">cwj649956781</a></span>
+</div>
+<div class="interact">
+
+    <a href="javascript:void(0);" class="attent" id="span_add_follow" title="[加关注]"></a>
+
+ <a href="javascript:void(0);" class="letter"  title="[发私信]" onclick="window.open('http://msg.csdn.net/letters/model?receiver=cwj649956781','_blank','height=350,width=700');_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_sixin'])"></a>  
+</div>
+<div id="blog_medal">
+                <div id="bms_box">
+               </div>
+</div>
+<ul id="blog_rank">
+    <li>访问：<span>565057次</span></li>
+    <li>积分：<span>8187</span> </li>    
+    <li >等级： <span style="position:relative;display:inline-block;z-index:1" >
+            <img src="http://c.csdnimg.cn/jifen/images/xunzhang/jianzhang/blog6.png" alt="" style="vertical-align: middle;" id="leveImg">
+            <div id="smallTittle" style=" position: absolute;  left: -24px;  top: 25px;  text-align: center;  width: 101px;  height: 32px;  background-color: #fff;  line-height: 32px;  border: 2px #DDDDDD solid;  box-shadow: 0px 2px 2px rgba (0,0,0,0.1);  display: none;   z-index: 999;">
+            <div style="left: 42%;  top: -8px;  position: absolute;  width: 0;  height: 0;  border-left: 10px solid transparent;  border-right: 10px solid transparent;  border-bottom: 8px solid #EAEAEA;"></div>
+            积分：8187 </div>
+        </span>  </li>
+    <li>排名：<span>第2239名</span></li>
+</ul>
+<ul id="blog_statistics">
+    <li>原创：<span>268篇</span></li>
+    <li>转载：<span>114篇</span></li>
+    <li>译文：<span>0篇</span></li>
+    <li>评论：<span>66条</span></li>
+</ul>
+</ul>
+</div>
+
+
+<div class="panel" id="panel_Search">
+    <ul class="panel_head"><span>文章搜索</span></ul>
+    <ul class="panel_body" class="form_search">
+        <form id="frmSearch" action="http://so.csdn.net/search" class="form_search csdn-tracking-statistics" target="_blank"  data-mod="popu_306">
+        <span><input id="inputSearch" type="text" class="blogsearch" title="请输入关键字" /></span>
+        <input id="btnSubmit" type="button" value="搜索" title="search in blog" />
+        <input type="hidden" name="q" id="inputQ" />
+        <input type="hidden" name="t" value="blog" />
+        <a id="btnSearchBlog" target="_blank"></a>
+        </form>
+    </ul>
+</div>
+
+<script type="text/javascript">
+
+   
+    $(function () {
+        $("#btnSubmit").unbind("click");
+        $("#btnSubmit").click(function () {           
+            search();
+        });
+
+        $("#frmSearch").submit(function () {           
+            search();
+            return false;
+        });
+
+        function search()
+        {
+            if ($("#inputSearch").val() == "") {               
+                alert("请录入搜索关键词！");                         
+                return false;
+            }
+            //var url = "http://so.csdn.net/so/search/s.do?q=" + encodeURIComponent($("#inputSearch").val()) + "&u=" + username + "&t=blog";           
+            var url = "https://www.baidu.com/s?wd=" + encodeURIComponent($("#inputSearch").val()) + "%20site%3Ablog.csdn.net"
+            window.location.href = url;
+        }   
+    });
+</script><div id="panel_Category" class="panel">
+<ul class="panel_head"><span>文章分类</span></ul>
+<ul class="panel_body">    
+                 <li>
+                    <a href="/cwj649956781/article/category/958903" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">c++</a><span>(39)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/958904" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">unix/linux</a><span>(40)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/958914" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">进步每一天</a><span>(13)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/1057695" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">C</a><span>(20)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/1057697" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">数据结构及算法</a><span>(6)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/1057698" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">IT书籍笔记</a><span>(40)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/1075042" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">oralce</a><span>(8)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/1075043" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">qt</a><span>(11)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/1098177" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">代码收藏</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/1118946" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">OpenVC</a><span>(12)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/1152108" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">samba</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/1211547" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">错误笔记</a><span>(7)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/1217980" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">设计模式</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/1253066" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">项目管理</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/1306280" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">小工具</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/1392130" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">交叉编译</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/1392131" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">shell</a><span>(11)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/1392134" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">手册翻译</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/1392494" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">网络编程</a><span>(20)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/1394374" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">IPC编程</a><span>(5)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/1396971" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">计算机及应用本</a><span>(16)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/1396972" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">打工姐妹花台词</a><span>(15)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/1727655" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">windows</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/1738129" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">二次全面复习</a><span>(59)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/1739891" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">mysql</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/1742225" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">stl算法</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/2063977" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">lua</a><span>(10)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/2114229" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">asp</a><span>(16)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/2132643" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">js</a><span>(18)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/2210881" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">c#</a><span>(11)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/2286623" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">l</a><span>(0)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/2403623" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">mac</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/2421771" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">svn</a><span>(5)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/2431083" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">unity3d</a><span>(24)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/2510921" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">php</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/2915795" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">work</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/5988145" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">二维码</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/cwj649956781/article/category/6163919" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">cocos2dx</a><span>(1)</span>
+                </li>
+</ul>
+</div><div id="panel_Archive" class="panel">
+<ul class="panel_head"><span>文章存档</span></ul>
+<ul class="panel_body">
+<div id="archive_list">
+<!--归档统计-->
+<li><a href="/cwj649956781/article/month/2017/01">2017年01月</a><span>(1)</span></li><li><a href="/cwj649956781/article/month/2016/04">2016年04月</a><span>(1)</span></li><li><a href="/cwj649956781/article/month/2015/12">2015年12月</a><span>(1)</span></li><li><a href="/cwj649956781/article/month/2015/11">2015年11月</a><span>(2)</span></li><li><a href="/cwj649956781/article/month/2015/06">2015年06月</a><span>(1)</span></li><li><a href="/cwj649956781/article/month/2015/05">2015年05月</a><span>(2)</span></li><li><a href="/cwj649956781/article/month/2015/04">2015年04月</a><span>(2)</span></li><li><a href="/cwj649956781/article/month/2015/03">2015年03月</a><span>(5)</span></li><li><a href="/cwj649956781/article/month/2015/02">2015年02月</a><span>(2)</span></li><li><a href="/cwj649956781/article/month/2015/01">2015年01月</a><span>(3)</span></li><li><a href="/cwj649956781/article/month/2014/12">2014年12月</a><span>(10)</span></li><li><a href="/cwj649956781/article/month/2014/11">2014年11月</a><span>(4)</span></li><li><a href="/cwj649956781/article/month/2014/09">2014年09月</a><span>(1)</span></li><li><a href="/cwj649956781/article/month/2014/08">2014年08月</a><span>(15)</span></li><li><a href="/cwj649956781/article/month/2014/07">2014年07月</a><span>(13)</span></li><li><a href="/cwj649956781/article/month/2014/05">2014年05月</a><span>(8)</span></li><li><a href="/cwj649956781/article/month/2014/04">2014年04月</a><span>(20)</span></li><li><a href="/cwj649956781/article/month/2014/03">2014年03月</a><span>(20)</span></li><li><a href="/cwj649956781/article/month/2014/02">2014年02月</a><span>(13)</span></li><li><a href="/cwj649956781/article/month/2013/12">2013年12月</a><span>(6)</span></li><li><a href="/cwj649956781/article/month/2013/11">2013年11月</a><span>(36)</span></li><li><a href="/cwj649956781/article/month/2013/10">2013年10月</a><span>(1)</span></li><li><a href="/cwj649956781/article/month/2013/09">2013年09月</a><span>(1)</span></li><li><a href="/cwj649956781/article/month/2013/08">2013年08月</a><span>(7)</span></li><li><a href="/cwj649956781/article/month/2013/07">2013年07月</a><span>(6)</span></li><li><a href="/cwj649956781/article/month/2013/06">2013年06月</a><span>(8)</span></li><li><a href="/cwj649956781/article/month/2013/05">2013年05月</a><span>(11)</span></li><li><a href="/cwj649956781/article/month/2013/04">2013年04月</a><span>(25)</span></li><li><a href="/cwj649956781/article/month/2013/03">2013年03月</a><span>(14)</span></li><li><a href="/cwj649956781/article/month/2013/02">2013年02月</a><span>(1)</span></li><li><a href="/cwj649956781/article/month/2013/01">2013年01月</a><span>(5)</span></li><li><a href="/cwj649956781/article/month/2012/12">2012年12月</a><span>(2)</span></li><li><a href="/cwj649956781/article/month/2012/11">2012年11月</a><span>(4)</span></li><li><a href="/cwj649956781/article/month/2012/10">2012年10月</a><span>(3)</span></li><li><a href="/cwj649956781/article/month/2012/09">2012年09月</a><span>(5)</span></li><li><a href="/cwj649956781/article/month/2012/08">2012年08月</a><span>(12)</span></li><li><a href="/cwj649956781/article/month/2012/07">2012年07月</a><span>(3)</span></li><li><a href="/cwj649956781/article/month/2012/06">2012年06月</a><span>(7)</span></li><li><a href="/cwj649956781/article/month/2012/05">2012年05月</a><span>(13)</span></li><li><a href="/cwj649956781/article/month/2012/04">2012年04月</a><span>(14)</span></li><li><a href="/cwj649956781/article/month/2012/03">2012年03月</a><span>(27)</span></li><li><a href="/cwj649956781/article/month/2012/02">2012年02月</a><span>(20)</span></li><li><a href="/cwj649956781/article/month/2012/01">2012年01月</a><span>(12)</span></li><li><a href="/cwj649956781/article/month/2011/12">2011年12月</a><span>(15)</span></li>
+</div>
+</ul>
+</div>
+<div id="hotarticls" class="panel">
+<ul class="panel_head">
+    <span>       
+阅读排行    </span>
+</ul>
+
+<ul class="panel_body itemlist">
+<li>
+<a href="/cwj649956781/article/details/7409635" title="归并排序算法 C代码实现">归并排序算法 C代码实现</a><span>(23119)</span>
+</li>
+<li>
+<a href="/cwj649956781/article/details/7953748" title="expected class-name before &#39;{&#39; token">expected class-name before &#39;{&#39; token</a><span>(18430)</span>
+</li>
+<li>
+<a href="/cwj649956781/article/details/8589981" title="0x7FFFFFFF 是long int的最大值">0x7FFFFFFF 是long int的最大值</a><span>(17446)</span>
+</li>
+<li>
+<a href="/cwj649956781/article/details/22741181" title="C#将XML转换成JSON转换XML">C#将XML转换成JSON转换XML</a><span>(15428)</span>
+</li>
+<li>
+<a href="/cwj649956781/article/details/37913637" title="mac上ssh没用要启动ssh服务就可以了">mac上ssh没用要启动ssh服务就可以了</a><span>(15039)</span>
+</li>
+<li>
+<a href="/cwj649956781/article/details/8804908" title="linux消息队列的内核限制">linux消息队列的内核限制</a><span>(13854)</span>
+</li>
+<li>
+<a href="/cwj649956781/article/details/23261529" title="jQuery获取CSS样式中的颜色值的问题">jQuery获取CSS样式中的颜色值的问题</a><span>(12902)</span>
+</li>
+<li>
+<a href="/cwj649956781/article/details/8086337" title="cURL的错误代码">cURL的错误代码</a><span>(11932)</span>
+</li>
+<li>
+<a href="/cwj649956781/article/details/8149677" title="c++工作宝贵经验呀，我去。。。。">c++工作宝贵经验呀，我去。。。。</a><span>(11672)</span>
+</li>
+<li>
+<a href="/cwj649956781/article/details/24484083" title="centos下linux运行asp网站搭建配置-mono+nginx">centos下linux运行asp网站搭建配置-mono+nginx</a><span>(10748)</span>
+</li>
+</ul>
+</div>
+<div id="hotarticls2" class="panel">
+<ul class="panel_head"><span>评论排行</span></ul>
+<ul class="panel_body itemlist">
+<li>
+<a href="/cwj649956781/article/details/7409635" title="归并排序算法 C代码实现">归并排序算法 C代码实现</a><span>(14)</span>
+</li>
+<li>
+<a href="/cwj649956781/article/details/7471314" title="Opencv..2">Opencv..2</a><span>(4)</span>
+</li>
+<li>
+<a href="/cwj649956781/article/details/22179953" title="同一页面无法多次使用XmlHttp发起Ajax请求的真实原因">同一页面无法多次使用XmlHttp发起Ajax请求的真实原因</a><span>(3)</span>
+</li>
+<li>
+<a href="/cwj649956781/article/details/7333920" title="c++程序员面试宝典笔记（二）">c++程序员面试宝典笔记（二）</a><span>(3)</span>
+</li>
+<li>
+<a href="/cwj649956781/article/details/7632920" title="超级宇宙无敌书----天机可以泄漏">超级宇宙无敌书----天机可以泄漏</a><span>(3)</span>
+</li>
+<li>
+<a href="/cwj649956781/article/details/8528623" title="如何查看linux命令源代码和函数源代码">如何查看linux命令源代码和函数源代码</a><span>(2)</span>
+</li>
+<li>
+<a href="/cwj649956781/article/details/7851264" title="localtime()函数返回的指针如何释放的?">localtime()函数返回的指针如何释放的?</a><span>(2)</span>
+</li>
+<li>
+<a href="/cwj649956781/article/details/7331858" title="c++Primer笔记（15）">c++Primer笔记（15）</a><span>(2)</span>
+</li>
+<li>
+<a href="/cwj649956781/article/details/7171033" title="C基础作业">C基础作业</a><span>(2)</span>
+</li>
+<li>
+<a href="/cwj649956781/article/details/7436866" title="学习OpenCV：一">学习OpenCV：一</a><span>(2)</span>
+</li>
+</ul>
+</div>
+<div id="homepageArticles" class="panel tracking-ad" data-mod="popu_4">
+<ul class="panel_head"><span>推荐文章</span></ul>
+<ul class="panel_body" id="ad_commend">
+<ul>
+<li><a href="http://blog.csdn.net/blogdevteam/article/details/73499368" target="_blank">* CSDN日报20170620——《找一个好工作，谈一份好薪水》</a></li>
+<li><a href="http://blog.csdn.net/tangxiaoyin/article/details/73274955" 
+target="_blank">* 一文理清散乱的物联网里开发者必须关注的技术！</a></li>
+<li><a href="http://blog.csdn.net/vipzjyno1/article/details/21039349"target="_blank">* Android APK反编译就这么简单 详解</a></li>
+<li><a href="http://blog.csdn.net/aliceyangxi1987/article/details/73210204" 
+target="_blank">* 如何选择优化器 optimizer</a></li>
+<li><a href="http://blog.csdn.net/u013970991/article/details/73222046" 
+target="_blank">* 性能测试场景设计杂谈</a></li>
+<li><a href="http://blog.csdn.net/broadview2006/article/details/73550412" 
+target="_blank">* 每周荐书：架构、Scratch、增长黑客（评论送书）</a></li>
+
+</ul></ul>
+</div>
+
+
+<div id="newcomments" class="panel">
+<ul class="panel_head"><span>最新评论</span></ul>
+<ul class="panel_body itemlist">
+    <li>
+   
+         <a href="/cwj649956781/article/details/23261529#comments">jQuery获取CSS样式中的颜色值的问题</a>
+    <p style="margin:0px;"><a href="/book_txt" class="user_name">book_txt</a>:
+感谢楼主分享，不过代码里的正则是不是有点小问题：少了括号的匹配，应该是rgb = rgb.match...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/cwj649956781/article/details/37884875#comments">cygwin怎么执行bat文件</a>
+    <p style="margin:0px;"><a href="/qq_34886215" class="user_name">qq_34886215</a>:
+不行啊。是不要装什么插件
+    </p>
+    </li>
+    <li>
+   
+         <a href="/cwj649956781/article/details/37884875#comments">jQuery获取CSS样式中的颜色值的问题</a>
+    <p style="margin:0px;"><a href="/u013047005" class="user_name">u013047005</a>:
+很不错的教程哦，感谢分享，可以帮助大家更好的查阅资料哦。
+    </p>
+    </li>
+    <li>
+   
+         <a href="/cwj649956781/article/details/7409635#comments">归并排序算法 C代码实现</a>
+    <p style="margin:0px;"><a href="/Blateyang" class="user_name">Blateyang</a>:
+学习到了，谢谢楼主
+    </p>
+    </li>
+    <li>
+   
+         <a href="/cwj649956781/article/details/7409635#comments">归并排序算法 C代码实现</a>
+    <p style="margin:0px;"><a href="/deitycitian" class="user_name">deitycitian</a>:
+malloc有办法只做到一次申请
+    </p>
+    </li>
+    <li>
+   
+         <a href="/cwj649956781/article/details/7409635#comments">归并排序算法 C代码实现</a>
+    <p style="margin:0px;"><a href="/u010785025" class="user_name">u010785025</a>:
+这个递归我还是不太理解~我运行发现进入了死循环，原因在执行 MergeSort(R,low,mid)...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/cwj649956781/article/details/7409635#comments">归并排序算法 C代码实现</a>
+    <p style="margin:0px;"><a href="/qq_27848507" class="user_name">qq_27848507</a>:
+谢谢a
+    </p>
+    </li>
+    <li>
+   
+         <a href="/cwj649956781/article/details/7409635#comments">归并排序算法 C代码实现</a>
+    <p style="margin:0px;"><a href="/u012904383" class="user_name">u012904383</a>:
+写的很好，向你学习了
+    </p>
+    </li>
+    <li>
+   
+         <a href="/cwj649956781/article/details/8528623#comments">如何查看linux命令源代码和函数源代码</a>
+    <p style="margin:0px;"><a href="/CODINGCS" class="user_name">CODINGCS</a>:
+不错
+    </p>
+    </li>
+    <li>
+   
+         <a href="/cwj649956781/article/details/22179953#comments">同一页面无法多次使用XmlHttp发起Ajax请求的真实原因</a>
+    <p style="margin:0px;"><a href="/qiu450769687" class="user_name">qiu450769687</a>:
+感谢   这个
+    </p>
+    </li>
+</ul>
+</div>
+    </div>
+    <div class="clear">
+    </div>
+
+
+                   <!-- 广告位开始 -->                    <!-- 广告位结束 -->
+                   <div class="tracking-ad" data-view="true"  data-mtp="63" data-order="40" data-con="ad_content_1260" style="width: 200px; height: 200px;">
+                         <div id="nav_show_top_stop" style="width: 200px;height: 200px;z-index:1000"><div id="cpro_u2734128"></div></div>
+                   </div>
+    <script type="text/javascript">    
+        setTimeout(function () {
+            var naviga_offsetTop = 0;
+            function naviga_stay_top() { var scrollTop = jQuery(document).scrollTop(); if (scrollTop > naviga_offsetTop) { jQuery("#nav_show_top_stop").css({ "position": "fixed" }); jQuery("#nav_show_top_stop").css({ "top": "0px" }); } else { jQuery("#nav_show_top_stop").css({ "position": "fixed" }); jQuery("#nav_show_top_stop").css({ "top": naviga_offsetTop - scrollTop + "px" }); } }
+            function onload_function() { naviga_offsetTop = jQuery("#nav_show_top_stop").position().top; jQuery(window).bind("scroll", naviga_stay_top); jQuery(window).bind("mousewheel", naviga_stay_top); jQuery(document).bind("scroll", naviga_stay_top); jQuery(document).bind("mousewheel", naviga_stay_top); } jQuery(document).ready(onload_function);
+               
+        }, 200);    
+    </script>
+<script type="text/javascript">(window.cproArray = window.cproArray || []).push({ id: "u2734128" });  </script> 
+                    <script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script> 
+
+           </div>   
+
+            <div class="clear">
+            </div>
+        </div>
+
+        
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="http://passport.csdn.net/content/loginbox/login.js"></script>
+<script type="text/javascript">
+    $(function () {
+        function __get_code_toolbar(snippet_id) {
+            return $("<span class='tracking-ad' data-mod='popu_167'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "' target='_blank' title='在CODE上查看代码片'  style='text-indent:0;'><img src='https://code.csdn.net/assets/CODE_ico.png' width=12 height=12 alt='在CODE上查看代码片' style='position:relative;top:1px;left:2px;'/></a></span>"
+                    + "<span class='tracking-ad' data-mod='popu_170'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "/fork' target='_blank' title='派生到我的代码片' style='text-indent:0;'><img src='https://code.csdn.net/assets/ico_fork.svg' width=12 height=12 alt='派生到我的代码片' style='position:relative;top:2px;left:2px;'/></a></span>");
+        }
+        
+        $("[code_snippet_id]").each(function () {
+            __s_id = $(this).attr("code_snippet_id");
+            if (__s_id != null && __s_id != "" && __s_id != 0 && parseInt(__s_id) > 70020) {
+                __code_tool = __get_code_toolbar(__s_id);
+                $(this).prev().find(".tools").append(__code_tool);
+            }
+        });
+
+        $(".bar").show();
+    });
+</script>
+
+
+
+
+
+    </div>
+      <!--new top-->
+    
+
+     
+
+   
+        <!--new top-->
+   
+   
+
+    
+    
+    
+   
+
+   
+
+
+       <script type="text/javascript" src="http://static.blog.csdn.net/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS_HTML"></script>
+          <script type="text/javascript">
+              //$(function () {
+              //    setTimeout(function () {
+              //        var searchtitletags = articletitle + ',' + $("#tags").html();
+              //        searchService({
+              //            index: 'blog',
+              //            query: searchtitletags,
+              //            from: 5,
+              //            size: 5,
+              //            appendTo: '#res',
+              //            url: 'recommend',
+              //            his: 2,
+              //            client: "blog_cf_enhance",
+              //            tmpl: '<dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;"><a href="#{ url }" title="#{ title }" strategy="#{ strategy }">#{ title }</a></dd>'
+              //        });
+              //    }, 1000);
+              //});
+
+         </script>
+    
+    <script src="http://static.blog.csdn.net/scripts/csdn_blog_detail.min.js" type="text/javascript"></script>
+        
+    <script type="text/javascript" src="http://c.csdnimg.cn/blog/csdn_public_blog_detail.min.js?20170620001"></script>
+
+    <script type="text/javascript" src="http://medal.blog.csdn.net/showblogmedal.ashx?blogid=1165845"></script>
+
+     
+    
+
+
+  <div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+                    <script id="adJs52b5334"></script>
+                    <script>document.getElementById("adJs52b5334").src = "http://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+   </div>
+
+    
+    
+        
+     
+
+    
+          
+    <div class="pop_CA_cover"  style="display:none"></div>
+    <div class="pop pop_CA"  style="display:none">
+          <div class="CA_header">
+            收藏助手
+            <span class="cancel_icon"  id="fapancle"  onclick="$('.pop_CA').hide();$('.pop_CA_cover').hide();"></span>
+          </div>
+          <iframe src="" id="fa" frameborder="0" width="100%" height="360"  scrolling="no" ></iframe>
+    </div>
+
+
+        <script type="text/javascript">
+
+            $(function () {
+                var fromjs = $("#fromjs");
+                if (fromjs.length > 0) {
+                    $("#fromjs .markdown_views pre").addClass("prettyprint");
+                    prettyPrint();
+
+                    $('pre.prettyprint code').each(function () {
+                        var lines = $(this).text().split('\n').length;
+                        var $numbering = $('<ul/>').addClass('pre-numbering').hide();
+                        $(this).addClass('has-numbering').parent().append($numbering);
+                        for (i = 1; i <= lines; i++) {
+                            $numbering.append($('<li/>').text(i));
+                        };
+                        $numbering.fadeIn(1700);
+                    });
+
+                    $('.pre-numbering li').css("color", "#999");
+                }
+            });
+           
+            $(".markdown_views a[target!='_blank']").attr("target", "_blank");
+
+            //$(".toc a[target='_blank']").attr("target", "");
+
+            setTimeout(function () {
+                $(".toc a[target='_blank']").attr("target", "");
+            },500);
+
+        </script>
+
+</body>
+</html>   
+ 
