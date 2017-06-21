@@ -158,3 +158,19 @@
 	git config --list
 	git archive --format=zip –prefix=mysite-1.0/ 1.0 >mysite-1.0.zip
 
+七、搭建git协议git服务
+	以下spingcloud是git本地tracking的库
+	275  git clone --bare springcloud spring.git
+  276  touch git-daemon-export-ok
+  278  mv git-daemon-export-ok ./spring.git/
+  280  git daemon --reuseaddr --base-path=/Users/xuhytran/Downloads /Users/xuhytran/Downloads/spring.git
+  
+  此时git服务已经启动客户端可以通过
+  git clone git://localhost/spring.git
+  就可以clone代码了
+  
+  在git库中以下启动webruby服务（就是在springcloud目录下）
+  226  git instaweb --http=webrick
+  通过浏览器http://127.0.0.1:1234/?p=.git;a=log;h=HEAD可以访问
+  停止如下
+  227  git instaweb --hhtp=webrick --stop 
