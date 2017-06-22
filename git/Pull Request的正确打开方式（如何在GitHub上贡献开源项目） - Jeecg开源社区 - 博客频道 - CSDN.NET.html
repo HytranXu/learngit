@@ -1,0 +1,1453 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+     
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    
+<head>  
+
+            <link rel="canonical" href="http://blog.csdn.net/zhangdaiscott/article/details/17438153"/> 
+ <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848"> 
+       
+    <title>Pull Request的正确打开方式（如何在GitHub上贡献开源项目） - Jeecg开源社区
+        - 博客频道 - CSDN.NET</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="GitHub的官方帮助如下：Fork A Repo:&#160;https://help.github.com/articles/fork-a-repoUsing&#160;Pull&#160;Requests:&#160;https://help.github.com/articles/using-pull-requestsMerging a&#160;pull&#160;request:&#160;https://help.github.com/arti" />
+
+    <meta name="keywords" content="" />
+
+   
+    <script src="http://static.blog.csdn.net/scripts/blog_static_head.min.js" type="text/javascript"></script>
+
+    
+        <!--new top-->
+                      <!--new top-->
+    
+      <!-- ad begin -->
+         
+    <!-- ad end-->
+
+    <link rel="Stylesheet" type="text/css" href="http://static.blog.csdn.net/skin/default/css/style.css?v=1.1" />
+
+    
+
+    <link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="/zhangdaiscott/rss/list" />
+    <link rel="shortcut icon" href="http://c.csdnimg.cn/public/favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="http://static.blog.csdn.net/scripts/SyntaxHighlighter/styles/default.css" />
+ 
+
+
+
+
+    <link href="http://c.csdnimg.cn/blog/csdn_public_blog_detail.min.css" type="text/css" rel="stylesheet" />
+     
+         <link rel="stylesheet" href="http://static.blog.csdn.net/css/csdn_blog_detail.min.css" />
+
+  
+
+
+    <!-- 请置于所有广告位代码之前 --> 
+            <script src="http://dup.baidustatic.com/js/ds.js"></script>
+
+</head>
+
+
+<body>
+        <div class="tracking-ad" data-view="true" data-mod="ad_popu_72"  data-mtp="62" data-order="40" data-con="ad_content_2072" >
+                     <script id="popuLayer_js_q" src="http://ads.csdn.net/js/popuLayer.js" defer="defer"  type="text/javascript"></script>
+                <div id="layerd" style="position: fixed;bottom:0px;right:0px;line-height:0px;z-index:1000">
+    	                <div class="J_close layer_close" style="display:;background-color:#efefef;padding:0px;color:#333;font:12px/24px Helvetica,Tahoma,Arial,sans-serif;text-align:right;">关闭</div><!-- 广告占位容器 --><div id="cpro_u2895327"></div></div>
+                <script>  document.getElementById("popuLayer_js_q").onload = function () { var styObjd = styObj = { width: "300px", "height": parseInt(250) + 28 }; window.CSDN.Layer.PopuLayer("#layerd", { storageName: "layerd", styleObj: styObjd, total: 50, expoire: 1000 * 60 }); }</script><!-- 投放代码 --><script type="text/javascript">                /*服务器频道首页置顶Banner960*90，创建于2014-7-3*/    (window.cproArray = window.cproArray || []).push({ id: "u2895327" });  </script>  <script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>
+     
+        </div>
+
+    <!-- 广告位开始 -->
+        
+    <!-- 广告位结束 -->
+
+    
+   
+      <!--new top-->
+    <script id="toolbar-tpl-scriptId" fixed="true" prod="blog" skin="black" src="http://c.csdnimg.cn/public/common/toolbar/js/html.js" type="text/javascript"></script>
+     <!--new top-->
+    <div id="container">
+        <div id="header">
+    <div class="header">
+        <div id="blog_title">
+            <h2>
+                <a href="http://blog.csdn.net/zhangdaiscott">Jeecg开源社区</a></h2>
+            <h3>社区产品：jeecg快速开发平台、jeewx微信管家系统、H5活动平台</h3>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        
+     
+    </div>
+</div>
+<div id="navigator">
+    <div class="navigator_bg">
+    </div>
+    <div class="navigator">
+        <ul>           
+                <li id="btnContents"><a href="http://blog.csdn.net/zhangdaiscott?viewmode=contents"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_mulu'])">
+                    <img src="http://static.blog.csdn.net/images/ico_list.gif">目录视图</span></a></li>
+                <li id="btnView"><a href="http://blog.csdn.net/zhangdaiscott?viewmode=list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_zhaiyao'])">
+                    <img src="http://static.blog.csdn.net/images/ico_summary.gif">摘要视图</span></a></li>
+                <li id="btnRss"><a href="http://blog.csdn.net/zhangdaiscott/rss/list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_RSS'])">
+                    <img src="http://static.blog.csdn.net/images/ico_rss.gif">订阅</span></a></li>                
+            
+
+            </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var username = "zhangdaiscott";
+    var _blogger = username;
+    var blog_address = "http://blog.csdn.net/zhangdaiscott";
+    var static_host = "http://static.blog.csdn.net";
+    var currentUserName = "";  
+</script>
+
+        <div id="body">
+            <div id="main">
+                <div class="main">
+                        <div class="ad_class">
+<div class="notice tracking-ad" data-mod='popu_3' > 
+
+
+<a href="http://blog.csdn.net/blogdevteam/article/details/72917467">
+<font color=red><strong>征文 | 从高考，到程序员</strong></font></a>
+
+&nbsp;&nbsp;&nbsp;&nbsp
+
+<a href="http://blog.csdn.net/blogdevteam/article/details/73499368">
+<font color=blue><strong>CSDN日报20170620——《找一个好工作，谈一份好薪水》</strong></font></a>
+&nbsp;&nbsp;&nbsp;&nbsp
+
+
+<a href="http://blog.csdn.net/turingbooks/article/details/73480804">
+<font color=red><strong>6 月书讯 | 最受欢迎的 SQL 入门书重磅升级</strong></font></a>
+
+
+</div>                        </div>
+                        
+
+
+
+  
+
+
+
+
+
+
+<script   type="text/javascript" src="http://static.blog.csdn.net/scripts/category.js"></script>
+
+  <script type="text/ecmascript">
+      window.quickReplyflag = true;
+           
+            var isBole = false;
+            
+      
+      var fasrc="http://my.csdn.net/my/favorite/miniadd?t=Pull+Request%e7%9a%84%e6%ad%a3%e7%a1%ae%e6%89%93%e5%bc%80%e6%96%b9%e5%bc%8f%ef%bc%88%e5%a6%82%e4%bd%95%e5%9c%a8GitHub%e4%b8%8a%e8%b4%a1%e7%8c%ae%e5%bc%80%e6%ba%90%e9%a1%b9%e7%9b%ae%ef%bc%89&u=http://blog.csdn.net/zhangdaiscott/article/details/17438153"
+
+    </script>
+<div id="article_details" class="details">
+    <div class="article_title">   
+         <span class="ico ico_type_Repost"></span>
+
+
+    <h1>
+        <span class="link_title"><a href="/zhangdaiscott/article/details/17438153">
+        Pull Request的正确打开方式（如何在GitHub上贡献开源项目）            
+        </a></span>
+    </h1>
+</div>
+
+   
+
+        <div class="article_manage clearfix">
+        <div class="article_r">
+            <span class="link_postdate">2013-12-20 11:29</span>
+            <span class="link_view" title="阅读次数">21428人阅读</span>
+            <span class="link_comments" title="评论次数"> <a href="#comments" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_pinglun'])">评论</a>(2)</span>
+            <span class="link_collect tracking-ad" data-mod="popu_171"> <a href="javascript:void(0);" onclick="javascript:collectArticle('Pull+Request%e7%9a%84%e6%ad%a3%e7%a1%ae%e6%89%93%e5%bc%80%e6%96%b9%e5%bc%8f%ef%bc%88%e5%a6%82%e4%bd%95%e5%9c%a8GitHub%e4%b8%8a%e8%b4%a1%e7%8c%ae%e5%bc%80%e6%ba%90%e9%a1%b9%e7%9b%ae%ef%bc%89','17438153');return false;" title="收藏">收藏</a></span>
+             <span class="link_report"> <a href="#report" onclick="javascript:report(17438153,2);return false;" title="举报">举报</a></span>
+
+        </div>
+    </div>
+    <div class="embody"  style="display:none" id="embody">
+        <span class="embody_t">本文章已收录于：</span>
+        <div class="embody_c" id="lib" value="{&quot;err&quot;:0,&quot;msg&quot;:&quot;ok&quot;,&quot;data&quot;:[]}"></div>
+    </div>
+    <style type="text/css">        
+            .embody{
+                padding:10px 10px 10px;
+                margin:0 -20px;
+                border-bottom:solid 1px #ededed;                
+            }
+            .embody_b{
+                margin:0 ;
+                padding:10px 0;
+            }
+            .embody .embody_t,.embody .embody_c{
+                display: inline-block;
+                margin-right:10px;
+            }
+            .embody_t{
+                font-size: 12px;
+                color:#999;
+            }
+            .embody_c{
+                font-size: 12px;
+            }
+            .embody_c img,.embody_c em{
+                display: inline-block;
+                vertical-align: middle;               
+            }
+             .embody_c img{               
+                width:30px;
+                height:30px;
+            }
+            .embody_c em{
+                margin: 0 20px 0 10px;
+                color:#333;
+                font-style: normal;
+            }
+    </style>
+    <script  type="text/javascript">
+        $(function () {
+            try
+            {
+                var lib = eval("("+$("#lib").attr("value")+")");
+                var html = "";
+                if (lib.err == 0) {
+                    $.each(lib.data, function (i) {
+                        var obj = lib.data[i];
+                        //html += '<img src="' + obj.logo + '"/>' + obj.name + "&nbsp;&nbsp;";
+                        html += ' <a href="' + obj.url + '" target="_blank">';
+                        html += ' <img src="' + obj.logo + '">';
+                        html += ' <em><b>' + obj.name + '</b></em>';
+                        html += ' </a>';
+                    });
+                    if (html != "") {
+                        setTimeout(function () {
+                            $("#lib").html(html);                      
+                            $("#embody").show();
+                        }, 100);
+                    }
+                }      
+            } catch (err)
+            { }
+            
+        });
+    </script>
+
+  
+
+  
+  
+     
+
+
+<div id="article_content" class="article_content tracking-ad" data-mod=popu_307  data-dsm = "post" >
+
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+<span style="background-color:rgb(255,255,102)">GitHub</span>的官方帮助如下：</p>
+<ul style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+<li><strong>Fork A Repo</strong>:&nbsp;<a target="_blank" href="https://help.github.com/articles/fork-a-repo" style="">https://help.<span style="color:black; background-color:rgb(255,255,102)">github</span>.com/articles/fork-a-repo</a></li><li><strong>Using&nbsp;<span style="background-color:rgb(160,255,255)">Pull</span>&nbsp;Requests</strong>:&nbsp;<a target="_blank" href="https://help.github.com/articles/using-pull-requests" style="">https://help.<span style="color:black; background-color:rgb(255,255,102)">github</span>.com/articles/using-<span style="color:black; background-color:rgb(160,255,255)">pull</span>-requests</a></li><li><strong>Merging a&nbsp;<span style="background-color:rgb(160,255,255)">pull&nbsp;request</span></strong>:&nbsp;<a target="_blank" href="https://help.github.com/articles/merging-a-pull-request" style="">https://help.<span style="color:black; background-color:rgb(255,255,102)">github</span>.com/articles/merging-a-<span style="color:black; background-color:rgb(160,255,255)">pull</span>-<span style="color:black; background-color:rgb(153,255,153)">request</span></a></li><li><strong>Closing a&nbsp;<span style="background-color:rgb(160,255,255)">pull&nbsp;request</span></strong>:&nbsp;<a target="_blank" href="https://help.github.com/articles/closing-a-pull-request" style="">https://help.<span style="color:black; background-color:rgb(255,255,102)">github</span>.com/articles/closing-a-<span style="color:black; background-color:rgb(160,255,255)">pull</span>-<span style="color:black; background-color:rgb(153,255,153)">request</span></a></li><li><strong>Tidying up&nbsp;<span style="background-color:rgb(160,255,255)">Pull</span>&nbsp;Requests</strong>:&nbsp;<a target="_blank" href="https://help.github.com/articles/tidying-up-pull-requests" style="">https://help.<span style="color:black; background-color:rgb(255,255,102)">github</span>.com/articles/tidying-up-<span style="color:black; background-color:rgb(160,255,255)">pull</span>-requests</a></li></ul>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+发现这个官方文档写得比较简单，并没有提到开源项目协作方式的一些必要的trick（比如建立topic branch），还有<span style="background-color:rgb(160,255,255)">PullRequest</span>的运作细节也没有提到。写个简单的总结补充一下。</p>
+<h2 style="font-family:'DejaVu Sans Condensed',Arial; line-height:22px">Step 1: Fork原项目</h2>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+这个不解释了，单击一下鼠标就能做到的事情。参见<span style="background-color:rgb(255,255,102)">GitHub</span>帮助的<a target="_blank" href="https://help.github.com/articles/fork-a-repo" style="">原文</a>。</p>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+记得用<code>git remote add</code>添加上游远程库的地址，否则无法追踪上游库的更新。</p>
+<h2 style="font-family:'DejaVu Sans Condensed',Arial; line-height:22px">Step 2: 创建你的主题（topic）branch</h2>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+这一步<strong>非常重要</strong>。<span style="background-color:rgb(255,255,102)">GitHub</span>的帮助里没有提到创建主题branch的必要性，你当然可以直接在原项目的默认branch（如master）上进行工作，但实际上：</p>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+<strong>如果打算为原项目作贡献，强烈建议你为每个主题创建一个单独的branch。</strong></p>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+举例：如果需要修复原项目的一个和Unicode相关的issue：</p>
+<div class="highlight" style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+<pre><code class="text language-text" style="display:block; background-color:rgb(213,228,246); padding:0.5em">$ git branch fix-unicode-error
+$ git checkout fix-unicode-error
+</code></pre>
+</div>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+然后在自己的主题branch（这里是fix-unicode-error）下进行工作。</p>
+<h2 style="font-family:'DejaVu Sans Condensed',Arial; line-height:22px">Step 3: 在主题branch下完成需要的工作</h2>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+记得push相应的主题branch到<span style="background-color:rgb(255,255,102)">GitHub</span>。</p>
+<h2 style="font-family:'DejaVu Sans Condensed',Arial; line-height:22px">*（针对贡献者）<code>rebase</code>还是<code>merge</code>？</h2>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+从实用的角度来讲，</p>
+<ul style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+<li>当你在主题branch下工作，想要导入来自上游库的（与你当前的工作不冲突的情况下）更新时，使用<code>git rebase</code>。</li></ul>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+例如，（假设上游branch为upstream/master）</p>
+<div class="highlight" style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+<pre><code class="text language-text" style="display:block; background-color:rgb(213,228,246); padding:0.5em">$ git rebase upstream/master fix-unicode-error
+</code></pre>
+</div>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+或者直接（如果当前branch已经是fix-unicode-error）：</p>
+<div class="highlight" style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+<pre><code class="text language-text" style="display:block; background-color:rgb(213,228,246); padding:0.5em">$ git rebase upstream/master
+</code></pre>
+</div>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+这将把当前branch的开发“base（基础）”推进到一个新的起点，而不会引入多余的commits。</p>
+<ul style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+<li>当你在某个branch下工作时，<code>git merge</code>可以用来合并来自其他branch的更新。</li></ul>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+如果merge的branch来自远程库，一次merge操作会增加一个额外的commit（“Merge branch 'master' of something”）。如果在一个需要发送<span style="background-color:rgb(160,255,255)">Pull&nbsp;Request</span>的主题branch下面进行这种操作，（我个人觉得）这不是一种干净的手段。</p>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+当你在主线branch（例如master）下进行开发时，<code>git merge</code>可以用来吸收其他开发branch引入的新特性（包括主项目维护者用来直接merge&nbsp;<span style="background-color:rgb(160,255,255)">Pull</span>&nbsp;Requests），很恰当。</p>
+<h2 style="font-family:'DejaVu Sans Condensed',Arial; line-height:22px">Step 4: 发送第一个<span style="background-color:rgb(160,255,255)">Pull&nbsp;Request</span></h2>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+<span style="background-color:rgb(255,255,102)">GitHub</span>的界面：左边选择base branch，右边选择head branch。</p>
+<ul style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+<li>
+<p><strong>base branch</strong>：相当于target branch，你希望<span style="background-color:rgb(160,255,255)">Pull&nbsp;Request</span>被merge到上游项目的哪个branch里。</p>
+<ul>
+<li>为什么要叫<strong>base</strong>&nbsp;branch：base可以理解为你在进行<code>git rebase</code>操作时的那个“base”，也就是你的主题branch所基于的开发base（基础）。</li></ul>
+</li><li>
+<p><strong>head branch</strong>：相当于source branch，你希望自己开发库里的哪个branch被用来进行<span style="background-color:rgb(160,255,255)">Pull&nbsp;Request</span>（当然也就是你的主题branch）。</p>
+<ul>
+<li>为什么要叫<strong>head</strong>&nbsp;branch：参见下面关于head的定义。</li></ul>
+</li></ul>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+注意head与HEAD（大写）的区别：</p>
+<ul style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+<li>
+<p><strong>head</strong>：简单地理解，就是指向某个commit对象的一个reference。它可以是一个branch的名称（例如，默认的master），也可以是一个tag的名称。一个库可以同时有任意多个head。</p>
+</li><li>
+<p><strong>HEAD</strong>：<strong>当前活动的</strong>head。在任意时刻，存在且仅存在一个HEAD。它可以是指向当前branch的head（比如，指向master，假如master是当前branch的话）；也可以不指向任何特定的branch（这叫做detached HEAD）。</p>
+</li></ul>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+系统会从你选择的head branch（在这里，是主题branch）的这个head开始匹配所有不包含在base branch中的commits，然后自动视作你的主题branch相对于base所增加的新特性，放进同一个<span style="background-color:rgb(160,255,255)">Pull&nbsp;Request</span>中提交。</p>
+<h2 style="font-family:'DejaVu Sans Condensed',Arial; line-height:22px">Step 5:&nbsp;<span style="background-color:rgb(160,255,255)">Pull&nbsp;Request</span>发送之后……</h2>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+一旦你从自己的主题branch（例如fix-unicode-error）推送了一条<span style="background-color:rgb(160,255,255)">Pull&nbsp;Request</span>，那么在这条<span style="background-color:rgb(160,255,255)">Pull&nbsp;Request</span>被关闭之前，再次向这个branch里push代码，所有的commits都会被自动追加到这个<span style="background-color:rgb(160,255,255)">Pull&nbsp;Request</span>后面（不需要再另开<span style="background-color:rgb(160,255,255)">Pull&nbsp;Request</span>）。</p>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+这个功能尤其有用，比如你最初提交的<span style="background-color:rgb(160,255,255)">Pull&nbsp;Request</span>里存在某些问题，项目维护者要求你打回去修改；或者要求你给你的新feature添加一条相应的unit test（这种情况简直太常见了）。只要追加commits到你的这个主题branch中即可。</p>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+（题外话：如果原项目有Travis CI，那么它也会在每次追加push之后对<span style="background-color:rgb(160,255,255)">Pull&nbsp;Request</span>重新执行一遍测试）</p>
+<h2 style="font-family:'DejaVu Sans Condensed',Arial; line-height:22px">*（针对项目维护者）<code>cherry-pick</code>、<code>format-patch</code>和<code>am</code></h2>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+这几条命令主要针对项目的维护者，稍微提一下。</p>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+<code>git&nbsp;<span style="background-color:rgb(160,255,255)">pull</span></code>和<code>git merge</code>是<span style="background-color:rgb(255,255,102)">GitHub</span>上最常用的merge&nbsp;<span style="background-color:rgb(160,255,255)">Pull</span>&nbsp;Requests的方式，在命令行下merge之后，<span style="background-color:rgb(255,255,102)">GitHub</span>上面的<span style="background-color:rgb(160,255,255)">PullRequest</span>也会相应地自动关闭。</p>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+如果贡献者一次提交了多条commits，有些是维护者并不想要的，可以用这几条命令来选择性地手动commit。（这也适用于某些项目不是借助于<span style="background-color:rgb(255,255,102)">GitHub</span>的<span style="background-color:rgb(160,255,255)">Pull&nbsp;Request</span>，而是通过邮件列表和patch文件来进行协作开发的情形）</p>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+在这种情况下，<span style="background-color:rgb(255,255,102)">GitHub</span>上面的<span style="background-color:rgb(160,255,255)">Pull&nbsp;Request</span>并不能自动关闭，需要维护者手工操作。</p>
+<h2 style="font-family:'DejaVu Sans Condensed',Arial; line-height:22px">Step 6:&nbsp;<span style="background-color:rgb(160,255,255)">Pull&nbsp;Request</span>关闭之后</h2>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+如果是已经被merge后关闭的<span style="background-color:rgb(160,255,255)">Pull&nbsp;Request</span>，你可以在页面的最下方找到一个“<strong>Delete this branch</strong>”的蓝色按钮。</p>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+这表明这个主题branch的历史使命已经完成（fix-unicode-error的commit已经被合并到主项目中），可以安全地从远程库中删除了。</p>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+在本地库中亦可删除这个branch：</p>
+<div class="highlight" style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+<pre><code class="text language-text" style="display:block; background-color:rgb(213,228,246); padding:0.5em">$ git branch -d fix-unicode-error
+</code></pre>
+</div>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+反之，如果你的主题branch并没有被merge就被维护者关掉的话，你还可以继续再拿它来开新的<span style="background-color:rgb(160,255,255)">Pull&nbsp;Request</span><del>去骚扰主项目</del>（�0�7▽‘ ）。</p>
+<h2 style="font-family:'DejaVu Sans Condensed',Arial; line-height:22px">总结</h2>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+在哪些情况下<strong><em>可以</em></strong>直接使用master branch来提交<span style="background-color:rgb(160,255,255)">Pull&nbsp;Request</span>：</p>
+<ul style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+<li>你只想为主项目贡献某一处代码，贡献完自己的repo就可以扔的那种。</li><li>你打算为主项目长期贡献代码，而且希望追随原项目的主线开发，不保留自己的特性。</li><li>你打算为主项目长期贡献代码，默认master branch追随原项目主线，把自己的特性放到别的branch中。</li></ul>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+在哪种情况下<strong><em>应该</em></strong>使用主题branch来提交<span style="background-color:rgb(160,255,255)">Pull&nbsp;Request</span>：</p>
+<ul style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+<li>想用master branch完全来做自己的开发。在这种情形下：
+<ul>
+<li>会从上游库合并更新，但是这些merge本身的commits显然不可能作为返还到上游库的<span style="background-color:rgb(160,255,255)">Pull&nbsp;Request</span>的一部分。</li><li>存在自己的（未被merge或者不想被merge到上游库的）commits。</li></ul>
+</li></ul>
+<p style="font-family:'DejaVu Sans Condensed',Arial; font-size:15px; line-height:22px">
+鉴于Git的分布式开发哲学，每一个库均可以看作是一个独立的项目，显然是后一种（为每一个新特性建立一个专门的主题branch来向主项目推送<span style="background-color:rgb(160,255,255)">Pull&nbsp;Request</span>）的贡献方式更可取。</p>
+   
+</div>
+
+
+
+
+<!-- Baidu Button BEGIN -->
+
+
+
+
+<div class="bdsharebuttonbox tracking-ad" style="float: right;" data-mod="popu_172">
+<a href="#" class="bds_more" data-cmd="more" style="background-position:0 0 !important; background-image: url(http://bdimg.share.baidu.com/static/api/img/share/icons_0_16.png?v=d754dcc0.png) !important"></a>
+<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"  style="background-position:0 -52px !important"></a>
+<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"style="background-position:0 -104px !important"></a>
+<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"style="background-position:0 -260px !important"></a>
+<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"style="background-position:0 -208px !important"></a>
+<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"style="background-position:0 -1612px !important" ></a>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+<!-- Baidu Button END -->
+
+   
+
+    
+<!--172.16.140.15-->
+
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=1536434" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->
+
+
+
+ 
+
+
+        <div id="digg" ArticleId="17438153" >
+            <dl id="btnDigg" class="digg digg_disable"  onclick="btndigga();">
+               
+                 <dt>顶</dt>
+                <dd>3</dd>
+            </dl>
+           
+              
+            <dl id="btnBury" class="digg digg_disable"  onclick="btnburya();">
+              
+                  <dt>踩</dt>
+                <dd>0</dd>               
+            </dl>
+            
+        </div>
+     <div class="tracking-ad" data-mod="popu_222"><a href="javascript:void(0);" >&nbsp;</a>   </div>
+    <div class="tracking-ad" data-mod="popu_223"> <a href="javascript:void(0);" >&nbsp;</a></div>
+    <script type="text/javascript">
+                function btndigga() {
+                    $(".tracking-ad[data-mod='popu_222'] a").click();
+                }
+                function btnburya() {
+                    $(".tracking-ad[data-mod='popu_223'] a").click();
+                }
+            </script>
+
+   <ul class="article_next_prev">
+                <li class="prev_article"><span  onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian']);location.href='/zhangdaiscott/article/details/17438125';">上一篇</span><a href="/zhangdaiscott/article/details/17438125" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian'])">如何在github上发起一个pull request</a></li>
+                <li class="next_article"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian']);location.href='/zhangdaiscott/article/details/17439857';">下一篇</span><a href="/zhangdaiscott/article/details/17439857" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian'])">jeecg-mybatis-framework 参考学习版本</a></li>
+    </ul>
+
+    <div style="clear:both; height:10px;"></div>
+
+
+            <div class="similar_article"   >
+                    <h4></h4>
+                    <div class="similar_c"style="margin:20px 0px 0px 0px">
+                        <div class="similar_c_t">
+                          &nbsp;&nbsp;相关文章推荐
+                        </div>
+                   
+                        <div class="similar_wrap tracking-ad" data-mod="popu_36"  style="max-height:195px;">                       
+                            <ul class="similar_list fl">    
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/zenghao0708/article/details/53008766" title="Git常用手册" strategy="" target="_blank" style="width: 290px;">Git常用手册</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://fireinwind.iteye.com/blog/2194018" title="将已有项目提交到github/从github上pull到本地" strategy="" target="_blank" style="width: 290px;">将已有项目提交到github/从github上pull到本地</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://forenroll.iteye.com/blog/1934827" title="在GitHub上开源：贡献你第一段代码" strategy="" target="_blank" style="width: 290px;">在GitHub上开源：贡献你第一段代码</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/jingyulanye/article/details/52243297" title="Github使用进阶&lt;1&gt;" strategy="" target="_blank" style="width: 290px;">Github使用进阶&lt;1&gt;</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://josh-persistence.iteye.com/blog/1910734" title="GitHub将Fork来的Project合并到原Project - Folk和Pull Request模式" strategy="" target="_blank" style="width: 290px;">GitHub将Fork来的Project合并到原Project - Folk和Pull Request模式</a>
+                                   </li>
+                            </ul>
+                              <ul class="similar_list fr">      
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/yk19851111/article/details/52610099" title="码农周刊分类整理" strategy="" target="_blank" style="width: 290px;">码农周刊分类整理</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/EthanCo/article/details/52932546" title="Github fork 贡献代码，协作开发，pull request" strategy="" target="_blank" style="width: 290px;">Github fork 贡献代码，协作开发，pull request</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://xiaoruanjian.iteye.com/blog/1366657" title="近百android开源项目贡献" strategy="" target="_blank" style="width: 290px;">近百android开源项目贡献</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/icy_xm/article/details/42489645" title="Pull Request的正确打开方式" strategy="" target="_blank" style="width: 290px;">Pull Request的正确打开方式</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://lipiaoshui2015.iteye.com/blog/2245248" title="MyEclipse中设置html和jsp页面的默认打开方式" strategy="" target="_blank" style="width: 290px;">MyEclipse中设置html和jsp页面的默认打开方式</a>
+                                   </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>   
+      
+</div>
+
+    <div>
+        
+
+        <script type="text/javascript">
+            /*博客内容页下方Banner1-728*90，创建于2016-12-13*/
+            var cpro_id = "u2843949";
+        </script>
+        <script type="text/javascript" src="http://cpro.baidustatic.com/cpro/ui/c.js"></script>
+
+     </div>
+
+<div id="suggest"></div>
+         <script  language="javascript" type='text/javascript'>     
+             $(function(){
+                 $.get("/zhangdaiscott/svc/GetSuggestContent/17438153",function(data){
+                     $("#suggest").html(data);
+                 });     
+             });             
+         </script>  
+
+
+<style>
+.blog-ass-articl dd {
+color: #369;
+width: 99%; /*修改行*/
+float: left;
+overflow: hidden;
+font: normal normal 12px/23px "SimSun";
+height: 23px;
+margin: 0;
+padding: 0 0 0 10px;
+margin-right: 30px;
+background: url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;
+}
+</style>
+
+ 
+
+ 
+
+<dl class="blog-ass-articl tracking-ad" id="res-relatived" data-mod="popu_84"  > 
+     <dt><span>猜你在找</span></dt>    
+
+
+   
+
+    
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/huiyiCourse/detail/422?ref=blog&amp;loc=r1" title="深度学习基础与TensorFlow实践" strategy="undefined" target="_blank">深度学习基础与TensorFlow实践</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/huiyiCourse/series_detail/43?ref=blog&amp;loc=r1" title="【在线峰会】前端开发重点难点技术剖析与创新实践" strategy="undefined" target="_blank">【在线峰会】前端开发重点难点技术剖析与创新实践</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/huiyiCourse/series_detail/42?ref=blog&amp;loc=r1" title="【在线峰会】一天掌握物联网全栈开发之道" strategy="undefined" target="_blank">【在线峰会】一天掌握物联网全栈开发之道</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/huiyiCourse/series_detail/41?ref=blog&amp;loc=r1" title="【在线峰会】如何高质高效的进行Android技术开发" strategy="undefined" target="_blank">【在线峰会】如何高质高效的进行Android技术开发</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/huiyiCourse/detail/404?ref=blog&amp;loc=r1" title="机器学习40天精英计划" strategy="undefined" target="_blank">机器学习40天精英计划</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/huiyiCourse/detail/402?ref=blog&amp;loc=r1" title="Python数据挖掘与分析速成班" strategy="undefined" target="_blank">Python数据挖掘与分析速成班</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/course/detail/3011?ref=blog&amp;loc=r1" title="微信小程序开发实战" strategy="undefined" target="_blank">微信小程序开发实战</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/course/detail/1968?ref=blog&amp;loc=r1" title="JFinal极速开发企业实战" strategy="undefined" target="_blank">JFinal极速开发企业实战</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/combo/detail/23?ref=blog&amp;loc=r1" title="备战2017软考 系统集成项目管理工程师 学习套餐" strategy="undefined" target="_blank">备战2017软考 系统集成项目管理工程师 学习套餐</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/course/detail/3338?ref=blog&amp;loc=r1" title="Python大型网络爬虫项目开发实战（全套）" strategy="undefined" target="_blank">Python大型网络爬虫项目开发实战（全套）</a>
+                </dd>
+
+    
+
+    
+   
+</dl>
+
+
+
+
+
+    <div id="ad_cen">        
+                <div>
+                              <script type="text/javascript">
+                                  /*博客内容页下方Banner-728*90，创建于2014-7-3*/
+                                  var cpro_id = "u1607657";
+                                            </script>
+                              <script type="text/javascript" src="http://cpro.baidustatic.com/cpro/ui/c.js"></script>
+                    </div>
+    </div>  
+
+        <!-- 广告位开始 -->
+        <!-- 广告位结束 -->
+
+
+<div class="comment_class">
+    <div id="comment_title" class="panel_head">
+        <span class="see_comment">查看评论</span><a name="comments"></a></div>
+    <div id="comment_list">
+    </div>
+    <div id="comment_bar">
+    </div>
+    <div id="comment_form">
+    </div>
+    <div class="announce">
+        * 以上用户言论只代表其个人观点，不代表CSDN网站的观点或立场<a name="reply"></a><a name="quote"></a></div>
+</div>
+
+<script type="text/javascript">
+    var fileName = '17438153';
+    var commentscount = 2;
+    var islock = false
+</script>
+
+    <div id="ad_bot">
+    </div>
+<div id="report_dialog">
+</div>
+
+<div id="d-top"  style="bottom:60px;">
+
+        <a id="quick-reply" class="btn btn-top q-reply" title="快速回复" style="display:none;">
+            <img src="http://static.blog.csdn.net/images/blog-icon-reply.png" alt="快速回复">
+        </a>    
+    <a id="d-top-a" class="btn btn-top backtop"  style="display: none;" title="返回顶部" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_huidaodingbu'])" style="">         
+         <img src="http://static.blog.csdn.net/images/top.png" alt="TOP">
+    </a>
+</div>
+<script type="text/javascript">
+    $(function ()
+    {
+        $("#ad_frm_0").height("90px");
+        
+        setTimeout(function(){
+            $("#ad_frm_2").height("200px");
+        },1000);    
+    });
+  
+</script>
+<style type="text/css">
+    .tag_list
+    {
+        background: none repeat scroll 0 0 #FFFFFF;
+        border: 1px solid #D7CBC1;
+        color: #000000;
+        font-size: 12px;
+        line-height: 20px;
+        list-style: none outside none;
+        margin: 10px 2% 0 1%;
+        padding: 1px;
+    }
+    .tag_list h5
+    {
+        background: none repeat scroll 0 0 #E0DBD3;
+        color: #47381C;
+        font-size: 12px;
+        height: 24px;
+        line-height: 24px;
+        padding: 0 5px;
+        margin: 0;
+    }
+    .tag_list h5 a
+    {
+        color: #47381C;
+    }
+    .classify
+    {
+        margin: 10px 0;
+        padding: 4px 12px 8px;
+    }
+    .classify a
+    {
+        margin-right: 20px;
+        white-space: nowrap;
+    }
+</style>
+
+
+
+
+
+<div id="pop_win" style="display:none ;position: absolute; z-index: 10000; border: 1px solid rgb(220, 220, 220); top: 222.5px; left: 630px; opacity: 1; background: none 0px 0px repeat scroll rgb(255, 255, 255);">
+    
+</div>
+<div id="popup_mask"></div>
+<style>
+    #popup_mask
+    {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: 9999;
+        left: 0px;
+        top: 0px;
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+        display: none;
+    }
+
+</style>
+
+
+
+
+<script type="text/javascript">
+    $(function(){        
+        
+        setTimeout(function(){
+            $(".comment_body:contains('回复')").each(function(index,item){
+                var u=$(this).text().split('：')[0].toString().replace("回复","")
+                var thisComment=$(this);
+                if(u)
+                {
+                    $.getJSON("https://passport.csdn.net/get/nick?callback=?", {users: u}, function(a) {
+                        if(a!=null&&a.data!=null&&a.data.length>0)
+                        {
+                            nick=a.data[0].n; 
+                            if(u!=nick)
+                            {
+                                thisComment.text(thisComment.text().replace(u,nick));  
+                            }
+                        }       
+                    });  
+                }
+            });         
+
+        },200);  
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },5000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },10000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },15000);
+        
+        setTimeout(function(){
+            $("a img[src='http://js.tongji.linezing.com/stats.gif']").parent().css({"position":"absolute","left":"50%"});
+        },300);
+    });
+
+    function loginbox(){
+        var $logpop=$("#pop_win");
+        $logpop.html('<iframe src="https://passport.csdn.net/account/loginbox?service=http://static.blog.csdn.net/callback.htm" frameborder="0" height="600" width="400" scrolling="no"></iframe>');
+
+        $('#popup_mask').css({
+            opacity: 0.5,
+            width: $( document ).width() + 'px',
+            height:  $( document ).height() + 'px'
+        });
+        $('#popup_mask').css("display","block");
+ 
+        $logpop.css( {
+            top: ($( window ).height() - $logpop.height())/ 2  + $( window 
+       ).scrollTop() + 'px',
+            left:($( window ).width() - $logpop.width())/ 2
+        } );
+ 
+        setTimeout( function () {
+            $logpop.show();
+            $logpop.css( {
+                opacity: 1
+            } );
+        }, 200 );
+ 
+        $('#popup_mask').unbind("click");
+        $('#popup_mask').bind("click", function(){
+            $('#popup_mask').hide();
+            var $clopop = $("#pop_win");
+            $("#common_ask_div_sc").css("display","none");
+            $clopop.css( {
+                opacity: 0
+            } );
+            setTimeout( function () {
+                $clopop.hide();
+            }, 350 );
+            return false;
+        });
+    }   
+
+    var articletitle='Pull Request的正确打开方式（如何在GitHub上贡献开源项目）';
+
+</script>
+
+
+
+
+
+
+
+
+                        <div class="clear">
+                        </div>
+                    </div>                   
+                
+            </div>
+                   
+           <div id="side">
+               
+    <div class="side">
+<div id="panel_Profile" class="panel">
+<ul class="panel_head"><span>个人资料</span></ul>
+<ul class="panel_body profile">
+<div id="blog_userface">
+    <a href="http://my.csdn.net/zhangdaiscott" target="_blank">
+    <img src="http://avatar.csdn.net/3/D/E/1_zhangdaiscott.jpg" title="访问我的空间" style="max-width:90%"/>
+    </a>
+    <br />
+    <span><a href="http://my.csdn.net/zhangdaiscott" class="user_name" target="_blank">zhangdaiscott</a></span>
+</div>
+<div class="interact">
+
+    <a href="javascript:void(0);" class="attent" id="span_add_follow" title="[加关注]"></a>
+
+ <a href="javascript:void(0);" class="letter"  title="[发私信]" onclick="window.open('http://msg.csdn.net/letters/model?receiver=zhangdaiscott','_blank','height=350,width=700');_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_sixin'])"></a>  
+</div>
+<div id="blog_medal">
+                       <div class="ico_expert"  onclick="javascript:location='http://blog.csdn.net/experts/rule.html'" title="CSDN认证专家" style="cursor:pointer;width:60px;height:60px;background:url('http://c.csdnimg.cn/jifen/images/xunzhang/xunzhang/bokezhuanjiamiddle.png') no-repeat" ></div>
+                <div id="bms_box">
+                                            <a  target="_blank">
+                                                    <img src="http://c.csdnimg.cn/jifen/images/xunzhang/xunzhang/zhuanlandaren.png" onmouseover="m_over_m(this,2)" onmouseout="m_out_m()" alt="4" >
+                                            </a>
+                                            <a  target="_blank">
+                                                    <img src="http://c.csdnimg.cn/jifen/images/xunzhang/xunzhang/chizhiyiheng.png" onmouseover="m_over_m(this,4)" onmouseout="m_out_m()" alt="2" >
+                                            </a>
+               </div>
+</div>
+<ul id="blog_rank">
+    <li>访问：<span>2796503次</span></li>
+    <li>积分：<span>29735</span> </li>    
+    <li >等级： <span style="position:relative;display:inline-block;z-index:1" >
+            <img src="http://c.csdnimg.cn/jifen/images/xunzhang/jianzhang/blog7.png" alt="" style="vertical-align: middle;" id="leveImg">
+            <div id="smallTittle" style=" position: absolute;  left: -24px;  top: 25px;  text-align: center;  width: 101px;  height: 32px;  background-color: #fff;  line-height: 32px;  border: 2px #DDDDDD solid;  box-shadow: 0px 2px 2px rgba (0,0,0,0.1);  display: none;   z-index: 999;">
+            <div style="left: 42%;  top: -8px;  position: absolute;  width: 0;  height: 0;  border-left: 10px solid transparent;  border-right: 10px solid transparent;  border-bottom: 8px solid #EAEAEA;"></div>
+            积分：29735 </div>
+        </span>  </li>
+    <li>排名：<span>第161名</span></li>
+</ul>
+<ul id="blog_statistics">
+    <li>原创：<span>397篇</span></li>
+    <li>转载：<span>420篇</span></li>
+    <li>译文：<span>1篇</span></li>
+    <li>评论：<span>517条</span></li>
+</ul>
+</ul>
+</div>
+
+
+<div class="panel" id="panel_Search">
+    <ul class="panel_head"><span>文章搜索</span></ul>
+    <ul class="panel_body" class="form_search">
+        <form id="frmSearch" action="http://so.csdn.net/search" class="form_search csdn-tracking-statistics" target="_blank"  data-mod="popu_306">
+        <span><input id="inputSearch" type="text" class="blogsearch" title="请输入关键字" /></span>
+        <input id="btnSubmit" type="button" value="搜索" title="search in blog" />
+        <input type="hidden" name="q" id="inputQ" />
+        <input type="hidden" name="t" value="blog" />
+        <a id="btnSearchBlog" target="_blank"></a>
+        </form>
+    </ul>
+</div>
+
+<script type="text/javascript">
+
+   
+    $(function () {
+        $("#btnSubmit").unbind("click");
+        $("#btnSubmit").click(function () {           
+            search();
+        });
+
+        $("#frmSearch").submit(function () {           
+            search();
+            return false;
+        });
+
+        function search()
+        {
+            if ($("#inputSearch").val() == "") {               
+                alert("请录入搜索关键词！");                         
+                return false;
+            }
+            //var url = "http://so.csdn.net/so/search/s.do?q=" + encodeURIComponent($("#inputSearch").val()) + "&u=" + username + "&t=blog";           
+            var url = "https://www.baidu.com/s?wd=" + encodeURIComponent($("#inputSearch").val()) + "%20site%3Ablog.csdn.net"
+            window.location.href = url;
+        }   
+    });
+</script><div id="panel_Category" class="panel">
+    <ul class="panel_head"><span>博客专栏</span></ul>
+    <ul class="panel_body" id="sp_column">
+    <table cellpadding="0" cellspacing="0"><tr>
+    <td style="padding:10px 10px 0 0;">
+    <a href="http://blog.csdn.net/column/details/java521.html" target="_blank"><img src="http://img.blog.csdn.net/20160817113554990" style="width:75px;height:75px;" /></a>
+    </td>
+    <td style="padding:10px 0; vertical-align:top;">
+    <a href="http://blog.csdn.net/column/details/java521.html" target="_blank">JAVA架构师之路</a>
+    <p>文章：7篇</p>
+    <span>阅读：106281</span>
+    </td>
+    </tr></table>
+    <table cellpadding="0" cellspacing="0"><tr>
+    <td style="padding:10px 10px 0 0;">
+    <a href="http://blog.csdn.net/column/details/h5huodong.html" target="_blank"><img src="http://img.blog.csdn.net/20160816215105118" style="width:75px;height:75px;" /></a>
+    </td>
+    <td style="padding:10px 0; vertical-align:top;">
+    <a href="http://blog.csdn.net/column/details/h5huodong.html" target="_blank">H5活动开发</a>
+    <p>文章：8篇</p>
+    <span>阅读：30090</span>
+    </td>
+    </tr></table>
+    <table cellpadding="0" cellspacing="0"><tr>
+    <td style="padding:10px 10px 0 0;">
+    <a href="http://blog.csdn.net/column/details/jeewx-qiye.html" target="_blank"><img src="http://img.blog.csdn.net/20160816214623603" style="width:75px;height:75px;" /></a>
+    </td>
+    <td style="padding:10px 0; vertical-align:top;">
+    <a href="http://blog.csdn.net/column/details/jeewx-qiye.html" target="_blank">微信企业号开发</a>
+    <p>文章：5篇</p>
+    <span>阅读：16252</span>
+    </td>
+    </tr></table>
+    <table cellpadding="0" cellspacing="0"><tr>
+    <td style="padding:10px 10px 0 0;">
+    <a href="http://blog.csdn.net/column/details/alipay.html" target="_blank"><img src="http://img.blog.csdn.net/20160813122721779" style="width:75px;height:75px;" /></a>
+    </td>
+    <td style="padding:10px 0; vertical-align:top;">
+    <a href="http://blog.csdn.net/column/details/alipay.html" target="_blank">支付服务窗开发</a>
+    <p>文章：5篇</p>
+    <span>阅读：12206</span>
+    </td>
+    </tr></table>
+    <table cellpadding="0" cellspacing="0"><tr>
+    <td style="padding:10px 10px 0 0;">
+    <a href="http://blog.csdn.net/column/details/jeewx.html" target="_blank"><img src="http://img.blog.csdn.net/20160811105911913" style="width:75px;height:75px;" /></a>
+    </td>
+    <td style="padding:10px 0; vertical-align:top;">
+    <a href="http://blog.csdn.net/column/details/jeewx.html" target="_blank">JEEWX微信开发</a>
+    <p>文章：5篇</p>
+    <span>阅读：14955</span>
+    </td>
+    </tr></table>
+    <table cellpadding="0" cellspacing="0"><tr>
+    <td style="padding:10px 10px 0 0;">
+    <a href="http://blog.csdn.net/column/details/jeecg.html" target="_blank"><img src="http://img.blog.csdn.net/20160616232833255" style="width:75px;height:75px;" /></a>
+    </td>
+    <td style="padding:10px 0; vertical-align:top;">
+    <a href="http://blog.csdn.net/column/details/jeecg.html" target="_blank">Jeecg开发</a>
+    <p>文章：24篇</p>
+    <span>阅读：202118</span>
+    </td>
+    </tr></table>
+    </ul>
+</div><div id="panel_Category" class="panel">
+<ul class="panel_head"><span>文章分类</span></ul>
+<ul class="panel_body">    
+                 <li>
+                    <a href="/zhangdaiscott/article/category/676407" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">语言类</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/682266" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">BUG</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/677650" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">DI/IOC容器</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/575878" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">java</a><span>(85)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/677978" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">jsf</a><span>(7)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/561358" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">JS技术类</a><span>(18)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/685607" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Linux</a><span>(6)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/679116" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">PL/SQL</a><span>(15)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/834346" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">SAP</a><span>(23)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/747758" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">SQL</a><span>(16)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/678764" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">心得</a><span>(10)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/677506" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">数据库</a><span>(15)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/684534" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">文本工具</a><span>(5)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/840936" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">sap-java</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/894924" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">股票</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/915438" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">项目管理</a><span>(14)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/1080503" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">batch</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/1080913" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">quartz</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/1081344" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">hibernate.ibatis</a><span>(7)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/1081976" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">webservice</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/1153047" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">幽默</a><span>(0)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/1286794" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">easyui</a><span>(9)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/1298288" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">struts2</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/1298289" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">spring</a><span>(9)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/1298290" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">hibernate</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/1298291" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">code generation</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/1324975" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">jeecg</a><span>(82)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/1325305" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">ssh</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/1325306" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">easy</a><span>(0)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/1332376" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">微信</a><span>(10)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/1332377" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">jquery</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/1337920" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">j2ee</a><span>(6)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/1337921" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">快速开发</a><span>(62)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/1864709" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">nodejs</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/2389889" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">视频</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/5797379" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">s</a><span>(0)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/5825959" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">企业号</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/5831161" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">jeewx</a><span>(8)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/5835575" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">开源社区</a><span>(28)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/6065533" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">微信企业号</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/6074096" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">minidao-pe</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/6074097" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">mybatis</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/6074098" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">开源</a><span>(6)</span>
+                </li>
+                 <li>
+                    <a href="/zhangdaiscott/article/category/6434749" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">小程序</a><span>(2)</span>
+                </li>
+</ul>
+</div><div id="panel_Archive" class="panel">
+<ul class="panel_head"><span>文章存档</span></ul>
+<ul class="panel_body">
+<div id="archive_list">
+<!--归档统计-->
+<li><a href="/zhangdaiscott/article/month/2017/06">2017年06月</a><span>(10)</span></li><li><a href="/zhangdaiscott/article/month/2017/05">2017年05月</a><span>(5)</span></li><li><a href="/zhangdaiscott/article/month/2017/04">2017年04月</a><span>(10)</span></li><li><a href="/zhangdaiscott/article/month/2017/03">2017年03月</a><span>(6)</span></li><li><a href="/zhangdaiscott/article/month/2017/02">2017年02月</a><span>(10)</span></li><li><a href="/zhangdaiscott/article/month/2017/01">2017年01月</a><span>(3)</span></li><li><a href="/zhangdaiscott/article/month/2016/12">2016年12月</a><span>(11)</span></li><li><a href="/zhangdaiscott/article/month/2016/11">2016年11月</a><span>(6)</span></li><li><a href="/zhangdaiscott/article/month/2016/10">2016年10月</a><span>(5)</span></li><li><a href="/zhangdaiscott/article/month/2016/09">2016年09月</a><span>(19)</span></li><li><a href="/zhangdaiscott/article/month/2016/08">2016年08月</a><span>(21)</span></li><li><a href="/zhangdaiscott/article/month/2016/07">2016年07月</a><span>(13)</span></li><li><a href="/zhangdaiscott/article/month/2016/06">2016年06月</a><span>(6)</span></li><li><a href="/zhangdaiscott/article/month/2016/05">2016年05月</a><span>(6)</span></li><li><a href="/zhangdaiscott/article/month/2016/04">2016年04月</a><span>(11)</span></li><li><a href="/zhangdaiscott/article/month/2016/03">2016年03月</a><span>(27)</span></li><li><a href="/zhangdaiscott/article/month/2016/02">2016年02月</a><span>(4)</span></li><li><a href="/zhangdaiscott/article/month/2016/01">2016年01月</a><span>(6)</span></li><li><a href="/zhangdaiscott/article/month/2015/12">2015年12月</a><span>(16)</span></li><li><a href="/zhangdaiscott/article/month/2015/11">2015年11月</a><span>(22)</span></li><li><a href="/zhangdaiscott/article/month/2015/10">2015年10月</a><span>(15)</span></li><li><a href="/zhangdaiscott/article/month/2015/09">2015年09月</a><span>(24)</span></li><li><a href="/zhangdaiscott/article/month/2015/08">2015年08月</a><span>(15)</span></li><li><a href="/zhangdaiscott/article/month/2015/07">2015年07月</a><span>(29)</span></li><li><a href="/zhangdaiscott/article/month/2015/06">2015年06月</a><span>(10)</span></li><li><a href="/zhangdaiscott/article/month/2015/05">2015年05月</a><span>(19)</span></li><li><a href="/zhangdaiscott/article/month/2015/04">2015年04月</a><span>(19)</span></li><li><a href="/zhangdaiscott/article/month/2015/03">2015年03月</a><span>(7)</span></li><li><a href="/zhangdaiscott/article/month/2015/02">2015年02月</a><span>(13)</span></li><li><a href="/zhangdaiscott/article/month/2015/01">2015年01月</a><span>(4)</span></li><li><a href="/zhangdaiscott/article/month/2014/12">2014年12月</a><span>(9)</span></li><li><a href="/zhangdaiscott/article/month/2014/11">2014年11月</a><span>(3)</span></li><li><a href="/zhangdaiscott/article/month/2014/10">2014年10月</a><span>(1)</span></li><li><a href="/zhangdaiscott/article/month/2014/09">2014年09月</a><span>(2)</span></li><li><a href="/zhangdaiscott/article/month/2014/08">2014年08月</a><span>(11)</span></li><li><a href="/zhangdaiscott/article/month/2014/07">2014年07月</a><span>(7)</span></li><li><a href="/zhangdaiscott/article/month/2014/06">2014年06月</a><span>(29)</span></li><li><a href="/zhangdaiscott/article/month/2014/05">2014年05月</a><span>(28)</span></li><li><a href="/zhangdaiscott/article/month/2014/04">2014年04月</a><span>(7)</span></li><li><a href="/zhangdaiscott/article/month/2014/03">2014年03月</a><span>(24)</span></li><li><a href="/zhangdaiscott/article/month/2014/02">2014年02月</a><span>(8)</span></li><li><a href="/zhangdaiscott/article/month/2014/01">2014年01月</a><span>(33)</span></li><li><a href="/zhangdaiscott/article/month/2013/12">2013年12月</a><span>(13)</span></li><li><a href="/zhangdaiscott/article/month/2013/11">2013年11月</a><span>(19)</span></li><li><a href="/zhangdaiscott/article/month/2013/10">2013年10月</a><span>(1)</span></li><li><a href="/zhangdaiscott/article/month/2013/09">2013年09月</a><span>(8)</span></li><li><a href="/zhangdaiscott/article/month/2013/08">2013年08月</a><span>(7)</span></li><li><a href="/zhangdaiscott/article/month/2013/07">2013年07月</a><span>(7)</span></li><li><a href="/zhangdaiscott/article/month/2013/06">2013年06月</a><span>(1)</span></li><li><a href="/zhangdaiscott/article/month/2013/05">2013年05月</a><span>(1)</span></li><li><a href="/zhangdaiscott/article/month/2013/04">2013年04月</a><span>(6)</span></li><li><a href="/zhangdaiscott/article/month/2013/03">2013年03月</a><span>(10)</span></li><li><a href="/zhangdaiscott/article/month/2013/02">2013年02月</a><span>(8)</span></li><li><a href="/zhangdaiscott/article/month/2013/01">2013年01月</a><span>(7)</span></li><li><a href="/zhangdaiscott/article/month/2012/12">2012年12月</a><span>(11)</span></li><li><a href="/zhangdaiscott/article/month/2012/11">2012年11月</a><span>(8)</span></li><li><a href="/zhangdaiscott/article/month/2012/10">2012年10月</a><span>(1)</span></li><li><a href="/zhangdaiscott/article/month/2012/09">2012年09月</a><span>(7)</span></li><li><a href="/zhangdaiscott/article/month/2012/08">2012年08月</a><span>(3)</span></li><li><a href="/zhangdaiscott/article/month/2012/07">2012年07月</a><span>(2)</span></li><li><a href="/zhangdaiscott/article/month/2012/06">2012年06月</a><span>(3)</span></li><li><a href="/zhangdaiscott/article/month/2012/05">2012年05月</a><span>(4)</span></li><li><a href="/zhangdaiscott/article/month/2012/04">2012年04月</a><span>(12)</span></li><li><a href="/zhangdaiscott/article/month/2012/03">2012年03月</a><span>(1)</span></li><li><a href="/zhangdaiscott/article/month/2012/02">2012年02月</a><span>(20)</span></li><li><a href="/zhangdaiscott/article/month/2011/11">2011年11月</a><span>(6)</span></li><li><a href="/zhangdaiscott/article/month/2011/10">2011年10月</a><span>(13)</span></li><li><a href="/zhangdaiscott/article/month/2011/09">2011年09月</a><span>(10)</span></li><li><a href="/zhangdaiscott/article/month/2011/08">2011年08月</a><span>(7)</span></li><li><a href="/zhangdaiscott/article/month/2011/07">2011年07月</a><span>(10)</span></li><li><a href="/zhangdaiscott/article/month/2011/06">2011年06月</a><span>(5)</span></li><li><a href="/zhangdaiscott/article/month/2010/12">2010年12月</a><span>(15)</span></li><li><a href="/zhangdaiscott/article/month/2010/11">2010年11月</a><span>(3)</span></li><li><a href="/zhangdaiscott/article/month/2010/10">2010年10月</a><span>(10)</span></li><li><a href="/zhangdaiscott/article/month/2010/07">2010年07月</a><span>(1)</span></li><li><a href="/zhangdaiscott/article/month/2010/06">2010年06月</a><span>(3)</span></li><li><a href="/zhangdaiscott/article/month/2010/05">2010年05月</a><span>(8)</span></li><li><a href="/zhangdaiscott/article/month/2010/04">2010年04月</a><span>(30)</span></li>
+</div>
+</ul>
+</div>
+<div id="hotarticls" class="panel">
+<ul class="panel_head">
+    <span>       
+阅读排行    </span>
+</ul>
+
+<ul class="panel_body itemlist">
+<li>
+<a href="/zhangdaiscott/article/details/18220411" title="500G JAVA视频网盘分享 (JEECG开源社区)">500G JAVA视频网盘分享 (JEECG开源社区)</a><span>(59520)</span>
+</li>
+<li>
+<a href="/zhangdaiscott/article/details/18456215" title="form 转json最佳示例">form 转json最佳示例</a><span>(55148)</span>
+</li>
+<li>
+<a href="/zhangdaiscott/article/details/6911640" title="如何将maven项目打包成可执行的jar">如何将maven项目打包成可执行的jar</a><span>(43702)</span>
+</li>
+<li>
+<a href="/zhangdaiscott/article/details/45368261" title="Proguard使用最新，最全教程，亲自试验">Proguard使用最新，最全教程，亲自试验</a><span>(35881)</span>
+</li>
+<li>
+<a href="/zhangdaiscott/article/details/8706608" title="springmvc+activiti 完美整合- 流程在线设计+代码生成器+UI快速开发库，提高一半的开发效率">springmvc+activiti 完美整合- 流程在线设计+代码生成器+UI快速开发库，提高一半的开发效率</a><span>(32195)</span>
+</li>
+<li>
+<a href="/zhangdaiscott/article/details/37815991" title="微信开发本地调试工具（模拟微信客户端）">微信开发本地调试工具（模拟微信客户端）</a><span>(31867)</span>
+</li>
+<li>
+<a href="/zhangdaiscott/article/details/47019925" title="微信开放平台 公众号第三方平台开发 教程三 一键登录授权给第三方平台">微信开放平台 公众号第三方平台开发 教程三 一键登录授权给第三方平台</a><span>(30170)</span>
+</li>
+<li>
+<a href="/zhangdaiscott/article/details/50915206" title="【技术文档】jeecg3.7-maven搭建环境入门">【技术文档】jeecg3.7-maven搭建环境入门</a><span>(28097)</span>
+</li>
+<li>
+<a href="/zhangdaiscott/article/details/8272255" title="专刊文章 - Web UI框架引领J2EE新开发模式(代码生成器+手工merge半智能开发)">专刊文章 - Web UI框架引领J2EE新开发模式(代码生成器+手工merge半智能开发)</a><span>(26123)</span>
+</li>
+<li>
+<a href="/zhangdaiscott/article/details/17438153" title="Pull Request的正确打开方式（如何在GitHub上贡献开源项目）">Pull Request的正确打开方式（如何在GitHub上贡献开源项目）</a><span>(21418)</span>
+</li>
+</ul>
+</div>
+<div id="hotarticls2" class="panel">
+<ul class="panel_head"><span>评论排行</span></ul>
+<ul class="panel_body itemlist">
+<li>
+<a href="/zhangdaiscott/article/details/8272255" title="专刊文章 - Web UI框架引领J2EE新开发模式(代码生成器+手工merge半智能开发)">专刊文章 - Web UI框架引领J2EE新开发模式(代码生成器+手工merge半智能开发)</a><span>(37)</span>
+</li>
+<li>
+<a href="/zhangdaiscott/article/details/18220411" title="500G JAVA视频网盘分享 (JEECG开源社区)">500G JAVA视频网盘分享 (JEECG开源社区)</a><span>(33)</span>
+</li>
+<li>
+<a href="/zhangdaiscott/article/details/18314727" title="开源项目几点心得，Java架构必会几大技术点">开源项目几点心得，Java架构必会几大技术点</a><span>(11)</span>
+</li>
+<li>
+<a href="/zhangdaiscott/article/details/18456215" title="form 转json最佳示例">form 转json最佳示例</a><span>(11)</span>
+</li>
+<li>
+<a href="/zhangdaiscott/article/details/8186390" title="PowerDesigner反向工程 mysql">PowerDesigner反向工程 mysql</a><span>(8)</span>
+</li>
+<li>
+<a href="/zhangdaiscott/article/details/8706608" title="springmvc+activiti 完美整合- 流程在线设计+代码生成器+UI快速开发库，提高一半的开发效率">springmvc+activiti 完美整合- 流程在线设计+代码生成器+UI快速开发库，提高一半的开发效率</a><span>(7)</span>
+</li>
+<li>
+<a href="/zhangdaiscott/article/details/48289083" title="jeewx-api 1.0.5 版本发布，微信SDK接口封装（支持微信第三方开放平台）">jeewx-api 1.0.5 版本发布，微信SDK接口封装（支持微信第三方开放平台）</a><span>(7)</span>
+</li>
+<li>
+<a href="/zhangdaiscott/article/details/34437503" title="捷微jeewx , 免费开源(java)微信公众账号管家系统发布">捷微jeewx , 免费开源(java)微信公众账号管家系统发布</a><span>(7)</span>
+</li>
+<li>
+<a href="/zhangdaiscott/article/details/50915206" title="【技术文档】jeecg3.7-maven搭建环境入门">【技术文档】jeecg3.7-maven搭建环境入门</a><span>(7)</span>
+</li>
+<li>
+<a href="/zhangdaiscott/article/details/8555916" title="JEECG开源说明：JEECG 完全开源，不收任何费用，可以任用于商业！">JEECG开源说明：JEECG 完全开源，不收任何费用，可以任用于商业！</a><span>(6)</span>
+</li>
+</ul>
+</div>
+<div id="homepageArticles" class="panel tracking-ad" data-mod="popu_4">
+<ul class="panel_head"><span>推荐文章</span></ul>
+<ul class="panel_body" id="ad_commend">
+<ul>
+<li><a href="http://blog.csdn.net/blogdevteam/article/details/73499368" target="_blank">* CSDN日报20170620——《找一个好工作，谈一份好薪水》</a></li>
+<li><a href="http://blog.csdn.net/tangxiaoyin/article/details/73274955" 
+target="_blank">* 一文理清散乱的物联网里开发者必须关注的技术！</a></li>
+<li><a href="http://blog.csdn.net/vipzjyno1/article/details/21039349"target="_blank">* Android APK反编译就这么简单 详解</a></li>
+<li><a href="http://blog.csdn.net/aliceyangxi1987/article/details/73210204" 
+target="_blank">* 如何选择优化器 optimizer</a></li>
+<li><a href="http://blog.csdn.net/u013970991/article/details/73222046" 
+target="_blank">* 性能测试场景设计杂谈</a></li>
+<li><a href="http://blog.csdn.net/broadview2006/article/details/73550412" 
+target="_blank">* 每周荐书：架构、Scratch、增长黑客（评论送书）</a></li>
+
+</ul></ul>
+</div>
+
+
+<div id="newcomments" class="panel">
+<ul class="panel_head"><span>最新评论</span></ul>
+<ul class="panel_body itemlist">
+    <li>
+   
+         <a href="/zhangdaiscott/article/details/73276995#comments">开源资讯- Jeecg 在线聊天MQ插件发布</a>
+    <p style="margin:0px;"><a href="/shijinting" class="user_name">shijinting</a>:
+整合的想法和实用性很好，，，但是不过太多，js写的可维护性太差了
+    </p>
+    </li>
+    <li>
+   
+         <a href="/zhangdaiscott/article/details/46988003#comments">EXE4J  使用教程</a>
+    <p style="margin:0px;"><a href="/BlueBlueSkyZ" class="user_name">BlueBlueSkyZ</a>:
+@BlueBlueSkyZ:好吧应该是第四步
+    </p>
+    </li>
+    <li>
+   
+         <a href="/zhangdaiscott/article/details/46988003#comments">EXE4J  使用教程</a>
+    <p style="margin:0px;"><a href="/BlueBlueSkyZ" class="user_name">BlueBlueSkyZ</a>:
+楼主这个版本比较旧了，64位机在第五步应该还有一步操作，不然64位的环境运行exe会报错enviro...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/zhangdaiscott/article/details/48269837#comments">微信公众账号第三方平台全网发布源码（java）- 实战测试通过</a>
+    <p style="margin:0px;"><a href="/u013915141" class="user_name">u013915141</a>:
+可以提供源码吗，最近在研究这部分，一直找不到好的资源
+    </p>
+    </li>
+    <li>
+   
+         <a href="/zhangdaiscott/article/details/28627129#comments">一个jeecg整合activiti的学习例子,源码下载</a>
+    <p style="margin:0px;"><a href="/jingjing_0202" class="user_name">jingjing_0202</a>:
+能不能发送一下相关的jar包呢?1779241528@qq.com
+    </p>
+    </li>
+    <li>
+   
+         <a href="/zhangdaiscott/article/details/8203807#comments">spring + hibernate + mysql 事务不回滚</a>
+    <p style="margin:0px;"><a href="/laokaizzz" class="user_name">laokaizzz</a>:
+我也是醉了，我数据库引擎是对的。表的引擎不对。。
+    </p>
+    </li>
+    <li>
+   
+         <a href="/zhangdaiscott/article/details/18220411#comments">500G JAVA视频网盘分享 (JEECG开源社区)</a>
+    <p style="margin:0px;"><a href="/ljw_logs" class="user_name">ljw_logs</a>:
+这要学会了,经真的成大神了,楼主厉害
+    </p>
+    </li>
+    <li>
+   
+         <a href="/zhangdaiscott/article/details/53200276#comments">微信小程序实例源码大全下载</a>
+    <p style="margin:0px;"><a href="/f1024042400" class="user_name">f1024042400</a>:
+2048的那个过分了啊.
+    </p>
+    </li>
+    <li>
+   
+         <a href="/zhangdaiscott/article/details/18456215#comments">form 转json最佳示例</a>
+    <p style="margin:0px;"><a href="/u012609915" class="user_name">u012609915</a>:
+要提交给后台的json数据格式为{&quot;accountUuid&quot;: &quot;1111&quot;,&quot;startTime&quot;...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/zhangdaiscott/article/details/48717979#comments">MethodInvokingJobDetailFactoryBean的并发问题</a>
+    <p style="margin:0px;"><a href="/xun573017588" class="user_name">xun573017588</a>:
+谢谢.
+    </p>
+    </li>
+</ul>
+</div>
+    </div>
+    <div class="clear">
+    </div>
+
+
+                   <!-- 广告位开始 -->                    <!-- 广告位结束 -->
+                   <div class="tracking-ad" data-view="true"  data-mtp="63" data-order="40" data-con="ad_content_1260" style="width: 200px; height: 200px;">
+                         <div id="nav_show_top_stop" style="width: 200px;height: 200px;z-index:1000"><div id="cpro_u2734128"></div></div>
+                   </div>
+    <script type="text/javascript">    
+        setTimeout(function () {
+            var naviga_offsetTop = 0;
+            function naviga_stay_top() { var scrollTop = jQuery(document).scrollTop(); if (scrollTop > naviga_offsetTop) { jQuery("#nav_show_top_stop").css({ "position": "fixed" }); jQuery("#nav_show_top_stop").css({ "top": "0px" }); } else { jQuery("#nav_show_top_stop").css({ "position": "fixed" }); jQuery("#nav_show_top_stop").css({ "top": naviga_offsetTop - scrollTop + "px" }); } }
+            function onload_function() { naviga_offsetTop = jQuery("#nav_show_top_stop").position().top; jQuery(window).bind("scroll", naviga_stay_top); jQuery(window).bind("mousewheel", naviga_stay_top); jQuery(document).bind("scroll", naviga_stay_top); jQuery(document).bind("mousewheel", naviga_stay_top); } jQuery(document).ready(onload_function);
+               
+        }, 200);    
+    </script>
+<script type="text/javascript">(window.cproArray = window.cproArray || []).push({ id: "u2734128" });  </script> 
+                    <script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script> 
+
+           </div>   
+
+            <div class="clear">
+            </div>
+        </div>
+
+        
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="http://passport.csdn.net/content/loginbox/login.js"></script>
+<script type="text/javascript">
+    $(function () {
+        function __get_code_toolbar(snippet_id) {
+            return $("<span class='tracking-ad' data-mod='popu_167'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "' target='_blank' title='在CODE上查看代码片'  style='text-indent:0;'><img src='https://code.csdn.net/assets/CODE_ico.png' width=12 height=12 alt='在CODE上查看代码片' style='position:relative;top:1px;left:2px;'/></a></span>"
+                    + "<span class='tracking-ad' data-mod='popu_170'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "/fork' target='_blank' title='派生到我的代码片' style='text-indent:0;'><img src='https://code.csdn.net/assets/ico_fork.svg' width=12 height=12 alt='派生到我的代码片' style='position:relative;top:2px;left:2px;'/></a></span>");
+        }
+        
+        $("[code_snippet_id]").each(function () {
+            __s_id = $(this).attr("code_snippet_id");
+            if (__s_id != null && __s_id != "" && __s_id != 0 && parseInt(__s_id) > 70020) {
+                __code_tool = __get_code_toolbar(__s_id);
+                $(this).prev().find(".tools").append(__code_tool);
+            }
+        });
+
+        $(".bar").show();
+    });
+</script>
+
+
+
+
+
+    </div>
+      <!--new top-->
+    
+
+     
+
+   
+        <!--new top-->
+   
+   
+
+    
+    
+    
+   
+
+   
+
+
+       <script type="text/javascript" src="http://static.blog.csdn.net/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS_HTML"></script>
+          <script type="text/javascript">
+              //$(function () {
+              //    setTimeout(function () {
+              //        var searchtitletags = articletitle + ',' + $("#tags").html();
+              //        searchService({
+              //            index: 'blog',
+              //            query: searchtitletags,
+              //            from: 5,
+              //            size: 5,
+              //            appendTo: '#res',
+              //            url: 'recommend',
+              //            his: 2,
+              //            client: "blog_cf_enhance",
+              //            tmpl: '<dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;"><a href="#{ url }" title="#{ title }" strategy="#{ strategy }">#{ title }</a></dd>'
+              //        });
+              //    }, 1000);
+              //});
+
+         </script>
+    
+    <script src="http://static.blog.csdn.net/scripts/csdn_blog_detail.min.js" type="text/javascript"></script>
+        
+    <script type="text/javascript" src="http://c.csdnimg.cn/blog/csdn_public_blog_detail.min.js?20170620001"></script>
+
+    <script type="text/javascript" src="http://medal.blog.csdn.net/showblogmedal.ashx?blogid=548817"></script>
+
+     
+    
+
+
+  <div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+                    <script id="adJs52b5334"></script>
+                    <script>document.getElementById("adJs52b5334").src = "http://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+   </div>
+
+    
+    
+        
+     
+
+    
+          
+    <div class="pop_CA_cover"  style="display:none"></div>
+    <div class="pop pop_CA"  style="display:none">
+          <div class="CA_header">
+            收藏助手
+            <span class="cancel_icon"  id="fapancle"  onclick="$('.pop_CA').hide();$('.pop_CA_cover').hide();"></span>
+          </div>
+          <iframe src="" id="fa" frameborder="0" width="100%" height="360"  scrolling="no" ></iframe>
+    </div>
+
+
+        <script type="text/javascript">
+
+            $(function () {
+                var fromjs = $("#fromjs");
+                if (fromjs.length > 0) {
+                    $("#fromjs .markdown_views pre").addClass("prettyprint");
+                    prettyPrint();
+
+                    $('pre.prettyprint code').each(function () {
+                        var lines = $(this).text().split('\n').length;
+                        var $numbering = $('<ul/>').addClass('pre-numbering').hide();
+                        $(this).addClass('has-numbering').parent().append($numbering);
+                        for (i = 1; i <= lines; i++) {
+                            $numbering.append($('<li/>').text(i));
+                        };
+                        $numbering.fadeIn(1700);
+                    });
+
+                    $('.pre-numbering li').css("color", "#999");
+                }
+            });
+           
+            $(".markdown_views a[target!='_blank']").attr("target", "_blank");
+
+            //$(".toc a[target='_blank']").attr("target", "");
+
+            setTimeout(function () {
+                $(".toc a[target='_blank']").attr("target", "");
+            },500);
+
+        </script>
+
+</body>
+</html>   
+ 
