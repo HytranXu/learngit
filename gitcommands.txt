@@ -57,6 +57,9 @@
 	 14  git clone git@github.com:HytranXu/gitskills.git
    15  ls
    16  cd gitskills
+   配置完公钥后可以使用下命令测试
+   缺省情况下ssh使用id_rsa进行认证，所以一定使用这个名字
+   ssh -T git@github.com
    
 三、分支管理
 	 10  git branch
