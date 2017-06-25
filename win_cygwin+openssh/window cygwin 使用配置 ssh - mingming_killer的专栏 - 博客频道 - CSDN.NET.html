@@ -1,0 +1,1255 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+     
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    
+<head>  
+
+            <link rel="canonical" href="http://blog.csdn.net/mingming_killer/article/details/8171491"/> 
+ <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848"> 
+       
+    <title>window cygwin 使用配置 ssh - mingming_killer的专栏
+        - 博客频道 - CSDN.NET</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="其实在 cygwin 中弄 ssh 是为使用在 window 中使用 repo 。如果单纯为了在 window 上 ssh 登陆 linux 服务器的话，直接用 putty 就行了，简单方便，无需安装、配置。一、安装 cygwin从&#160;cygwin web安装程序下载一个很小的 setup.exe ，然后第一选从网上安装（第一次装好后，会把安装文件缓存到你指定的目录，下次就可以选中从" />
+
+    <meta name="keywords" content="cygwin ssh sshd" />
+
+   
+    <script src="http://static.blog.csdn.net/scripts/blog_static_head.min.js" type="text/javascript"></script>
+
+    
+        <!--new top-->
+                      <!--new top-->
+    
+      <!-- ad begin -->
+         
+    <!-- ad end-->
+
+    <link rel="Stylesheet" type="text/css" href="http://static.blog.csdn.net/skin/default/css/style.css?v=1.1" />
+
+    
+
+    <link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="/mingming_killer/rss/list" />
+    <link rel="shortcut icon" href="http://c.csdnimg.cn/public/favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="http://static.blog.csdn.net/scripts/SyntaxHighlighter/styles/default.css" />
+ 
+
+
+
+
+    <link href="http://c.csdnimg.cn/blog/csdn_public_blog_detail.min.css" type="text/css" rel="stylesheet" />
+     
+         <link rel="stylesheet" href="http://static.blog.csdn.net/css/csdn_blog_detail.min.css" />
+
+  
+
+
+    <!-- 请置于所有广告位代码之前 --> 
+            <script src="http://dup.baidustatic.com/js/ds.js"></script>
+
+</head>
+
+
+<body>
+        <div class="tracking-ad" data-view="true" data-mod="ad_popu_72"  data-mtp="62" data-order="40" data-con="ad_content_2072" >
+                     <script id="popuLayer_js_q" src="http://ads.csdn.net/js/popuLayer.js" defer="defer"  type="text/javascript"></script>
+                <div id="layerd" style="position: fixed;bottom:0px;right:0px;line-height:0px;z-index:1000">
+    	                <div class="J_close layer_close" style="display:;background-color:#efefef;padding:0px;color:#333;font:12px/24px Helvetica,Tahoma,Arial,sans-serif;text-align:right;">关闭</div><!-- 广告占位容器 --><div id="cpro_u2895327"></div></div>
+                <script>  document.getElementById("popuLayer_js_q").onload = function () { var styObjd = styObj = { width: "300px", "height": parseInt(250) + 28 }; window.CSDN.Layer.PopuLayer("#layerd", { storageName: "layerd", styleObj: styObjd, total: 50, expoire: 1000 * 60 }); }</script><!-- 投放代码 --><script type="text/javascript">                /*服务器频道首页置顶Banner960*90，创建于2014-7-3*/    (window.cproArray = window.cproArray || []).push({ id: "u2895327" });  </script>  <script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>
+     
+        </div>
+
+    <!-- 广告位开始 -->
+        
+    <!-- 广告位结束 -->
+
+    
+   
+      <!--new top-->
+    <script id="toolbar-tpl-scriptId" fixed="true" prod="blog" skin="black" src="http://c.csdnimg.cn/public/common/toolbar/js/html.js" type="text/javascript"></script>
+     <!--new top-->
+    <div id="container">
+        <div id="header">
+    <div class="header">
+        <div id="blog_title">
+            <h2>
+                <a href="http://blog.csdn.net/mingming_killer">mingming_killer的专栏</a></h2>
+            <h3></h3>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        
+     
+    </div>
+</div>
+<div id="navigator">
+    <div class="navigator_bg">
+    </div>
+    <div class="navigator">
+        <ul>           
+                <li id="btnContents"><a href="http://blog.csdn.net/mingming_killer?viewmode=contents"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_mulu'])">
+                    <img src="http://static.blog.csdn.net/images/ico_list.gif">目录视图</span></a></li>
+                <li id="btnView"><a href="http://blog.csdn.net/mingming_killer?viewmode=list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_zhaiyao'])">
+                    <img src="http://static.blog.csdn.net/images/ico_summary.gif">摘要视图</span></a></li>
+                <li id="btnRss"><a href="http://blog.csdn.net/mingming_killer/rss/list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_RSS'])">
+                    <img src="http://static.blog.csdn.net/images/ico_rss.gif">订阅</span></a></li>                
+            
+
+            </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var username = "mingming_killer";
+    var _blogger = username;
+    var blog_address = "http://blog.csdn.net/mingming_killer";
+    var static_host = "http://static.blog.csdn.net";
+    var currentUserName = "";  
+</script>
+
+        <div id="body">
+            <div id="main">
+                <div class="main">
+                        <div class="ad_class">
+<div class="notice tracking-ad" data-mod='popu_3' > 
+
+
+<a href="http://blog.csdn.net/blogdevteam/article/details/72917467">
+<font color=red><strong>征文 | 从高考，到程序员</strong></font></a>
+
+&nbsp;&nbsp;&nbsp;&nbsp
+
+<a href="http://blog.csdn.net/blogdevteam/article/details/73609134">
+<font color=blue><strong>CSDN日报20170622——《程序 Dog 的大梦想》</strong></font></a>
+&nbsp;&nbsp;&nbsp;&nbsp
+
+
+<a href="http://blog.csdn.net/turingbooks/article/details/73480804">
+<font color=red><strong>6 月书讯 | 最受欢迎的 SQL 入门书重磅升级</strong></font></a>
+
+
+</div>                        </div>
+                        
+
+
+
+  
+
+
+
+
+
+
+<script   type="text/javascript" src="http://static.blog.csdn.net/scripts/category.js"></script>
+
+  <script type="text/ecmascript">
+      window.quickReplyflag = true;
+           
+            var isBole = false;
+            
+      
+      var fasrc="http://my.csdn.net/my/favorite/miniadd?t=window+cygwin+%e4%bd%bf%e7%94%a8%e9%85%8d%e7%bd%ae+ssh&u=http://blog.csdn.net/mingming_killer/article/details/8171491"
+
+    </script>
+<div id="article_details" class="details">
+    <div class="article_title">   
+         <span class="ico ico_type_Original"></span>
+
+
+    <h1>
+        <span class="link_title"><a href="/mingming_killer/article/details/8171491">
+        window cygwin 使用配置 ssh            
+        </a></span>
+    </h1>
+</div>
+
+   
+
+        <div class="article_manage clearfix">
+        <div class="article_l">
+            <span class="link_categories">
+            标签：
+              <a href='http://www.csdn.net/tag/cygwin%20ssh%20sshd' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">cygwin ssh sshd</a>
+            </span>
+        </div>
+        <div class="article_r">
+            <span class="link_postdate">2012-11-11 18:03</span>
+            <span class="link_view" title="阅读次数">677人阅读</span>
+            <span class="link_comments" title="评论次数"> <a href="#comments" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_pinglun'])">评论</a>(0)</span>
+            <span class="link_collect tracking-ad" data-mod="popu_171"> <a href="javascript:void(0);" onclick="javascript:collectArticle('window+cygwin+%e4%bd%bf%e7%94%a8%e9%85%8d%e7%bd%ae+ssh','8171491');return false;" title="收藏">收藏</a></span>
+             <span class="link_report"> <a href="#report" onclick="javascript:report(8171491,2);return false;" title="举报">举报</a></span>
+
+        </div>
+    </div>
+    <div class="embody"  style="display:none" id="embody">
+        <span class="embody_t">本文章已收录于：</span>
+        <div class="embody_c" id="lib" value="{&quot;err&quot;:0,&quot;msg&quot;:&quot;ok&quot;,&quot;data&quot;:[]}"></div>
+    </div>
+    <style type="text/css">        
+            .embody{
+                padding:10px 10px 10px;
+                margin:0 -20px;
+                border-bottom:solid 1px #ededed;                
+            }
+            .embody_b{
+                margin:0 ;
+                padding:10px 0;
+            }
+            .embody .embody_t,.embody .embody_c{
+                display: inline-block;
+                margin-right:10px;
+            }
+            .embody_t{
+                font-size: 12px;
+                color:#999;
+            }
+            .embody_c{
+                font-size: 12px;
+            }
+            .embody_c img,.embody_c em{
+                display: inline-block;
+                vertical-align: middle;               
+            }
+             .embody_c img{               
+                width:30px;
+                height:30px;
+            }
+            .embody_c em{
+                margin: 0 20px 0 10px;
+                color:#333;
+                font-style: normal;
+            }
+    </style>
+    <script  type="text/javascript">
+        $(function () {
+            try
+            {
+                var lib = eval("("+$("#lib").attr("value")+")");
+                var html = "";
+                if (lib.err == 0) {
+                    $.each(lib.data, function (i) {
+                        var obj = lib.data[i];
+                        //html += '<img src="' + obj.logo + '"/>' + obj.name + "&nbsp;&nbsp;";
+                        html += ' <a href="' + obj.url + '" target="_blank">';
+                        html += ' <img src="' + obj.logo + '">';
+                        html += ' <em><b>' + obj.name + '</b></em>';
+                        html += ' </a>';
+                    });
+                    if (html != "") {
+                        setTimeout(function () {
+                            $("#lib").html(html);                      
+                            $("#embody").show();
+                        }, 100);
+                    }
+                }      
+            } catch (err)
+            { }
+            
+        });
+    </script>
+      <div class="category clearfix">
+        <div class="category_l">
+           <img src="http://static.blog.csdn.net/images/category_icon.jpg">
+            <span>分类：</span>
+        </div>
+        <div class="category_r">
+                    <label  onclick="GetCategoryArticles('1072247','mingming_killer','top','8171491');">
+                        <span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_fenlei']);">window<em>（2）</em></span>
+                      <img class="arrow-down" src="http://static.blog.csdn.net/images/arrow_triangle _down.jpg" style="display:inline;">
+                      <img class="arrow-up" src="http://static.blog.csdn.net/images/arrow_triangle_up.jpg" style="display:none;">
+                        <div class="subItem">
+                            <div class="subItem_t"><a  href="http://blog.csdn.net/mingming_killer/article/category/1072247"  target="_blank">作者同类文章</a><i class="J_close">X</i></div>
+                            <ul class="subItem_l" id="top_1072247">                            
+                            </ul>
+                        </div>
+                    </label>                    
+                    <label  onclick="GetCategoryArticles('1072245','mingming_killer','top','8171491');">
+                        <span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_fenlei']);">linux<em>（11）</em></span>
+                      <img class="arrow-down" src="http://static.blog.csdn.net/images/arrow_triangle _down.jpg" style="display:inline;">
+                      <img class="arrow-up" src="http://static.blog.csdn.net/images/arrow_triangle_up.jpg" style="display:none;">
+                        <div class="subItem">
+                            <div class="subItem_t"><a  href="http://blog.csdn.net/mingming_killer/article/category/1072245"  target="_blank">作者同类文章</a><i class="J_close">X</i></div>
+                            <ul class="subItem_l" id="top_1072245">                            
+                            </ul>
+                        </div>
+                    </label>                    
+        </div>
+    </div>
+        <div   class="bog_copyright">         
+            <p  class="copyright_p" >版权声明：本文为博主原创文章，未经博主允许不得转载。</p>
+        </div>
+
+  
+
+  
+  
+     
+
+
+<div id="article_content" class="article_content tracking-ad" data-mod=popu_307  data-dsm = "post" >
+
+<p><span style="font-size:14px">其实在 cygwin 中弄 ssh 是为使用在 window 中使用 repo 。如果单纯为了在 window 上 ssh 登陆 linux 服务器的话，直接用 putty 就行了，简单方便，无需安装、配置。</span></p>
+<p><span style="font-size:14px"><br>
+</span></p>
+<h2><span style="font-size:14px">一、安装 cygwin</span></h2>
+<p><span style="font-size:14px">从&nbsp;<a href="http://cygwin.com/setup.exe">cygwin web安装程序</a>下载一个很小的 setup.exe ，然后第一选从网上安装（第一次装好后，会把安装文件缓存到你指定的目录，下次就可以选中从本地安装了）。如果选择从网上安装的话，之后会让你选择安装源（我选的163的那个，看上去就像是国内的源）。之后就会解析源信息（无论是在线的、还是本地的），如果出现说：提示你这个 setup.exe 有新版，然后出现解析失败的话，先要去它提示你的网址下载最新的
+ setup.exe，然后就会解析成功了。</span></p>
+<p><span style="font-size:14px"><br>
+</span></p>
+<p><span style="font-size:14px">最后一步是让你选择要安装的包，如果你硬盘够大，又不在意安装时间的话，可以全部选择安装（在那些分类上点击出现 &nbsp;install 就行了）。默认是 default，default 的话，它会安装一些最基本的 linux 的包（例如 bash 这些），然后如果是之前安装过的，default 是会保留你之前安装的包。所以如果你要卸载的话 ，就把它点成 uninstall，还有一个 reinstall 是重新安装。</span></p>
+<p><span style="font-size:14px"><br>
+</span></p>
+<p><span style="font-size:14px">这些我只是要用 repo 和 git （svn也算上吧）而已，所以把 Net 大类和 Python （repo要用 python）大类点上（点成 install 状态，然后点开看到具体的软件的版本号就算行了），然后在搜索栏上敲 ssh，把出来的也点上（一般就是 &nbsp;openssh），然后还可以点些自己需要的东西，例如 vim、unzip、sqlite 等。我为了省空间强制干掉了 X11、Gonme、KDE、Graphic、Audio 的东西，然后也没点啥编译的东西（gcc、make
+ 之类的玩意，这些东西在 Devel 这个类下，想在 window 下要编 NDK 的要勾上这些了）。</span></p>
+<p><span style="font-size:14px"><br>
+</span></p>
+<p><span style="font-size:14px">选好后，点下一步就等进度条就行了。</span></p>
+<p><span style="font-size:14px"><br>
+</span></p>
+<p><span style="font-size:14px"></span></p>
+<h2><span style="font-size:14px">二、配置 cygwin</span></h2>
+cygwin 是个在window上模拟的 linux 环境，很多和 linux 差不多。我们可以先配一下，以后用着顺手。一开桌面上的快捷方式，它会在你的安装目录下以你当前 window 用户创建一个用户目录，例如我的安装目录是 C:\cygwin ，我当前的 window 用户是&nbsp;Administrator，那就会创建这么目录。然后在这个目录下会自动创建 .bashrc_histroy 等一些文件。顺带说一下，这个目录就是你的 home 目录了，然后在安装目录下就有 etc、usr、lib、dev、bin 等
+ linux 的目录。然后我们可以自己用得习惯的 bash 配置文件 .bashrc 放到自己的 home 目录（还可以放一些别的软件配置文件，例如 .srceenrc, .vimrc 等）。不过别以直接丢 .bashrc 到 home 就完事了，你再次打开 bash 发现是无效的。因为 cygwin bash 的配置文件不在这个 home 目录下，而是在 etc 下的 bash.bashrc 。当然你可以在 bash.bashrc &nbsp;里改，但是我建议还是把你自定义的配置文件放到 home 目录下，然后在 bash.bashrc
+ 的最后加上 source ~/.bashrc 就 OK 了。这样做的好处的能最大的兼容 cygwin ，因为你打开 bash.bashrc 会发现它其实设置了一些东西的，所以最好不要乱动别人的东西。
+<p></p>
+<p><span style="font-size:14px"><br>
+</span></p>
+<h2><span style="font-size:14px">三、配置 sshd&nbsp;</span></h2>
+<p><span style="font-size:14px">ssh 的客户端不需要配置什么东西，直接 ssh username@host 就可以用。不过一上来就这么用的话，会发现会报啥 connect to xx port &nbsp;22: Conection &nbsp;refused 之类的错误的。这个是因为你的 ssh 服务的守护进程没有启动（也就是 sshd）。我这里的配置大多数是网上的：</span></p>
+<p><span style="font-size:14px"><br>
+</span></p>
+<p><span style="font-size:14px">如果之前有配置过，但是配错了，想重新配置，就直接敲 ssh-host-config 就行了。但是如果想重新安装，可以用 sc delete sshd 这个命令先把之前安装的 sshd 服务给卸掉。如果创建了一些不想用的window用户，可以去 window 的控制面板去闪除。如果是 cygwin 的用户的话，你直接把 /etc/passwd 和 /etc/group 给删掉就好了，然后再用 mkpasswd -l &gt; /etc/passwd 和
+ mkgroup -l &gt; /etc/group 重新恢复默认用户和用户组就行了。记得重新分组后，要 chmod &#43;r /ect/passwd 和 chmod &#43;r /ect/group 改下权限，然后 rm -rf /var ，把这些临时文件给删掉。</span></p>
+<p><span style="font-size:14px"><br>
+</span></p>
+<p><span style="font-size:14px">其实就是直接敲 ssh-host-config ，只不过会一些选项让你选择而已：</span></p>
+<p><span style="font-size:14px"><br>
+</span></p>
+<p><span style="font-size:14px"><span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">$ ssh-host-config</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: Generating /etc/ssh_host_key</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: Generating /etc/ssh_host_rsa_key</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: Generating /etc/ssh_host_dsa_key</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: Creating default /etc/ssh_config file<strong>（如果这里之前安装过，会问你是否覆盖，选 yes 覆盖）</strong></span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: Creating default /etc/sshd_config file&nbsp;<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px"><strong>（如果这里之前安装过，会问你是否覆盖，选
+ yes 覆盖）</strong></span></span></span></p>
+<p><span style="font-size:14px"><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: Privilege separation is set to yes by default since OpenSSH 3.3.</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: However, this requires a non-privileged account called 'sshd'.</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: For more info on privilege separation read /usr/share/doc/openssh/REAME.privsep.</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Query: Should privilege separation be used? (yes/no) yes<strong>（这里的意思开启 sshd 需要一个有系统管理员权限的用户，说的是 window 的；问你是不是要单独创建一个这样的window用户，网上有说选no，有说选 yes 的，我是选 yes 的，可以启动
+ sshd）</strong></span></span></p>
+<p><span style="font-size:14px"><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: Updating /etc/sshd_config file</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: Creating default /etc/inetd.d/sshd-inetd file</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: Updated /etc/inetd.d/sshd-inetd</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Warning: The following functions require administrator privileges!</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Query: Do you want to install sshd as a service?</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Query: (Say &quot;no&quot; if it is already installed as a service) (yes/no) yes<strong>（这里是问你是不是要安装 sshd 服务，肯定要选 yes，必须要装的）</strong></span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: Note that the CYGWIN variable must contain at least &quot;ntsec&quot;</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: for sshd to be able to change user context without password.</span></span></p>
+<p><span style="font-size:14px"><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Query: Enter the value of CYGWIN for the daemon: [] ntsec tty<strong>（这里好像问的你是使用的终端连接方式吧，照网上的说法填 ntsec tty）</strong></span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: On Windows Server 2003, Windows Vista, and above, the</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: SYSTEM account cannot setuid to other users -- a capability</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: sshd requires.&nbsp; You need to have or to create a privileged</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: account.&nbsp; This script will help you do so.</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: You appear to be running Windows 2003 Server or later.&nbsp; On 2003</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: and later systems, it's not possible to use the LocalSystem</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: account for services that can change the user id without an</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: explicit password (such as passwordless logins [e.g. public key</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: authentication] via sshd).</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: If you want to enable that functionality, it's required to create</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: a new account with special privileges (unless a similar account</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: already exists). This account is then used to run these special</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: servers.</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: Note that creating a new user requires that the current account<strong>（这里第一次还会有个问题的，就是说如果你用的高于 window xp 的版本，就需要你重新创建一个有管理权限的用户，这个用户是 cygwin 的，这里选 yes，创建</strong></span></span><span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px"><strong>）</strong></span></p>
+<p><span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px"><br>
+</span></p>
+<p><span style="font-size:14px"><span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: have Administrator privileges itself.</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: No privileged account could be found.</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: This script plans to use 'cyg_server'.</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: 'cyg_server' will only be used by registered services.</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Query: Do you want to use a different name? (yes/no) no<strong>（这里创建的用户默认名字是 cyg_server 问你是不是要改名字，一般不用改）</strong></span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Warning: Privileged account 'cyg_server' was specified,</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Warning: but it does not have the necessary privileges.</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Warning: Continuing, but will probably use a different account.</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Warning: The specified account '<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">cyg_server</span>' does not have the</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Warning: required permissions or group memberships. This may</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Warning: cause problems if not corrected; continuing...</span></span></p>
+<p><span style="font-size:14px"><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Query: Please enter the password for user '<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">cyg_server</span>': ******<strong>（然后让你为刚刚创建的
+ cyg_server 设密码）</strong></span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Query: Reenter: ******</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: The sshd service has been installed under the 'cyg_server'</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: account.&nbsp; To start the service now, call `net start sshd' or</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: `cygrunsrv -S sshd'.&nbsp; Otherwise, it will start automatically</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: after the next reboot.</span><br style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">
+<span style="color:rgb(54,46,43); font-family:monospace; font-size:14px; line-height:21px">*** Info: Host configuration finished. Have fun!</span><br>
+</span></p>
+<p><span style="font-size:14px"><br>
+</span></p>
+<p><span style="font-size:14px">最后出现这个提示就表示配置成功了。因为新创建了2个用户（一个 window 的，一个 cygwin 的），再用 mkpasswd -l &gt; /etc/passwd 和 mkgroup -l &gt; /etc/group 重新设置下用户信息。如果配置的过程中，出现创建用户不成功的提示，就用最开始说的，把之前创建的用户给删掉；还有在重新配置前先要停掉正在运行的 sshd 服务（net stop sshd）。</span></p>
+<p><span style="font-size:14px"><br>
+</span></p>
+<p><span style="font-size:14px">然后按提示的，使用 net start sshd 就可以启动 sshd 服务了。成功的话，会出成功的提示（cygwin bash 中文乱码的话，右键鼠标 --&gt; options --&gt; text 设置下编码可以解决）。然后在 window 的控制面板中的 系统安全 --&gt; 管理工具 --&gt; 服务 中可以看到一个叫 CYGWIN sshd 的服务，点开属性，登陆那里可以看到是使用刚刚创建的用户在启动的。</span></p>
+<p><span style="font-size:14px"><br>
+</span></p>
+<p><span style="font-size:14px">然后就可以使用 ssh user@host 来登陆了。如果使用密码登陆，记得把服务器的 /etc/ssh/sshd_config 中的 PasswordAuthentication 设置成 yes，如果使用密钥进行登陆就把 RSAAuthentication 和 PubkeyAuthentication 设置成 yes （具体使用密钥的方式，可以参看我的另外一篇叫 Rsa 验证的笔记）。</span></p>
+<p><span style="font-size:14px"><br>
+</span></p>
+<p><span style="font-size:14px">然后再记下，window 的 hosts 文件的位置在&nbsp;C:\Windows\System32\drivers\etc 下，默认是隐藏、只读的系统文件。</span></p>
+<p><span style="font-size:14px"><br>
+</span></p>
+<p><span style="font-size:14px">最后，搞好 ssh 后，终于可以在 window 下用 repo 和 git pull、push 或是 sync 代码了。</span></p>
+<p><span style="font-size:14px"><br>
+</span></p>
+   
+</div>
+
+
+
+
+<!-- Baidu Button BEGIN -->
+
+
+
+
+<div class="bdsharebuttonbox tracking-ad" style="float: right;" data-mod="popu_172">
+<a href="#" class="bds_more" data-cmd="more" style="background-position:0 0 !important; background-image: url(http://bdimg.share.baidu.com/static/api/img/share/icons_0_16.png?v=d754dcc0.png) !important"></a>
+<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"  style="background-position:0 -52px !important"></a>
+<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"style="background-position:0 -104px !important"></a>
+<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"style="background-position:0 -260px !important"></a>
+<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"style="background-position:0 -208px !important"></a>
+<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"style="background-position:0 -1612px !important" ></a>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+<!-- Baidu Button END -->
+
+   
+
+    
+<!--172.16.140.14-->
+
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=1536434" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->
+
+
+
+ 
+
+
+        <div id="digg" ArticleId="8171491" >
+            <dl id="btnDigg" class="digg digg_disable"  onclick="btndigga();">
+               
+                 <dt>顶</dt>
+                <dd>0</dd>
+            </dl>
+           
+              
+            <dl id="btnBury" class="digg digg_disable"  onclick="btnburya();">
+              
+                  <dt>踩</dt>
+                <dd>0</dd>               
+            </dl>
+            
+        </div>
+     <div class="tracking-ad" data-mod="popu_222"><a href="javascript:void(0);" >&nbsp;</a>   </div>
+    <div class="tracking-ad" data-mod="popu_223"> <a href="javascript:void(0);" >&nbsp;</a></div>
+    <script type="text/javascript">
+                function btndigga() {
+                    $(".tracking-ad[data-mod='popu_222'] a").click();
+                }
+                function btnburya() {
+                    $(".tracking-ad[data-mod='popu_223'] a").click();
+                }
+            </script>
+
+   <ul class="article_next_prev">
+                <li class="prev_article"><span  onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian']);location.href='/mingming_killer/article/details/7928938';">上一篇</span><a href="/mingming_killer/article/details/7928938" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian'])">Android 4.0 访问WebService 出现 android.os.NetworkOnMainThreadException异常</a></li>
+                <li class="next_article"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian']);location.href='/mingming_killer/article/details/8172156';">下一篇</span><a href="/mingming_killer/article/details/8172156" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian'])">linux 命令备忘</a></li>
+    </ul>
+
+    <div style="clear:both; height:10px;"></div>
+
+
+            <div class="similar_article"   >
+                    <h4></h4>
+                    <div class="similar_c"style="margin:20px 0px 0px 0px">
+                        <div class="similar_c_t">
+                          &nbsp;&nbsp;相关文章推荐
+                        </div>
+                   
+                        <div class="similar_wrap tracking-ad" data-mod="popu_36"  style="max-height:195px;">                       
+                            <ul class="similar_list fl">    
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/mikiah/article/details/6787779" title="cygwin 类linux开发环境的配置 ." strategy="BlogCommendFromCsdn" target="_blank" style="width: 290px;">cygwin 类linux开发环境的配置 .</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://zhangll98.iteye.com/blog/1541992" title="Xming + PuTTY 在Windows下远程Linux主机使用图形界面的程序" strategy="BlogCommendFromCsdn" target="_blank" style="width: 290px;">Xming + PuTTY 在Windows下远程Linux主机使用图形界面的程序</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/heicainiuniu/article/details/7593341" title="Hadoop---在window下配置安装之cygwin的安装" strategy="BlogCommendFromCsdn" target="_blank" style="width: 290px;">Hadoop---在window下配置安装之cygwin的安装</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://jiangyongyuan.iteye.com/blog/1840579" title="转载 cygwin x server 远程桌面" strategy="BlogCommendFromCsdn" target="_blank" style="width: 290px;">转载 cygwin x server 远程桌面</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/waldmer/article/details/32725003" title="Android NDK r8 Cygwin CDT 在window下开发环境搭建 安装配置与使用 详细图文讲解" strategy="BlogCommendFromCsdn" target="_blank" style="width: 290px;">Android NDK r8 Cygwin CDT 在window下开发环境搭建 安装配置与使用 详细图文讲解</a>
+                                   </li>
+                            </ul>
+                              <ul class="similar_list fr">      
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://lindows.iteye.com/blog/221961" title="OS + windows command / cmd / dos / Cygwin / UnxUtils / miniGW / powershell" strategy="BlogCommendFromCsdn" target="_blank" style="width: 290px;">OS + windows command / cmd / dos / Cygwin / UnxUtils / miniGW / powershell</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/u012093431/article/details/22734329" title="hadoop相关1-window下配置安装之cygwin的安装" strategy="BlogCommendFromCsdn" target="_blank" style="width: 290px;">hadoop相关1-window下配置安装之cygwin的安装</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://zpball.iteye.com/blog/1851780" title="win7安装hadoop及eclipse调试mapreduce的配置方法(转)" strategy="BlogCommendFromCsdn" target="_blank" style="width: 290px;">win7安装hadoop及eclipse调试mapreduce的配置方法(转)</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/u013147600/article/details/47053127" title="Cygwin-安装和配置ssh服务" strategy="BlogCommendFromCsdn" target="_blank" style="width: 290px;">Cygwin-安装和配置ssh服务</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/AllKillMan/article/details/8874548" title="win7+cygwin+hadoop亲测成功" strategy="BlogCommendFromCsdn" target="_blank" style="width: 290px;">win7+cygwin+hadoop亲测成功</a>
+                                   </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>   
+      
+</div>
+
+    <div>
+        
+
+        <script type="text/javascript">
+            /*博客内容页下方Banner1-728*90，创建于2016-12-13*/
+            var cpro_id = "u2843949";
+        </script>
+        <script type="text/javascript" src="http://cpro.baidustatic.com/cpro/ui/c.js"></script>
+
+     </div>
+
+<div id="suggest"></div>
+         <script  language="javascript" type='text/javascript'>     
+             $(function(){
+                 $.get("/mingming_killer/svc/GetSuggestContent/8171491",function(data){
+                     $("#suggest").html(data);
+                 });     
+             });             
+         </script>  
+
+
+<style>
+.blog-ass-articl dd {
+color: #369;
+width: 99%; /*修改行*/
+float: left;
+overflow: hidden;
+font: normal normal 12px/23px "SimSun";
+height: 23px;
+margin: 0;
+padding: 0 0 0 10px;
+margin-right: 30px;
+background: url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;
+}
+</style>
+
+ 
+
+ 
+
+<dl class="blog-ass-articl tracking-ad" id="res-relatived" data-mod="popu_84"  > 
+     <dt><span>猜你在找</span></dt>    
+
+
+   
+
+    
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/huiyiCourse/detail/422?ref=blog&amp;loc=r1" title="深度学习基础与TensorFlow实践" strategy="undefined" target="_blank">深度学习基础与TensorFlow实践</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/huiyiCourse/series_detail/43?ref=blog&amp;loc=r1" title="【在线峰会】前端开发重点难点技术剖析与创新实践" strategy="undefined" target="_blank">【在线峰会】前端开发重点难点技术剖析与创新实践</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/huiyiCourse/series_detail/42?ref=blog&amp;loc=r1" title="【在线峰会】一天掌握物联网全栈开发之道" strategy="undefined" target="_blank">【在线峰会】一天掌握物联网全栈开发之道</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/huiyiCourse/series_detail/41?ref=blog&amp;loc=r1" title="【在线峰会】如何高质高效的进行Android技术开发" strategy="undefined" target="_blank">【在线峰会】如何高质高效的进行Android技术开发</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/huiyiCourse/detail/404?ref=blog&amp;loc=r1" title="机器学习40天精英计划" strategy="undefined" target="_blank">机器学习40天精英计划</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/huiyiCourse/detail/402?ref=blog&amp;loc=r1" title="Python数据挖掘与分析速成班" strategy="undefined" target="_blank">Python数据挖掘与分析速成班</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/course/detail/3011?ref=blog&amp;loc=r1" title="微信小程序开发实战" strategy="undefined" target="_blank">微信小程序开发实战</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/course/detail/1968?ref=blog&amp;loc=r1" title="JFinal极速开发企业实战" strategy="undefined" target="_blank">JFinal极速开发企业实战</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/combo/detail/23?ref=blog&amp;loc=r1" title="备战2017软考 系统集成项目管理工程师 学习套餐" strategy="undefined" target="_blank">备战2017软考 系统集成项目管理工程师 学习套餐</a>
+                </dd>
+                <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                     <a href="http://edu.csdn.net/course/detail/3338?ref=blog&amp;loc=r1" title="Python大型网络爬虫项目开发实战（全套）" strategy="undefined" target="_blank">Python大型网络爬虫项目开发实战（全套）</a>
+                </dd>
+
+    
+
+    
+   
+</dl>
+
+
+
+
+
+    <div id="ad_cen">        
+                <div>
+                              <script type="text/javascript">
+                                  /*博客内容页下方Banner-728*90，创建于2014-7-3*/
+                                  var cpro_id = "u1607657";
+                                            </script>
+                              <script type="text/javascript" src="http://cpro.baidustatic.com/cpro/ui/c.js"></script>
+                    </div>
+    </div>  
+
+        <!-- 广告位开始 -->
+        <!-- 广告位结束 -->
+
+
+<div class="comment_class">
+    <div id="comment_title" class="panel_head">
+        <span class="see_comment">查看评论</span><a name="comments"></a></div>
+    <div id="comment_list">
+    </div>
+    <div id="comment_bar">
+    </div>
+    <div id="comment_form">
+    </div>
+    <div class="announce">
+        * 以上用户言论只代表其个人观点，不代表CSDN网站的观点或立场<a name="reply"></a><a name="quote"></a></div>
+</div>
+
+<script type="text/javascript">
+    var fileName = '8171491';
+    var commentscount = 0;
+    var islock = false
+</script>
+
+    <div id="ad_bot">
+    </div>
+<div id="report_dialog">
+</div>
+
+<div id="d-top"  style="bottom:60px;">
+
+        <a id="quick-reply" class="btn btn-top q-reply" title="快速回复" style="display:none;">
+            <img src="http://static.blog.csdn.net/images/blog-icon-reply.png" alt="快速回复">
+        </a>    
+    <a id="d-top-a" class="btn btn-top backtop"  style="display: none;" title="返回顶部" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_huidaodingbu'])" style="">         
+         <img src="http://static.blog.csdn.net/images/top.png" alt="TOP">
+    </a>
+</div>
+<script type="text/javascript">
+    $(function ()
+    {
+        $("#ad_frm_0").height("90px");
+        
+        setTimeout(function(){
+            $("#ad_frm_2").height("200px");
+        },1000);    
+    });
+  
+</script>
+<style type="text/css">
+    .tag_list
+    {
+        background: none repeat scroll 0 0 #FFFFFF;
+        border: 1px solid #D7CBC1;
+        color: #000000;
+        font-size: 12px;
+        line-height: 20px;
+        list-style: none outside none;
+        margin: 10px 2% 0 1%;
+        padding: 1px;
+    }
+    .tag_list h5
+    {
+        background: none repeat scroll 0 0 #E0DBD3;
+        color: #47381C;
+        font-size: 12px;
+        height: 24px;
+        line-height: 24px;
+        padding: 0 5px;
+        margin: 0;
+    }
+    .tag_list h5 a
+    {
+        color: #47381C;
+    }
+    .classify
+    {
+        margin: 10px 0;
+        padding: 4px 12px 8px;
+    }
+    .classify a
+    {
+        margin-right: 20px;
+        white-space: nowrap;
+    }
+</style>
+
+
+
+
+
+<div id="pop_win" style="display:none ;position: absolute; z-index: 10000; border: 1px solid rgb(220, 220, 220); top: 222.5px; left: 630px; opacity: 1; background: none 0px 0px repeat scroll rgb(255, 255, 255);">
+    
+</div>
+<div id="popup_mask"></div>
+<style>
+    #popup_mask
+    {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: 9999;
+        left: 0px;
+        top: 0px;
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+        display: none;
+    }
+
+</style>
+
+
+
+
+<script type="text/javascript">
+    $(function(){        
+        
+        setTimeout(function(){
+            $(".comment_body:contains('回复')").each(function(index,item){
+                var u=$(this).text().split('：')[0].toString().replace("回复","")
+                var thisComment=$(this);
+                if(u)
+                {
+                    $.getJSON("https://passport.csdn.net/get/nick?callback=?", {users: u}, function(a) {
+                        if(a!=null&&a.data!=null&&a.data.length>0)
+                        {
+                            nick=a.data[0].n; 
+                            if(u!=nick)
+                            {
+                                thisComment.text(thisComment.text().replace(u,nick));  
+                            }
+                        }       
+                    });  
+                }
+            });         
+
+        },200);  
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },5000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },10000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },15000);
+        
+        setTimeout(function(){
+            $("a img[src='http://js.tongji.linezing.com/stats.gif']").parent().css({"position":"absolute","left":"50%"});
+        },300);
+    });
+
+    function loginbox(){
+        var $logpop=$("#pop_win");
+        $logpop.html('<iframe src="https://passport.csdn.net/account/loginbox?service=http://static.blog.csdn.net/callback.htm" frameborder="0" height="600" width="400" scrolling="no"></iframe>');
+
+        $('#popup_mask').css({
+            opacity: 0.5,
+            width: $( document ).width() + 'px',
+            height:  $( document ).height() + 'px'
+        });
+        $('#popup_mask').css("display","block");
+ 
+        $logpop.css( {
+            top: ($( window ).height() - $logpop.height())/ 2  + $( window 
+       ).scrollTop() + 'px',
+            left:($( window ).width() - $logpop.width())/ 2
+        } );
+ 
+        setTimeout( function () {
+            $logpop.show();
+            $logpop.css( {
+                opacity: 1
+            } );
+        }, 200 );
+ 
+        $('#popup_mask').unbind("click");
+        $('#popup_mask').bind("click", function(){
+            $('#popup_mask').hide();
+            var $clopop = $("#pop_win");
+            $("#common_ask_div_sc").css("display","none");
+            $clopop.css( {
+                opacity: 0
+            } );
+            setTimeout( function () {
+                $clopop.hide();
+            }, 350 );
+            return false;
+        });
+    }   
+
+    var articletitle='window cygwin 使用配置 ssh';
+
+</script>
+
+
+
+
+
+
+
+
+                        <div class="clear">
+                        </div>
+                    </div>                   
+                
+            </div>
+                   
+           <div id="side">
+               
+    <div class="side">
+<div id="panel_Profile" class="panel">
+<ul class="panel_head"><span>个人资料</span></ul>
+<ul class="panel_body profile">
+<div id="blog_userface">
+    <a href="http://my.csdn.net/mingming_killer" target="_blank">
+    <img src="http://avatar.csdn.net/E/E/3/1_mingming_killer.jpg" title="访问我的空间" style="max-width:90%"/>
+    </a>
+    <br />
+    <span><a href="http://my.csdn.net/mingming_killer" class="user_name" target="_blank">mingming_killer</a></span>
+</div>
+<div class="interact">
+
+    <a href="javascript:void(0);" class="attent" id="span_add_follow" title="[加关注]"></a>
+
+ <a href="javascript:void(0);" class="letter"  title="[发私信]" onclick="window.open('http://msg.csdn.net/letters/model?receiver=mingming_killer','_blank','height=350,width=700');_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_sixin'])"></a>  
+</div>
+<div id="blog_medal">
+                <div id="bms_box">
+               </div>
+</div>
+<ul id="blog_rank">
+    <li>访问：<span>34520次</span></li>
+    <li>积分：<span>714</span> </li>    
+    <li >等级： <span style="position:relative;display:inline-block;z-index:1" >
+            <img src="http://c.csdnimg.cn/jifen/images/xunzhang/jianzhang/blog3.png" alt="" style="vertical-align: middle;" id="leveImg">
+            <div id="smallTittle" style=" position: absolute;  left: -24px;  top: 25px;  text-align: center;  width: 101px;  height: 32px;  background-color: #fff;  line-height: 32px;  border: 2px #DDDDDD solid;  box-shadow: 0px 2px 2px rgba (0,0,0,0.1);  display: none;   z-index: 999;">
+            <div style="left: 42%;  top: -8px;  position: absolute;  width: 0;  height: 0;  border-left: 10px solid transparent;  border-right: 10px solid transparent;  border-bottom: 8px solid #EAEAEA;"></div>
+            积分：714 </div>
+        </span>  </li>
+    <li>排名：<span>千里之外</span></li>
+</ul>
+<ul id="blog_statistics">
+    <li>原创：<span>37篇</span></li>
+    <li>转载：<span>13篇</span></li>
+    <li>译文：<span>0篇</span></li>
+    <li>评论：<span>3条</span></li>
+</ul>
+</ul>
+</div>
+
+
+<div class="panel" id="panel_Search">
+    <ul class="panel_head"><span>文章搜索</span></ul>
+    <ul class="panel_body" class="form_search">
+        <form id="frmSearch" action="http://so.csdn.net/search" class="form_search csdn-tracking-statistics" target="_blank"  data-mod="popu_306">
+        <span><input id="inputSearch" type="text" class="blogsearch" title="请输入关键字" /></span>
+        <input id="btnSubmit" type="button" value="搜索" title="search in blog" />
+        <input type="hidden" name="q" id="inputQ" />
+        <input type="hidden" name="t" value="blog" />
+        <a id="btnSearchBlog" target="_blank"></a>
+        </form>
+    </ul>
+</div>
+
+<script type="text/javascript">
+
+   
+    $(function () {
+        $("#btnSubmit").unbind("click");
+        $("#btnSubmit").click(function () {           
+            search();
+        });
+
+        $("#frmSearch").submit(function () {           
+            search();
+            return false;
+        });
+
+        function search()
+        {
+            if ($("#inputSearch").val() == "") {               
+                alert("请录入搜索关键词！");                         
+                return false;
+            }
+            //var url = "http://so.csdn.net/so/search/s.do?q=" + encodeURIComponent($("#inputSearch").val()) + "&u=" + username + "&t=blog";           
+            var url = "https://www.baidu.com/s?wd=" + encodeURIComponent($("#inputSearch").val()) + "%20site%3Ablog.csdn.net"
+            window.location.href = url;
+        }   
+    });
+</script><div id="panel_Category" class="panel">
+<ul class="panel_head"><span>文章分类</span></ul>
+<ul class="panel_body">    
+                 <li>
+                    <a href="/mingming_killer/article/category/852555" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">android</a><span>(23)</span>
+                </li>
+                 <li>
+                    <a href="/mingming_killer/article/category/894955" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">video</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/mingming_killer/article/category/1072218" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">libgdx</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/mingming_killer/article/category/1072220" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">minigui</a><span>(7)</span>
+                </li>
+                 <li>
+                    <a href="/mingming_killer/article/category/1072245" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">linux</a><span>(12)</span>
+                </li>
+                 <li>
+                    <a href="/mingming_killer/article/category/1072247" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">window</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/mingming_killer/article/category/1103335" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">other</a><span>(4)</span>
+                </li>
+</ul>
+</div><div id="panel_Archive" class="panel">
+<ul class="panel_head"><span>文章存档</span></ul>
+<ul class="panel_body">
+<div id="archive_list">
+<!--归档统计-->
+<li><a href="/mingming_killer/article/month/2014/08">2014年08月</a><span>(1)</span></li><li><a href="/mingming_killer/article/month/2012/11">2012年11月</a><span>(5)</span></li><li><a href="/mingming_killer/article/month/2012/08">2012年08月</a><span>(16)</span></li><li><a href="/mingming_killer/article/month/2012/04">2012年04月</a><span>(1)</span></li><li><a href="/mingming_killer/article/month/2012/03">2012年03月</a><span>(4)</span></li><li><a href="/mingming_killer/article/month/2012/02">2012年02月</a><span>(21)</span></li><li><a href="/mingming_killer/article/month/2011/09">2011年09月</a><span>(1)</span></li><li><a href="/mingming_killer/article/month/2011/07">2011年07月</a><span>(1)</span></li>
+</div>
+</ul>
+</div>
+<div id="hotarticls" class="panel">
+<ul class="panel_head">
+    <span>       
+阅读排行    </span>
+</ul>
+
+<ul class="panel_body itemlist">
+<li>
+<a href="/mingming_killer/article/details/7443027" title="Android 程序签名问题">Android 程序签名问题</a><span>(2537)</span>
+</li>
+<li>
+<a href="/mingming_killer/article/details/7234991" title="MiniGUI 自定义控件教程3">MiniGUI 自定义控件教程3</a><span>(1403)</span>
+</li>
+<li>
+<a href="/mingming_killer/article/details/7235006" title="MiniGUI 自定义控件教程4">MiniGUI 自定义控件教程4</a><span>(1298)</span>
+</li>
+<li>
+<a href="/mingming_killer/article/details/7235073" title="win7 开启自带 ftp 功能">win7 开启自带 ftp 功能</a><span>(1178)</span>
+</li>
+<li>
+<a href="/mingming_killer/article/details/7889856" title="Android Create Bitmap Out Of Memory">Android Create Bitmap Out Of Memory</a><span>(1122)</span>
+</li>
+<li>
+<a href="/mingming_killer/article/details/7234984" title="MiniGUI 自定义控件教程2">MiniGUI 自定义控件教程2</a><span>(786)</span>
+</li>
+<li>
+<a href="/mingming_killer/article/details/7889539" title="Android 按键映射分析">Android 按键映射分析</a><span>(754)</span>
+</li>
+<li>
+<a href="/mingming_killer/article/details/7235038" title="MiniGUI 自定义控件教程7">MiniGUI 自定义控件教程7</a><span>(745)</span>
+</li>
+<li>
+<a href="/mingming_killer/article/details/8180888" title="Android sdk 本地文档加载慢的解决办法">Android sdk 本地文档加载慢的解决办法</a><span>(709)</span>
+</li>
+<li>
+<a href="/mingming_killer/article/details/7234963" title="MiniGUI 自定义控件教程1">MiniGUI 自定义控件教程1</a><span>(702)</span>
+</li>
+</ul>
+</div>
+<div id="hotarticls2" class="panel">
+<ul class="panel_head"><span>评论排行</span></ul>
+<ul class="panel_body itemlist">
+<li>
+<a href="/mingming_killer/article/details/7235038" title="MiniGUI 自定义控件教程7">MiniGUI 自定义控件教程7</a><span>(2)</span>
+</li>
+<li>
+<a href="/mingming_killer/article/details/7235073" title="win7 开启自带 ftp 功能">win7 开启自带 ftp 功能</a><span>(1)</span>
+</li>
+<li>
+<a href="/mingming_killer/article/details/7235058" title="使用 pkg-config">使用 pkg-config</a><span>(0)</span>
+</li>
+<li>
+<a href="/mingming_killer/article/details/7235035" title="MiniGUI 自定义控件教程6">MiniGUI 自定义控件教程6</a><span>(0)</span>
+</li>
+<li>
+<a href="/mingming_killer/article/details/7235027" title="MiniGUI 自定义控件教程5">MiniGUI 自定义控件教程5</a><span>(0)</span>
+</li>
+<li>
+<a href="/mingming_killer/article/details/7235006" title="MiniGUI 自定义控件教程4">MiniGUI 自定义控件教程4</a><span>(0)</span>
+</li>
+<li>
+<a href="/mingming_killer/article/details/7234991" title="MiniGUI 自定义控件教程3">MiniGUI 自定义控件教程3</a><span>(0)</span>
+</li>
+<li>
+<a href="/mingming_killer/article/details/7234984" title="MiniGUI 自定义控件教程2">MiniGUI 自定义控件教程2</a><span>(0)</span>
+</li>
+<li>
+<a href="/mingming_killer/article/details/7234963" title="MiniGUI 自定义控件教程1">MiniGUI 自定义控件教程1</a><span>(0)</span>
+</li>
+<li>
+<a href="/mingming_killer/article/details/38493289" title="test">test</a><span>(0)</span>
+</li>
+</ul>
+</div>
+<div id="homepageArticles" class="panel tracking-ad" data-mod="popu_4">
+<ul class="panel_head"><span>推荐文章</span></ul>
+<ul class="panel_body" id="ad_commend">
+<ul>
+<li><a href="http://blog.csdn.net/blogdevteam/article/details/73609134" target="_blank">* CSDN日报20170622——《程序 Dog 的大梦想》</a></li>
+<li><a href="http://blog.csdn.net/pistolove/article/details/73610588" 
+target="_blank">* 【Java高级开发工程师】近一个月的面试总结</a></li>
+<li><a href="http://blog.csdn.net/reboot123/article/details/73266776"target="_blank">* 一个文科生的工程师之路</a></li>
+<li><a href="http://blog.csdn.net/lqw_student/article/details/73646768" 
+target="_blank">* JavaWeb 与 MySQL 人鬼情未了</a></li>
+<li><a href="http://blog.csdn.net/totond/article/details/73648103" 
+target="_blank">* PermissionsDispatcher、RxPermissions和easypermissions的使用和对比</a></li>
+<li><a href="http://blog.csdn.net/broadview2006/article/details/73550412" 
+target="_blank">* 每周荐书：架构、Scratch、增长黑客（评论送书）</a></li>
+
+</ul></ul>
+</div>
+
+
+<div id="newcomments" class="panel">
+<ul class="panel_head"><span>最新评论</span></ul>
+<ul class="panel_body itemlist">
+    <li>
+   
+         <a href="/mingming_killer/article/details/7235073#comments">win7 开启自带 ftp 功能</a>
+    <p style="margin:0px;"><a href="/mingming_killer" class="user_name">mingming_killer</a>:
+NND～～死企鹅竟然不让我引用图片～～
+    </p>
+    </li>
+    <li>
+   
+         <a href="/mingming_killer/article/details/7235038#comments">MiniGUI 自定义控件教程7</a>
+    <p style="margin:0px;"><a href="/mingming_killer" class="user_name">mingming_killer</a>:
+@qzb_blt:有～～在我最后发的那个原始链接里～～http://wiki.minigui.com...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/mingming_killer/article/details/7235038#comments">MiniGUI 自定义控件教程7</a>
+    <p style="margin:0px;"><a href="/qzb_blt" class="user_name">qzb_blt</a>:
+楼主，有相关的源代码参考不，能发一份给我吗？278212181@qq.com....
+    </p>
+    </li>
+</ul>
+</div>
+    </div>
+    <div class="clear">
+    </div>
+
+
+                   <!-- 广告位开始 -->                    <!-- 广告位结束 -->
+                   <div class="tracking-ad" data-view="true"  data-mtp="63" data-order="40" data-con="ad_content_1260" style="width: 200px; height: 200px;">
+                         <div id="nav_show_top_stop" style="width: 200px;height: 200px;z-index:1000"><div id="cpro_u2734128"></div></div>
+                   </div>
+    <script type="text/javascript">    
+        setTimeout(function () {
+            var naviga_offsetTop = 0;
+            function naviga_stay_top() { var scrollTop = jQuery(document).scrollTop(); if (scrollTop > naviga_offsetTop) { jQuery("#nav_show_top_stop").css({ "position": "fixed" }); jQuery("#nav_show_top_stop").css({ "top": "0px" }); } else { jQuery("#nav_show_top_stop").css({ "position": "fixed" }); jQuery("#nav_show_top_stop").css({ "top": naviga_offsetTop - scrollTop + "px" }); } }
+            function onload_function() { naviga_offsetTop = jQuery("#nav_show_top_stop").position().top; jQuery(window).bind("scroll", naviga_stay_top); jQuery(window).bind("mousewheel", naviga_stay_top); jQuery(document).bind("scroll", naviga_stay_top); jQuery(document).bind("mousewheel", naviga_stay_top); } jQuery(document).ready(onload_function);
+               
+        }, 200);    
+    </script>
+<script type="text/javascript">(window.cproArray = window.cproArray || []).push({ id: "u2734128" });  </script> 
+                    <script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script> 
+
+           </div>   
+
+            <div class="clear">
+            </div>
+        </div>
+
+        
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="http://passport.csdn.net/content/loginbox/login.js"></script>
+<script type="text/javascript">
+    $(function () {
+        function __get_code_toolbar(snippet_id) {
+            return $("<span class='tracking-ad' data-mod='popu_167'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "' target='_blank' title='在CODE上查看代码片'  style='text-indent:0;'><img src='https://code.csdn.net/assets/CODE_ico.png' width=12 height=12 alt='在CODE上查看代码片' style='position:relative;top:1px;left:2px;'/></a></span>"
+                    + "<span class='tracking-ad' data-mod='popu_170'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "/fork' target='_blank' title='派生到我的代码片' style='text-indent:0;'><img src='https://code.csdn.net/assets/ico_fork.svg' width=12 height=12 alt='派生到我的代码片' style='position:relative;top:2px;left:2px;'/></a></span>");
+        }
+        
+        $("[code_snippet_id]").each(function () {
+            __s_id = $(this).attr("code_snippet_id");
+            if (__s_id != null && __s_id != "" && __s_id != 0 && parseInt(__s_id) > 70020) {
+                __code_tool = __get_code_toolbar(__s_id);
+                $(this).prev().find(".tools").append(__code_tool);
+            }
+        });
+
+        $(".bar").show();
+    });
+</script>
+
+
+
+
+
+    </div>
+      <!--new top-->
+    
+
+     
+
+   
+        <!--new top-->
+   
+   
+
+    
+    
+    
+   
+
+   
+
+
+       <script type="text/javascript" src="http://static.blog.csdn.net/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS_HTML"></script>
+          <script type="text/javascript">
+              //$(function () {
+              //    setTimeout(function () {
+              //        var searchtitletags = articletitle + ',' + $("#tags").html();
+              //        searchService({
+              //            index: 'blog',
+              //            query: searchtitletags,
+              //            from: 5,
+              //            size: 5,
+              //            appendTo: '#res',
+              //            url: 'recommend',
+              //            his: 2,
+              //            client: "blog_cf_enhance",
+              //            tmpl: '<dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;"><a href="#{ url }" title="#{ title }" strategy="#{ strategy }">#{ title }</a></dd>'
+              //        });
+              //    }, 1000);
+              //});
+
+         </script>
+    
+    <script src="http://static.blog.csdn.net/scripts/csdn_blog_detail.min.js" type="text/javascript"></script>
+        
+    <script type="text/javascript" src="http://c.csdnimg.cn/blog/csdn_public_blog_detail.min.js?20170620001"></script>
+
+    <script type="text/javascript" src="http://medal.blog.csdn.net/showblogmedal.ashx?blogid=760563"></script>
+
+     
+    
+
+
+  <div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+                    <script id="adJs52b5334"></script>
+                    <script>document.getElementById("adJs52b5334").src = "http://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+   </div>
+
+    
+    
+        
+     
+
+    
+          
+    <div class="pop_CA_cover"  style="display:none"></div>
+    <div class="pop pop_CA"  style="display:none">
+          <div class="CA_header">
+            收藏助手
+            <span class="cancel_icon"  id="fapancle"  onclick="$('.pop_CA').hide();$('.pop_CA_cover').hide();"></span>
+          </div>
+          <iframe src="" id="fa" frameborder="0" width="100%" height="360"  scrolling="no" ></iframe>
+    </div>
+
+
+        <script type="text/javascript">
+
+            $(function () {
+                var fromjs = $("#fromjs");
+                if (fromjs.length > 0) {
+                    $("#fromjs .markdown_views pre").addClass("prettyprint");
+                    prettyPrint();
+
+                    $('pre.prettyprint code').each(function () {
+                        var lines = $(this).text().split('\n').length;
+                        var $numbering = $('<ul/>').addClass('pre-numbering').hide();
+                        $(this).addClass('has-numbering').parent().append($numbering);
+                        for (i = 1; i <= lines; i++) {
+                            $numbering.append($('<li/>').text(i));
+                        };
+                        $numbering.fadeIn(1700);
+                    });
+
+                    $('.pre-numbering li').css("color", "#999");
+                }
+            });
+           
+            $(".markdown_views a[target!='_blank']").attr("target", "_blank");
+
+            //$(".toc a[target='_blank']").attr("target", "");
+
+            setTimeout(function () {
+                $(".toc a[target='_blank']").attr("target", "");
+            },500);
+
+        </script>
+
+</body>
+</html>   
+ 

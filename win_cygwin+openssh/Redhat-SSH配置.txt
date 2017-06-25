@@ -1,0 +1,112 @@
+admin
+/etc/ssh/
+sshd_config配置文件
+/etc/init.d/sshd restart
+编辑"sshd_config"文件(vi /etc/ssh/sshd_config),加入或改变下面的参数:
+# This is ssh server systemwide configuration file.
+Port 22				设置sshd*jtq*的端口号.
+ListenAddress 192.168.1.1	设置sshd服务器绑定的IP地址.
+HostKey /etc/ssh/ssh_host_key	设置包含计算机私人密匙的文件.
+ServerKeyBits 1024		定义服务器密匙的位数.
+LoginGraceTime 600		设置如果用户不能成功登录,在切断连接之前服务器需要等待的时间(以秒为单位).
+KeyRegenerationInterval 3600	设置在多少秒之后自动重新生成服务器的密匙(如果使用密匙).重新生成密匙是为了防止用盗用的密匙解密被截获的信息.
+PermitRootLogin no		设置root能不能用ssh登录.这个选项一定不要设成"yes".
+IgnoreRhosts yes		设置验证的时候是否使用"rhosts"和"shosts"文件.
+IgnoreUserKnownHosts yes设置ssh daemon是否在进行RhostsRSAAuthentication安全验证的时候忽略用"$HOME/.ssh/known_hosts"
+StrictModes yes			设置ssh在接收登录请求之前是否检查用户家目录和rhosts文件的权限和所有权.这通常是必要的,因为新手经常会把自己的目录和文件设成任何人都有写权限.
+X11Forwarding no		设置是否允许X11转发.
+PrintMotd yes			设置sshd是否在用户登录的时候显示"/etc/motd"中的信息.
+SyslogFacility AUTH		设置在记录来自sshd的消息的时候,是否给出"facility code".
+LogLevel INFO			设置记录sshd日志消息的层次.INFO是一个好的选择.查看sshd的man帮助页,已获取更多的信息.
+RhostsAuthentication no		设置只用rhosts或"/etc/hosts.equiv"进行安全验证是否已经足够了.
+RhostsRSAAuthentication no	设置是否允许用rhosts或"/etc/hosts.equiv"加上RSA进行安全验证.
+RSAAuthentication yes		设置是否允许只有RSA安全验证.
+PasswordAuthentication yes	设置是否允许口令验证.
+PermitEmptyPasswords no		设置是否允许用口令为空的帐号登录.
+AllowUsers admin		的后面可以跟着任意的数量的用户名的匹配串(patterns)或user@host这样的匹配串,这些字符串用空格隔开.主机名可以是DNS名或IP地址.
+
+
+admin
+ssh 命令上传和下载文件
+scp -rp user1@host1:/filepath1 user2@host2:/filepath2
+-p Preserves modification times, access times, and modes from the original file.
+备份模式(修改时间、访问时间及modes)
+-r Recursively copy entire directories.
+递归地复制整个目录 
+
+1、不登陆远程系统使用命令
+#ssh 210.45.160.17 [命令] [参数]
+2、本地系统和远程系统间文件的传输
+#scp a.txt
+[email=root@210.45.160.17:/b.txt]root@210.45.160.1 7:/b.txt[/email]
+#scp
+[email=root@210.45.160.17:/b.txt]root@210.45.160.1 7:/b.txt[/email]
+/c.txt
+3、sftp命令
+Sftp 命令和ftp命令类似,它是OpenSSH提供的网络传输文件的小工具,它更加安全,使用和ftp相似的命令:主要有如下几个:
+1、登陆
+#ftp 210.45.160.17
+2、ftp 会话的打开与关闭
+打开:open 210.45.160.27
+关闭:close
+3、文件的传输
+从ftp服务器上得到文件:
+Get a.txt
+向ftp上放文件
+Put a.txt
+4、退出ftp
+Bye
+5、其他
+bell:每个命令执行完毕后计算机响铃一次
+Cd ,ls 等一些常见命令也可以在ftp服务器目录中使用!
+
+
+SSH是一个用来替代TELNET、FTP以及R命令的工具包,主要是想解决口令在网上明文传输的问题.为了系统安全和用户自身的权益,推广SSH是必要的.SSH有两个版本,我们现在介绍的是版本2.
+安装SSH
+具体步骤如下:
+获得SSH软件包. (ftp://ftp.pku.edu.cn:/pub/unix/ssh-2.3.0.tar.gz)
+成为超级用户(root).
+注意,如果你希望用tcp_wrappers来控制SSH,那么在configure时需要加上选项"--with-libwrap=/path/to/libwrap/", 用来告诉SSH关于libwrap.a 和tcpd.h的位置.
+# gzip –cd ssh-2.3.0.tar.gz |tar xvf –
+# cd ssh-2.3.0
+# ./configure
+# make
+# make install
+和SSH有关的程序都放置在/usr/local/bin下,包括ssh,sftp,sshd2, ssh-keygen等.
+二、配置
+SSH的配置文件在/etc/ssh2下,其中包括sshd2的主机公钥和私钥:hostkey和hostkey.pub.这两个文件通常是在安装SSH时自动生成的.你可以通过下面的命令重新来生成它们:
+# rm /etc/ssh2/hostkey*
+# ssh-keygen2 –P /etc/ssh2/hostkey
+而ssh2_config 文件一般情形下无需修改.
+三、启动sshd2
+每个要使用SSH的系统都必须在后台运行sshd2.用手工启动:
+# /usr/local/bin/sshd2&
+可以在"/etc/rc2.d/S99local"中加入该命令,这样系统每次启动时会自动启动sshd2.
+四、用tcp_wrappers控制SSH
+安装SSH的站点可以用tcp_wrappers来限制哪些IP地址可以通过ssh来访问自己.比如,在/etc/hosts.allow中加入
+sshd,sshd2: 10.0.0.1
+那么只有10.0.0.1可以通过ssh来访问该主机.
+以上都是系统管理员完成的工作.下面我们说说普通用户如何使用SSH.
+五、基本应用
+每个用户在使用SSH之前,都要完成以下步骤:
+在本地主机(比如,local.pku.edu.cn)上生成自己的ssh公钥和私钥.命令如下:
+local# ssh-keygen
+Generating 1024-bit dsa key pair
+1 oOo.oOo.o
+Key generated.
+1024-bit dsa, teng@ns, Fri Oct 20 2000 17:27:05
+Passphrase 在此输入你的口令,以后访问这台主机时要用.
+Again 
+Private key saved to /home1/teng/.ssh2/id_dsa_1024_a
+Public key saved to /home1/teng/.ssh2/id_dsa_1024_a.pub
+生成的私钥和公钥(id_dsa_1024_a和id_dsa_1024_a.pub)存放在你家目录的~/.ssh2目录下.和用户相关的SSH配置文件都在~/.ssh2下.私钥由用户保存在本地主机上,而公钥需传送到远地主机的你自己的帐号的~/.ssh2下,如果你要用ssh2访问本地主机的话.
+在~/.ssh2下创建"identification"文件用来说明进行身份认证的私钥.命令如下:
+local:~/.ssh2# echo "IdKey id_dsa_1024_a" > identification
+3.同样地,在远地主机(比如,remote.pku.edu.cn)上完成上面步骤.
+4.将本地(local.pku.edu.cn)下你自己(这里是"teng")的公钥(id_dsa_1024_a.pub)拷贝到远地主机(remote.pku.edu.cn)上你自己家目录下的.ssh2目录下,可命名为"local.pub",一般用ftp上传即可.
+在远地主机上,你自己家目录的.ssh2目录下,创建"authorization"文件,其中指定用来进行身份认证的公钥文件.命令如下:
+remote:~/.ssh2# echo "Key local.pub" > authorization
+现在你可以从本地用ssh2登录到远地系统了.命令如下:
+local# ssh remote.pku.edu.cn
+Passphrase for key "/home1/teng/.ssh2/id_dsa_1024_a" with comment "1024-bit dsa,
+这时会要你输入你的ssh口令(Passphrase).验证通过后,即登录到remote主机上. 
